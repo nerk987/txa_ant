@@ -22,7 +22,8 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v0.1
+#TXA version v2.81.1
+#Based on ANT version v0.1.8
 
 # import modules
 import bpy, bmesh
@@ -203,7 +204,7 @@ def MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, 
     bpy.data.images.new(NormalMapName, width=tex_size_x, height=tex_size_y, alpha=False, float_buffer=True)
     NormalMapImg = bpy.data.images[NormalMapName]
     NormalMapImg.colorspace_settings.name = 'Linear'
-    pixels = np.zeros((tex_size_x,tex_size_y,4), dtype = np.float16)
+    pixels = np.zeros((tex_size_y,tex_size_x,4), dtype = np.float16)
     pixels[:,:,-1:] = 1.0
     # calculate normals
     HMap = np.array(outputImg.pixels)
@@ -235,8 +236,8 @@ def MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, 
 # Generate XY Grid
 def grid_gen(sub_d_x, sub_d_y, tex_size_x, tex_size_y, tri, meshsize_x, meshsize_y, meshsize_z, props, water_plane, water_level, new_name):
     # print("Values: ", sub_d_x, sub_d_y, meshsize_x, meshsize_y, props[22])
-    verts = [[-meshsize_x/2,-meshsize_y/2,0], [meshsize_x/2,-meshsize_y/2,0], [meshsize_x/2,meshsize_y/2,0], [-meshsize_x/2,meshsize_y/2,0]]
-    faces = [[0,1,2,3]]	
+    # verts = [[-meshsize_x/2,-meshsize_y/2,0], [meshsize_x/2,-meshsize_y/2,0], [meshsize_x/2,meshsize_y/2,0], [-meshsize_x/2,meshsize_y/2,0]]
+    # faces = [[0,1,2,3]]	
 
     sub_d_x = round(meshsize_x/meshsize_y)+1
     if sub_d_x < 2:
@@ -255,7 +256,8 @@ def grid_gen(sub_d_x, sub_d_y, tex_size_x, tex_size_y, tri, meshsize_x, meshsize
             if water_plane:
                 z = water_level
             else:
-                z = noise_gen((x, y, 0), props)
+                # z = noise_gen((x, y, 0), props)
+                z = 0.
 
             verts.append((x,y,z))
 
@@ -274,8 +276,10 @@ def grid_gen(sub_d_x, sub_d_y, tex_size_x, tex_size_y, tri, meshsize_x, meshsize
             count = count + 1
         else:
             count = 0
+
     # print("Make Height Map")
-    HeightMap = MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, sub_d_x, props, new_name)
+    if not water_plane:
+        HeightMap = MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, sub_d_x, props, new_name)
     # AddMaterial(BumpMap)
     return verts, faces
 
@@ -494,6 +498,14 @@ class AntLandscapeRegenerate(bpy.types.Operator):
 
             # Water plane
             if ob['water_plane']:
+                water_name = new_name + "_water"
+                #delete old water plane
+                if new_name + "_water" in bpy.context.scene.objects:
+                    wobj_old = bpy.context.scene.objects[water_name]
+                    wobj_old.select_set(True)
+                    context.view_layer.objects.active = wobj_old
+                    bpy.ops.object.delete(use_global=False)
+
                 if ob['sphere_mesh']:
                     # sphere
                     verts, faces = sphere_gen(
@@ -514,33 +526,37 @@ class AntLandscapeRegenerate(bpy.types.Operator):
                 else:
                     # grid
                     verts, faces = grid_gen(
-                            2,
-                            2,
-                            ob['tex_size_x'],
-                            ob['tex_size_y'],
-                            ob['tri_face'],
-                            ob['mesh_size_x'],
-                            ob['mesh_size_y'],
-                            ant_props,
-                            ob['water_plane'],
-                            ob['water_level']
-                            )
+                        ob['subdivision_x'],
+                        ob['subdivision_y'],
+                        ob['tex_size_x'],
+                        ob['tex_size_y'],
+                        ob['tri_face'],
+                        ob['mesh_size_x']*2,
+                        ob['mesh_size_y']*2,
+                        ob['mesh_size_z'],
+                        ant_props,
+                        ob['water_plane'],
+                        ob['water_level'],
+                        new_name + "_water"
+                        )
+                    
                     # print("Grid_Gen Run water")
-                    wobj = create_mesh_object(context, verts, [], faces, new_name+"_plane").object
-                    wobj.select = True
+                    wobj = create_mesh_object(context, verts, [], faces, new_name+"_water")
+                    wobj.name = water_name
+                    wobj.select_set(True)
                     bpy.ops.object.mode_set(mode = 'EDIT')
                     AddUVLayer(wobj, ob['mesh_size_x'], ob['mesh_size_y'])
                     bpy.ops.object.mode_set(mode = 'OBJECT')
-                    
-                wobj.select = True
+                    AddLandscapeMaterial(wobj, "Water", new_name)
 
                 if ob['smooth_mesh']:
                     bpy.ops.object.shade_smooth()
 
                 # Water Material
-                if ob['water_material'] != "" and ob['water_material'] in bpy.data.materials:
-                    mat = bpy.data.materials[ob['water_material']]
-                    bpy.context.object.data.materials.append(mat)
+                
+                # if ob['water_material'] != "" and ob['water_material'] in bpy.data.materials:
+                    # mat = bpy.data.materials[ob['water_material']]
+                    # bpy.context.object.data.materials.append(mat)
 
             # Loc Rot Scale
             if ob['water_plane']:
@@ -701,6 +717,9 @@ def draw_ant_main(self, context, generate=True):
         # col = box.column(align=True)
         # col.prop(self, "subdivision_x")
         # col.prop(self, "subdivision_y")
+        col = box.column(align=True)
+        col.prop(self, "tex_size_x")
+        col.prop(self, "tex_size_y")
         col = box.column(align=True)
         if self.sphere_mesh:
             col.prop(self, "mesh_size")
@@ -939,7 +958,6 @@ def draw_ant_water(self, context):
 
 # Store propereties
 def store_properties(operator, ob):
-    print("Store Strata:",  operator.strata)
     ob.txaant_landscape.ant_terrain_name = operator.ant_terrain_name
     ob.txaant_landscape.at_cursor = operator.at_cursor
     ob.txaant_landscape.smooth_mesh = operator.smooth_mesh
@@ -1009,6 +1027,7 @@ def store_properties(operator, ob):
     ob.txaant_landscape.tex_size_y = operator.tex_size_y
     ob.txaant_landscape.mesh_size_z = operator.mesh_size_z
     # print("Store tex_size_x:", ob.txaant_landscape['tex_size_x'])
+    print("Store Strata:",  ob.txaant_landscape.strata)
     return ob
 
 
@@ -1019,8 +1038,8 @@ def store_properties(operator, ob):
 from random import random as rand
 from math import tan, radians
 from .eroder import Grid
-from .stats import Stats
-from .utils import numexpr_available
+# from .stats import Stats
+# from .utils import numexpr_available
 
 
 def availableVertexGroupsOrNone(self, context):
@@ -1028,7 +1047,7 @@ def availableVertexGroupsOrNone(self, context):
     return groups + [(name, name, name, n+1) for n,name in enumerate(context.active_object.vertex_groups.keys())]
 
 class MESH_MT_ant_presets(bpy.types.Menu):
-    bl_label = "A.N.T. Texture Presets"
+    bl_label = "Erosion Presets"
     preset_subdir = "../addons/txa_ant/presets"
     preset_operator = "script.execute_preset"
     draw = bpy.types.Menu.draw_preset
@@ -1238,6 +1257,20 @@ class EroderProps(bpy.types.PropertyGroup):
             # min=0,
             # max=1
             )
+    BeachHeight: FloatProperty(
+            name="Beach Height",
+            description="Height above water where beach starts",
+            default=0.025,
+            min=0,
+            max=10
+            )
+    BeachSlope: FloatProperty(
+            name="Beach Slope",
+            description="Beach Slope with 0 as flat and 1 is no change",
+            default=0.7,
+            min=-10,
+            max=1
+            )
     smooth: BoolProperty(
             name="Smooth",
             description="Set smooth shading",
@@ -1299,7 +1332,7 @@ class Eroder(bpy.types.Operator):
     bl_options = {'REGISTER', 'UNDO', 'PRESET'}
 
 
-    stats = Stats()
+    # stats = Stats()
     counts= {}
     
 
@@ -1331,6 +1364,10 @@ class Eroder(bpy.types.Operator):
                         for k in range(pEP.IterAva):
                             # since dx and dy are scaled to 1, tan(Kt) is the height for a given angle
                             g.avalanche(tan(pEP.Kt), tan(pEP.Ktr), pEP.IterAva, 1.0 - pEP.Pa, pEP.Pn, pEP.numexpr, ob.txaant_landscape.mesh_size_x,ob.txaant_landscape.mesh_size_y,ob.txaant_landscape.mesh_size_z)
+                            
+            #Beach erosion
+            if ob.txaant_landscape.water_plane:
+                g.beach(ob.txaant_landscape.water_level, pEP.BeachHeight, pEP.BeachSlope)
                             # self.counts['avalanche']+=1
             # g.makegradient()
         g.toImage(ob.txaant_landscape.mesh_size_x, ob.txaant_landscape.mesh_size_y, ob.txaant_landscape.mesh_size_z, ob.name)
@@ -1411,5 +1448,11 @@ class ANTMAIN_PT_eroder(bpy.types.Panel):
         # col = box.column(align=True)
         layout.label(text="River erosion")
         layout.prop(pEP, 'Kz')
+
+        # Beach
+        if context.object.txaant_landscape.water_plane:
+            layout.label(text="Beach")
+            layout.prop(pEP, 'BeachHeight')
+            layout.prop(pEP, 'BeachSlope')
 
         layout.prop(pEP,'smooth')

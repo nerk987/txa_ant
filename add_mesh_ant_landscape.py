@@ -18,6 +18,8 @@
 
 # Another Noise Tool - Add Landscape
 # Jimmy Hazevoet
+#TXA version v2.81.1
+#Based on ANT version v0.1.8
 
 # import modules
 import bpy
@@ -724,26 +726,9 @@ class AntAddLandscape(bpy.types.Operator):
                 bpy.ops.object.mode_set(mode = 'OBJECT')
         else:
             # grid
-            # print("Grid Paramerters: ",self.subdivision_x, self.subdivision_y)
-            # verts, faces = grid_gen(
-                    # self.subdivision_x,
-                    # self.subdivision_y,
-                    # self.tex_size,
-                    # self.tri_face,
-                    # self.mesh_size_x,
-                    # self.mesh_size_y,
-                    # ant_props,
-                    # False,
-                    # 0.0
-                    # )
             verts = [[0,0,0], [1,0,0], [1,1,0], [0,1,0]]
             faces = [[0,1,2,3]]			
             new_ob = create_mesh_object(context, verts, [], faces, new_name)
-            # print("UV Object Name:", new_ob)
-            # new_ob.select = True
-            # bpy.ops.object.mode_set(mode = 'EDIT')
-            # AddUVLayer(new_ob)
-            # bpy.ops.object.mode_set(mode = 'OBJECT')
 
         new_ob.select_set(True)
 
@@ -759,58 +744,58 @@ class AntAddLandscape(bpy.types.Operator):
             bpy.context.object.data.materials.append(mat)
 
         # Water plane
-        if self.water_plane:
-            if self.sphere_mesh:
-                # sphere
-                verts, faces = sphere_gen(
-                        self.subdivision_y,
-                        self.subdivision_x,
-                        self.tri_face,
-                        self.mesh_size,
-                        ant_props,
-                        self.water_plane,
-                        self.water_level
-                        )
-                wobj = create_mesh_object(context, verts, [], faces, new_name+"_plane")
-                if self.remove_double:
-                    wobj.select_set(True)
-                    bpy.ops.object.mode_set(mode = 'EDIT')
-                    bpy.ops.mesh.remove_doubles(threshold=0.0001, use_unselected=False)
-                    bpy.ops.object.mode_set(mode = 'OBJECT')
-            else:
-                # grid
-                verts, faces = grid_gen(
-                        2,
-                        2,
-                        self.tex_size_x,
-                        self.tex_size_y,
-                        self.tri_face,
-                        self.mesh_size_x,
-                        self.mesh_size_y,
-                        self.mesh_size_z,
-                        ant_props,
-                        self.water_plane,
-                        self.water_level,
-                        new_name
-                        )
-                wobj = create_mesh_object(context, verts, [], faces, new_name+"_plane")
-                wobj.select = True
-                bpy.ops.object.mode_set(mode = 'EDIT')
-                AddUVLayer(wobj)
-                bpy.ops.object.mode_set(mode = 'OBJECT')
+        # if self.water_plane:
+            # if self.sphere_mesh:
+                # # sphere
+                # verts, faces = sphere_gen(
+                        # self.subdivision_y,
+                        # self.subdivision_x,
+                        # self.tri_face,
+                        # self.mesh_size,
+                        # ant_props,
+                        # self.water_plane,
+                        # self.water_level
+                        # )
+                # wobj = create_mesh_object(context, verts, [], faces, new_name+"_plane")
+                # if self.remove_double:
+                    # wobj.select_set(True)
+                    # bpy.ops.object.mode_set(mode = 'EDIT')
+                    # bpy.ops.mesh.remove_doubles(threshold=0.0001, use_unselected=False)
+                    # bpy.ops.object.mode_set(mode = 'OBJECT')
+            # else:
+                # # grid
+                # verts, faces = grid_gen(
+                        # 2,
+                        # 2,
+                        # self.tex_size_x,
+                        # self.tex_size_y,
+                        # self.tri_face,
+                        # self.mesh_size_x,
+                        # self.mesh_size_y,
+                        # self.mesh_size_z,
+                        # ant_props,
+                        # self.water_plane,
+                        # self.water_level,
+                        # new_name
+                        # )
+                # wobj = create_mesh_object(context, verts, [], faces, new_name+"_plane")
+                # wobj.select = True
+                # bpy.ops.object.mode_set(mode = 'EDIT')
+                # AddUVLayer(wobj)
+                # bpy.ops.object.mode_set(mode = 'OBJECT')
 
-            wobj.select_set(True)
+            # wobj.select_set(True)
 
-            if self.smooth_mesh:
-                bpy.ops.object.shade_smooth()
+            # if self.smooth_mesh:
+                # bpy.ops.object.shade_smooth()
 
-            if not self.at_cursor:
-                wobj.object.location = (0.0, 0.0, 0.0)
+            # if not self.at_cursor:
+                # wobj.object.location = (0.0, 0.0, 0.0)
 
-            # Water Material
-            if self.water_material != "" and self.water_material in bpy.data.materials:
-                mat = bpy.data.materials[self.water_material]
-                bpy.context.object.data.materials.append(mat)
+            # # Water Material
+            # if self.water_material != "" and self.water_material in bpy.data.materials:
+                # mat = bpy.data.materials[self.water_material]
+                # bpy.context.object.data.materials.append(mat)
 
         # select landscape and make active
         new_ob.select_set(True)

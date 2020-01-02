@@ -16,6 +16,9 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #
 # ***** END GPL LICENCE BLOCK *****
+# Author: HaiKalle
+# Based on NodeCustomBuilder version v0.0.50
+# Included with TXA Landscape with the generous permission of HaiKalle 
 
 import bpy
 import os

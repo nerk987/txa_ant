@@ -20,7 +20,8 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
-#TXA version v0.1
+#TXA version v2.81.1
+#Based on ANT version v0.1.8
 
 
 from time import time
@@ -731,6 +732,12 @@ class Grid:
         # self.scourmax = np.max(self.scour)
         # self.scourmin = np.min(self.scour)
         # self.sedmax = np.max(self.sediment)
+        
+    def beach(self, water_level, beach_height, beach_slope):
+        start = water_level + beach_height
+        center = self.center
+        self.center = np.where(center < start, start * beach_slope + center * (1.0 - beach_slope), center)
+        # self.center = np.where(self.center < (water_level+beach_height),  self.center+water_level+beach_height, self.center)
 
 
     def analyze(self):

@@ -18,6 +18,8 @@
 
 # Another Noise Tool - Noise and Effects
 # Jimmy Hazevoet
+#TXA version v2.81.1
+#Based on ANT version v0.1.8
 
 import bpy
 from mathutils.noise import (

@@ -18,13 +18,14 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-
-#TXA version v0.1
+#TXA version v2.81.1
+#Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
-    "author": "Jimmy Hazevoet/Ian Huish",
-    "version": (0, 1, 8),
+    "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
+    # "version": (0, 1, 8), 
+    "version": (0, 0, 1),
     "blender": (2, 81, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
@@ -958,16 +959,16 @@ def GetEroderMatItems(self, context):
     # print("Directory: ", directory)
     if directory and os.path.exists(directory):
         # Scan the directory for json files
-        items = []
+        items = [("NormalOnly","NormalOnly","NormalOnly")]
         i = 0
         for fn in os.listdir(directory):
             if fn.lower().endswith(".json"):
                 i +=1
                 MatName = fn[:-5]
-                # print("Material Filename: ", MatName)
-                items.append((MatName, MatName, MatName))
+                if MatName != "NormalOnly" and MatName != "Water":
+                    items.append((MatName, MatName, MatName))
     else:
-        items=[("Forrested","Forrested","",1)]
+        items = [("NormalOnly","NormalOnly","NormalOnly")]
     # print("Items: ", items)    
     return items
 
@@ -1014,7 +1015,7 @@ def unregister():
         bpy.utils.unregister_class(cls)
     bpy.types.VIEW3D_MT_mesh_add.remove(menu_func_landscape)
     bpy.types.VIEW3D_MT_paint_weight.remove(menu_func_eroder)
-    del bpy.types.Scene.EroderProps
+    del bpy.types.Scene.txaEroderProps
     del bpy.types.Scene.EroderMats
 
 
