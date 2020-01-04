@@ -1367,7 +1367,7 @@ class Eroder(bpy.types.Operator):
                             
             #Beach erosion
             if ob.txaant_landscape.water_plane:
-                g.beach(ob.txaant_landscape.water_level, pEP.BeachHeight, pEP.BeachSlope)
+                g.beach_erosion(ob.txaant_landscape.water_level, pEP.BeachHeight, pEP.BeachSlope)
                             # self.counts['avalanche']+=1
             # g.makegradient()
         g.toImage(ob.txaant_landscape.mesh_size_x, ob.txaant_landscape.mesh_size_y, ob.txaant_landscape.mesh_size_z, ob.name)

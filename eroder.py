@@ -102,6 +102,8 @@ class Grid:
         self.capacity = None
         self.avalanced = None
         self.noise = None
+        self.beach = None
+        self.foam = None
         self.minx = None
         self.miny = None
         self.maxx = None
@@ -310,6 +312,21 @@ class Grid:
         ErodedHeightImg.pack()
         ErodedHeightImg.update()
 
+        # Beach Map if it was generated
+        if self.beach is not None:
+            if name+"_beach" in bpy.data.images:
+                BeachImg = bpy.data.images[name+"_beach"]
+                bpy.data.images.remove(BeachImg)
+            BeachImg = self.CreateImage(name+"_beach", dim_y, dim_x)
+            pixels = np.zeros((dim_x,dim_y,4), dtype = np.float16)
+            pixels[:,:,-1:] = 1.0
+            pixels[:,:,0] = self.beach
+            pixels[:,:,1] = pixels[:,:,0]
+            pixels[:,:,2] = pixels[:,:,0]
+            BeachImg.pixels = pixels.ravel()
+            BeachImg.pack()
+            BeachImg.update()
+
         #Restore any lost image references in materials
         RestoreImageNodes(nodedict)
         
@@ -460,7 +477,7 @@ class Grid:
         max_cap = np.amax(cap)
         cap_inv = np.ones(c.shape, dtype = np.float16) - cap*(1.0-river_sense)/max_cap
         ne = self.noise[1:-1,2:]
-        cap_inv = cap_inv - ne * 2 * noise_effect
+        cap_inv = cap_inv - ne * 2 * (1.0 - noise_effect)
         # cap_inv2 = where(cap_inv > 0.9, 1.0, 0.0)
         cap_inv2 = np.clip(cap_inv * 2 - 0.5, 0., 1.)
         # cap_inv = np.multiply(cap_inv, cap_inv)
@@ -733,11 +750,12 @@ class Grid:
         # self.scourmin = np.min(self.scour)
         # self.sedmax = np.max(self.sediment)
         
-    def beach(self, water_level, beach_height, beach_slope):
+    def beach_erosion(self, water_level, beach_height, beach_slope):
         start = water_level + beach_height
         center = self.center
         self.center = np.where(center < start, start * beach_slope + center * (1.0 - beach_slope), center)
         # self.center = np.where(self.center < (water_level+beach_height),  self.center+water_level+beach_height, self.center)
+        self.beach = np.clip(np.negative(np.absolute((center - water_level)/max(beach_height, 0.00001)))+1.0, 0., 1.)
 
 
     def analyze(self):
