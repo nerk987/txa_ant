@@ -57,6 +57,7 @@ else:
 
 import bpy
 import os
+import platform
 
 from bpy.props import (
         BoolProperty,
@@ -955,7 +956,12 @@ class AntLandscapePropertiesGroup(bpy.types.PropertyGroup):
             )
             
 def GetEroderMatItems(self, context):
-    directory = bpy.utils.user_resource('SCRIPTS', "addons") + "\\txa_ant\\materials"
+    # print("OS Type: ", platform.system())
+    if platform.system() == 'Windows':
+        # print("Using Windows")
+        directory = bpy.utils.user_resource('SCRIPTS', "addons") + "\\txa_ant\\materials"
+    else:
+        directory = bpy.utils.user_resource('SCRIPTS', "addons") + "/txa_ant/materials"
     # print("Directory: ", directory)
     if directory and os.path.exists(directory):
         # Scan the directory for json files

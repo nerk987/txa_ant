@@ -45,6 +45,7 @@ from bl_operators.presets import AddPresetBase
 import numpy as np
 import os
 from .ncb.read_json import read
+import platform
 
 # ------------------------------------------------------------
 # Create a new mesh (object) from verts/edges/faces.
@@ -64,12 +65,15 @@ from bpy_extras import object_utils
 
 def add_preset_files():
     presets   = bpy.utils.user_resource('SCRIPTS', "presets")
-    mypresets = os.path.join(presets, "operator\\txa_ant")
+    if platform.system() == 'Windows':
+        mypresets = os.path.join(presets, "operator\\txa_ant")
+    else:
+        mypresets = os.path.join(presets, "operator/txa_ant")
     if not os.path.exists(mypresets):
         os.makedirs(mypresets)
         
 # Use NodeCustomBuilder package to add node tree
-def AddLandscapeMaterial(ob, PrefMat, ob_name):
+def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
 
     # nodedict = SaveImageNodes()
 
@@ -88,12 +92,6 @@ def AddLandscapeMaterial(ob, PrefMat, ob_name):
         for node in nt.nodes:
             nt.nodes.remove(node)
         
-        # if "Forrested" in PrefMat:
-            # AddForrestedNodes(nt)
-        # elif "Volcano" in PrefMat:
-            # AddVolcanoNodes(nt)
-        # else:
-            # AddMaskNodes(nt)
         
     if ob.data.materials:
         # assign to 1st material slot
@@ -104,7 +102,15 @@ def AddLandscapeMaterial(ob, PrefMat, ob_name):
         
     #If adding new material, use NodeCustomBuiler read_json to add nodes
     if newmat:
-        filename = bpy.utils.user_resource('SCRIPTS', "addons") + "\\txa_ant\\materials\\" + PrefMat + ".json"
+        if platform.system() == 'Windows':
+            sep = "\\"
+        else:
+            sep = "/"
+        filename = bpy.utils.user_resource('SCRIPTS', "addons") + sep + "txa_ant" + sep + "materials" + sep + "island" + sep + PrefMat + ".json"
+        print("Island material: ", water_plane, filename)
+        if not water_plane or not os.path.isfile(filename):    
+            filename = bpy.utils.user_resource('SCRIPTS', "addons") + sep + "txa_ant" + sep + "materials" + sep + PrefMat + ".json"
+        print("Used material: ", filename)
         read(filename)
         
     
@@ -404,8 +410,8 @@ class AntLandscapeRegenerate(bpy.types.Operator):
         # ant object items
         obj = bpy.context.active_object
         # print("TTTTTTT: ", context.scene.EroderMats)
-        if context.scene.EroderMats == '':
-            context.scene.EroderMats = 'Forrested'
+        # if context.scene.EroderMats == '':
+            # context.scene.EroderMats = 'Forrested'
 
         if obj and obj.txaant_landscape.keys():
             # print("Regen Allowed")
@@ -547,7 +553,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
                     bpy.ops.object.mode_set(mode = 'EDIT')
                     AddUVLayer(wobj, ob['mesh_size_x'], ob['mesh_size_y'])
                     bpy.ops.object.mode_set(mode = 'OBJECT')
-                    AddLandscapeMaterial(wobj, "Water", new_name)
+                    AddLandscapeMaterial(wobj, "Water", new_name, False)
 
                 if ob['smooth_mesh']:
                     bpy.ops.object.shade_smooth()
@@ -583,7 +589,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
             new_ob.select_set(True)
             context.view_layer.objects.active = new_ob
             new_ob.name = new_name
-            AddLandscapeMaterial(new_ob, "NormalOnly", new_name)
+            AddLandscapeMaterial(new_ob, "NormalOnly", new_name, False)
 
             #Restore any lost image references in materials
             RestoreImageNodes(nodedict)
@@ -1372,7 +1378,8 @@ class Eroder(bpy.types.Operator):
             # g.makegradient()
         g.toImage(ob.txaant_landscape.mesh_size_x, ob.txaant_landscape.mesh_size_y, ob.txaant_landscape.mesh_size_z, ob.name)
         del g
-        AddLandscapeMaterial(ob, context.scene.EroderMats, ob.name)
+        print("AddLandscapeMaterial with water_plane: ", ob.txaant_landscape.water_plane)
+        AddLandscapeMaterial(ob, context.scene.EroderMats, ob.name, ob.txaant_landscape.water_plane)
         # print("Trying to use eroded height")
         if ob.name+"_antdisplace" in bpy.data.textures:
             # print("Using eroded height")

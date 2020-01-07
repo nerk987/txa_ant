@@ -212,7 +212,7 @@ class Grid:
     def toImage(self, mesh_size_x, mesh_size_y, mesh_size_z, name):
         dim_x = self.center.shape[0]
         dim_y = self.center.shape[1]
-        # print("toImage Shape: ", self.center.shape)
+        # print("Max Height: ", np.amax(self.center))
         
         #Save image names in texture nodes in all materials just in case the images change
         #- eg resolution change
@@ -753,9 +753,8 @@ class Grid:
     def beach_erosion(self, water_level, beach_height, beach_slope):
         start = water_level + beach_height
         center = self.center
-        self.center = np.where(center < start, start * beach_slope + center * (1.0 - beach_slope), center)
-        # self.center = np.where(self.center < (water_level+beach_height),  self.center+water_level+beach_height, self.center)
         self.beach = np.clip(np.negative(np.absolute((center - water_level)/max(beach_height, 0.00001)))+1.0, 0., 1.)
+        self.center = np.where(center < start, start * beach_slope + center * (1.0 - beach_slope), center)
 
 
     def analyze(self):
