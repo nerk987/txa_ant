@@ -25,9 +25,9 @@ import os
 from . import NodeGroupComputer
 
 def txaChangeImageName(imageName):
-    print("TXA JSon prefix, name: ", imageName[:2], bpy.context.object.name + imageName[5:])
+    # print("TXA JSon prefix, name: ", imageName[:2], bpy.context.object.name + imageName[5:])
     if imageName[:3] == "ant":
-        print("replacing")
+        # print("replacing")
         return bpy.context.object.name + imageName[5:]
     else:
         return imageName

@@ -107,10 +107,10 @@ def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
         else:
             sep = "/"
         filename = bpy.utils.user_resource('SCRIPTS', "addons") + sep + "txa_ant" + sep + "materials" + sep + "island" + sep + PrefMat + ".json"
-        print("Island material: ", water_plane, filename)
+        # print("Island material: ", water_plane, filename)
         if not water_plane or not os.path.isfile(filename):    
             filename = bpy.utils.user_resource('SCRIPTS', "addons") + sep + "txa_ant" + sep + "materials" + sep + PrefMat + ".json"
-        print("Used material: ", filename)
+        # print("Used material: ", filename)
         read(filename)
         
     
@@ -421,7 +421,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
             ant_props = []
             for i in range(len(obi)):
                 ant_props.append(obi[i][1])
-            print("Regen: Strata:", len(obi), obi[46])
+            # print("Regen: Strata:", len(obi), obi[46])
             
             #get existing modifer details
             if "ANTSubsurf" in obj.modifiers:
@@ -1033,7 +1033,7 @@ def store_properties(operator, ob):
     ob.txaant_landscape.tex_size_y = operator.tex_size_y
     ob.txaant_landscape.mesh_size_z = operator.mesh_size_z
     # print("Store tex_size_x:", ob.txaant_landscape['tex_size_x'])
-    print("Store Strata:",  ob.txaant_landscape.strata)
+    # print("Store Strata:",  ob.txaant_landscape.strata)
     return ob
 
 
@@ -1378,7 +1378,7 @@ class Eroder(bpy.types.Operator):
             # g.makegradient()
         g.toImage(ob.txaant_landscape.mesh_size_x, ob.txaant_landscape.mesh_size_y, ob.txaant_landscape.mesh_size_z, ob.name)
         del g
-        print("AddLandscapeMaterial with water_plane: ", ob.txaant_landscape.water_plane)
+        # print("AddLandscapeMaterial with water_plane: ", ob.txaant_landscape.water_plane)
         AddLandscapeMaterial(ob, context.scene.EroderMats, ob.name, ob.txaant_landscape.water_plane)
         # print("Trying to use eroded height")
         if ob.name+"_antdisplace" in bpy.data.textures:

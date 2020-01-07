@@ -1239,7 +1239,7 @@ def readExtraSettings(extra_settings, node):
         # Image loading for image texture node
 
         elif setting[0] == 3:
-            print("Extasetting 3")
+            # print("Extasetting 3")
             if (setting[2] != '' and node.clip == None):
 
                 use_this_path = ''

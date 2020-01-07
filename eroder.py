@@ -51,17 +51,17 @@ def SaveImageNodes():
         ntrees.append([mat.name,mat.node_tree])
     for ng in bpy.data.node_groups:
         ntrees.append(["", ng])
-    print("SaveImageNodes - number of node trees: ", len(ntrees))
+    # print("SaveImageNodes - number of node trees: ", len(ntrees))
     nodedict = {}
     for prefix, nt in ntrees:
         for node in nt.nodes:
             if node.type == "TEX_IMAGE" and node.image is None:
-                print("SaveImageNodes - image already none: ", node.name)
+                # print("SaveImageNodes - image already none: ", node.name)
             if node.type == "TEX_IMAGE" and node.image is not None:
                 nkey = prefix + " " + nt.name + "_" + node.name
-                print("SaveImageNodes -     nkey: ", nkey)
+                # print("SaveImageNodes -     nkey: ", nkey)
                 nodedict[nkey] = node.image.name
-                print("SaveImageNodes - image is saved: ", node.name, nodedict[nkey])
+                # print("SaveImageNodes - image is saved: ", node.name, nodedict[nkey])
     return nodedict
 
 def RestoreImageNodes(nodedict):
@@ -70,20 +70,20 @@ def RestoreImageNodes(nodedict):
         ntrees.append([mat.name,mat.node_tree])
     for ng in bpy.data.node_groups:
         ntrees.append(["", ng])
-    print("RetoreImageNodes - number of node trees: ", len(ntrees))
+    # print("RetoreImageNodes - number of node trees: ", len(ntrees))
     for prefix, nt in ntrees:
         for node in nt.nodes:
             if node.type == "TEX_IMAGE" and node.image is None:
-                print("RestoreImageNodes - Image needs restoring: ", node.name)
+                # print("RestoreImageNodes - Image needs restoring: ", node.name)
                 nkey = prefix + " " + nt.name + "_" + node.name
-                print("RestoreImageNodes -     nkey: ", nkey)
-                print("RestoreImageNodes -     found: ", nkey in nodedict)
+                # print("RestoreImageNodes -     nkey: ", nkey)
+                # print("RestoreImageNodes -     found: ", nkey in nodedict)
             if node.type == "TEX_IMAGE" and node.image is None and nkey in nodedict:
                 if nodedict[nkey] in bpy.data.images:
                     node.image = bpy.data.images[nodedict[nkey]]
-                    print("RestoreImageNodes - Restored: ", nodedict[nkey])
+                    # print("RestoreImageNodes - Restored: ", nodedict[nkey])
                 else:
-                    print("RestoreImageNodes - Save image not found: ", nodedict[nkey])
+                    # print("RestoreImageNodes - Save image not found: ", nodedict[nkey])
 
 
 
@@ -247,7 +247,7 @@ class Grid:
         pixels[:,:,2] = normal[:,:,2]
         
         #do smooth gradient using normal while we're here
-        print("Normal Shape: ", normal[:,:,2].shape)
+        # print("Normal Shape: ", normal[:,:,2].shape)
         self.gradient = self.blur(normal[:,:,2])
         
         NormalMapImg.pixels = pixels.ravel()
@@ -426,7 +426,7 @@ class Grid:
    
         
     def sedimentcalc(self, Kc):
-        print("Kc: ", Kc)
+        # print("Kc: ", Kc)
         spct = np.ones(self.center.shape, dtype=np.float16) - self.center/np.amax(self.center)
         spct2 = self.smoothedge(spct, min(self.center.shape[0],self.center.shape[1])/30.0)
         self.sedimentpct = np.zeros(self.center.shape, dtype=np.float16)
@@ -486,7 +486,7 @@ class Grid:
         # delta_array = np.multiply(cap_inv, delta)
         delta_array = np.multiply((np.ones(c.shape, dtype = np.float16) - cap_inv2), delta_river) + np.multiply(cap_inv2, delta)
         # delta_array = where((cap/max_cap) > river_sense or (cap/max_cap) > noise_effect, delta_river, delta)
-        print("Delta Array: ", delta_array.size)
+        # print("Delta Array: ", delta_array.size)
         delta_y = delta_array * mesh_size_y / (c.shape[0] * mesh_size_z * 1.0)
         delta_x = delta_array * mesh_size_x / (c.shape[1] * mesh_size_z * 1.0)
         
