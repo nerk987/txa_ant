@@ -55,7 +55,7 @@ def SaveImageNodes():
     nodedict = {}
     for prefix, nt in ntrees:
         for node in nt.nodes:
-            if node.type == "TEX_IMAGE" and node.image is None:
+            # if node.type == "TEX_IMAGE" and node.image is None:
                 # print("SaveImageNodes - image already none: ", node.name)
             if node.type == "TEX_IMAGE" and node.image is not None:
                 nkey = prefix + " " + nt.name + "_" + node.name
@@ -83,7 +83,7 @@ def RestoreImageNodes(nodedict):
                     node.image = bpy.data.images[nodedict[nkey]]
                     # print("RestoreImageNodes - Restored: ", nodedict[nkey])
                 else:
-                    # print("RestoreImageNodes - Save image not found: ", nodedict[nkey])
+                    print("RestoreImageNodes - Save image not found: ", nodedict[nkey])
 
 
 
