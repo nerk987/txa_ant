@@ -18,7 +18,7 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v2.81.1
+#TXA version v2.81.2
 #Based on ANT version v0.1.8
 
 bl_info = {
