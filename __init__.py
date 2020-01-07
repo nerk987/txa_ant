@@ -25,7 +25,7 @@ bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (0, 0, 1),
+    "version": (2, 81, 1),
     "blender": (2, 81, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
