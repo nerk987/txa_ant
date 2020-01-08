@@ -40,6 +40,7 @@ from .ant_functions import (
         )
 from .ant_noise import noise_gen
 from txa_ant import ant_noise
+import numpy as np
 
 # ------------------------------------------------------------
 # Do vert displacement
@@ -598,9 +599,9 @@ class AntMeshDisplace(bpy.types.Operator):
         if not self.refresh:
             return {'PASS_THROUGH'}
 
-        # turn off undo
-        undo = bpy.context.preferences.edit.use_global_undo
-        bpy.context.preferences.edit.use_global_undo = False
+        # # turn off undo
+        # undo = bpy.context.preferences.edit.use_global_undo
+        # bpy.context.preferences.edit.use_global_undo = False
 
         ob = context.object
 
@@ -672,62 +673,97 @@ class AntMeshDisplace(bpy.types.Operator):
             self.fx_offset,
             self.fx_invert
             ]
+            
+        tex_size_x = 128
+        tex_size_y = 128
+            
+        ImageName = ob.name+"_displace"
+        if ImageName in bpy.data.images.keys():
+            outputImg = bpy.data.images[ImageName]
+            bpy.data.images.remove(outputImg)
+        bpy.data.images.new(ImageName, width=tex_size_x, height=tex_size_y, alpha=False, float_buffer=True)
+        outputImg = bpy.data.images[ImageName]
+        outputImg.colorspace_settings.name = 'Linear'
+        
+        #Create new displace image
+        pixels = np.zeros((tex_size_y,tex_size_x,4), dtype = np.float16)
+        pixels[:,:,-1:] = 1.0
+        for i in range(tex_size_x):
+            x = meshsize_x * (i / (tex_size_x - 1) - 1 / 2)
+            for j in range(tex_size_y):
+                y = meshsize_y * (j / (tex_size_y - 1) - 1 / 2)
+                pixels[j,i,:1] = noise_gen((x, y, 0), props)
+                # pixels[i,j,0] = i/size
+                pixels[j,i,1] = pixels[j,i,:1]
+                pixels[j,i,2] = pixels[j,i,:1]
+                
 
-        # do displace
-        mesh = ob.data
-
-        if self.vert_group != "" and self.vert_group in ob.vertex_groups:
-            vertex_group = ob.vertex_groups[self.vert_group]
-
-            if vertex_group:
-                gi = vertex_group.index
-                if self.direction == "X":
-                    for v in mesh.vertices:
-                        for g in v.groups:
-                            if g.group == gi:
-                                v.co[0] += vertex_group.weight(v.index) * noise_gen(v.co, props)
-
-                if self.direction == "Y":
-                    for v in mesh.vertices:
-                        for g in v.groups:
-                            if g.group == gi:
-                                v.co[1] += vertex_group.weight(v.index) * noise_gen(v.co, props)
-
-                if self.direction == "Z":
-                    for v in mesh.vertices:
-                        for g in v.groups:
-                            if g.group == gi:
-                                v.co[2] += vertex_group.weight(v.index) * noise_gen(v.co, props)
-
-                else:
-                    for v in mesh.vertices:
-                        for g in v.groups:
-                            if g.group == gi:
-                                v.co += vertex_group.weight(v.index) * v.normal * noise_gen(v.co, props)
-
-        else:
-            if self.direction == "X":
-                for v in mesh.vertices:
-                    v.co[0] += noise_gen(v.co, props)
-
-            elif self.direction == "Y":
-                for v in mesh.vertices:
-                    v.co[1] += noise_gen(v.co, props)
-
-            elif self.direction == "Z":
-                for v in mesh.vertices:
-                    v.co[2] += noise_gen(v.co, props)
-
-            else:
-                for v in mesh.vertices:
-                    v.co += v.normal * noise_gen(v.co, props)
-
-        mesh.update()
-
-        if self.auto_refresh is False:
-            self.refresh = False
-
-        # restore pre operator undo state
-        context.preferences.edit.use_global_undo = undo
-
+        # assign pixels
+        outputImg.pixels = pixels.ravel()
+        outputImg.pack()
+        outputImg.update()
+            
+            
         return {'FINISHED'}
+            
+            
+            
+
+        # # do displace
+        # mesh = ob.data
+
+        # if self.vert_group != "" and self.vert_group in ob.vertex_groups:
+            # vertex_group = ob.vertex_groups[self.vert_group]
+
+            # if vertex_group:
+                # gi = vertex_group.index
+                # if self.direction == "X":
+                    # for v in mesh.vertices:
+                        # for g in v.groups:
+                            # if g.group == gi:
+                                # v.co[0] += vertex_group.weight(v.index) * noise_gen(v.co, props)
+
+                # if self.direction == "Y":
+                    # for v in mesh.vertices:
+                        # for g in v.groups:
+                            # if g.group == gi:
+                                # v.co[1] += vertex_group.weight(v.index) * noise_gen(v.co, props)
+
+                # if self.direction == "Z":
+                    # for v in mesh.vertices:
+                        # for g in v.groups:
+                            # if g.group == gi:
+                                # v.co[2] += vertex_group.weight(v.index) * noise_gen(v.co, props)
+
+                # else:
+                    # for v in mesh.vertices:
+                        # for g in v.groups:
+                            # if g.group == gi:
+                                # v.co += vertex_group.weight(v.index) * v.normal * noise_gen(v.co, props)
+
+        # else:
+            # if self.direction == "X":
+                # for v in mesh.vertices:
+                    # v.co[0] += noise_gen(v.co, props)
+
+            # elif self.direction == "Y":
+                # for v in mesh.vertices:
+                    # v.co[1] += noise_gen(v.co, props)
+
+            # elif self.direction == "Z":
+                # for v in mesh.vertices:
+                    # v.co[2] += noise_gen(v.co, props)
+
+            # else:
+                # for v in mesh.vertices:
+                    # v.co += v.normal * noise_gen(v.co, props)
+
+        # mesh.update()
+
+        # if self.auto_refresh is False:
+            # self.refresh = False
+
+        # # restore pre operator undo state
+        # context.preferences.edit.use_global_undo = undo
+
+        # return {'FINISHED'}

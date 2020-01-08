@@ -463,8 +463,8 @@ def Effect_Basis_Function(coords, type, bias):
 
 
 # fractalize Effect_Basis_Function: ------------------------------
-def Effect_Function(coords, type, bias, turb, depth, frequency, amplitude):
-
+def Effect_Function(coords, type1, bias, turb, depth, frequency, amplitude):
+    # print("Effect Function Type: ", type1)
     x, y, z = coords
     ## turbulence:
     if turb > 0.0:
@@ -473,7 +473,7 @@ def Effect_Function(coords, type, bias, turb, depth, frequency, amplitude):
         y = y + t
         z = z + t
 
-    result = Effect_Basis_Function((x, y, z), type, bias) * amplitude
+    result = Effect_Basis_Function((x, y, z), type1, bias) * amplitude
     ## fractalize:
     if depth != 0:
         i=0
@@ -481,7 +481,7 @@ def Effect_Function(coords, type, bias, turb, depth, frequency, amplitude):
             i+=1
             x *= frequency
             y *= frequency
-            result += Effect_Basis_Function((x, y, z), type, bias) * amplitude / i
+            result += Effect_Basis_Function((x, y, z), type1, bias) * amplitude / i
 
     return result
 
@@ -545,25 +545,27 @@ def noise_gen(coords, props):
     waterlevel = props[48]
     vert_group = props[49]
     remove_double = props[50]
-    fx_mixfactor = props[50]
-    fx_mix_mode = props[51]
-    fx_type = props[52]
-    fx_bias = props[53]
-    fx_turb = props[54]
-    fx_depth = props[55]
-    fx_frequency = props[56]
-    fx_amplitude = props[57]
-    fx_size = props[58]
-    fx_loc_x = props[59]
-    fx_loc_y = props[60]
-    fx_height = props[61]
-    fx_offset = props[62]
-    fx_invert = props[63]
+    fx_mixfactor = props[51]
+    fx_mix_mode = props[52]
+    fx_type = props[53]
+    fx_bias = props[54]
+    fx_turb = props[55]
+    fx_depth = props[56]
+    fx_frequency = props[57]
+    fx_amplitude = props[58]
+    fx_size = props[59]
+    fx_loc_x = props[60]
+    fx_loc_y = props[61]
+    fx_height = props[62]
+    fx_offset = props[63]
+    fx_invert = props[64]
     
     # print("Noise Routine: Strata", strata)
 
     x, y, z = coords
     # print("Noise_gen fx_type: ", fx_type)
+    # print("Noise_gen mix_mode: ", fx_mix_mode)
+    # print("Noise_gen fx_bia: ", fx_bias)
 
     # Origin
     if rseed is 0:
