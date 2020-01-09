@@ -235,6 +235,22 @@ def MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, 
     NormalMapImg.pixels = pixels.ravel()
     NormalMapImg.pack()
     NormalMapImg.update()
+    
+        
+    #BeachMap if water plane is enabled
+    if props[47]: 
+        BeachName = new_name+"_beach"
+        if BeachName in bpy.data.images:
+            BeachImg = bpy.data.images[BeachName]
+            bpy.data.images.remove(BeachImg)
+        bpy.data.images.new(BeachName, width=tex_size_x, height=tex_size_y, alpha=False, float_buffer=True)
+        BeachImg = bpy.data.images[BeachName]
+        BeachImg.colorspace_settings.name = 'Linear'
+        pixels = np.zeros((tex_size_y,tex_size_x,4), dtype = np.float16)
+        pixels[:,:,-1:] = 1.0
+        BeachImg.pixels = pixels.ravel()
+        BeachImg.pack()
+        BeachImg.update()
 
     return outputImg
 
@@ -1273,7 +1289,14 @@ class EroderProps(bpy.types.PropertyGroup):
     BeachSlope: FloatProperty(
             name="Beach Slope",
             description="Beach Slope with 0 as flat and 1 is no change",
-            default=0.7,
+            default=0.5,
+            min=-10,
+            max=1
+            )
+    FoamDepth: FloatProperty(
+            name="Foam Depth",
+            description="Depth of water when foam is found",
+            default=0.05,
             min=-10,
             max=1
             )
@@ -1380,6 +1403,9 @@ class Eroder(bpy.types.Operator):
         del g
         # print("AddLandscapeMaterial with water_plane: ", ob.txaant_landscape.water_plane)
         AddLandscapeMaterial(ob, context.scene.EroderMats, ob.name, ob.txaant_landscape.water_plane)
+        if ob.name + "_water" in context.scene.objects:
+            ob_water = context.scene.objects[ob.name + "_water"]
+            AddLandscapeMaterial(ob_water, "water", ob.name, ob.txaant_landscape.water_plane)
         # print("Trying to use eroded height")
         if ob.name+"_antdisplace" in bpy.data.textures:
             # print("Using eroded height")

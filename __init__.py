@@ -928,7 +928,7 @@ class AntLandscapePropertiesGroup(bpy.types.PropertyGroup):
             )
     water_level: FloatProperty(
             name="Level",
-            default=0.01,
+            default=0.1,
             min=-10000.0,
             max=10000.0,
             description="Water level"

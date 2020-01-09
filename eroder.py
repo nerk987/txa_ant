@@ -750,14 +750,12 @@ class Grid:
         # self.scourmin = np.min(self.scour)
         # self.sedmax = np.max(self.sediment)
         
-    def beach_erosion(self, water_level, beach_height, beach_slope):
+    def beach_erosion(self, water_level, beach_height, beach_slope, foam_depth):
         start = water_level + beach_height
-        print("Center then beach")
         center = self.center
+        self.beach = np.clip(np.negative(np.absolute((center - water_level)/max(beach_height, 0.00001)))+1.0, 0., 1.)
+        self.foam = np.clip((center - water_level)/max(foam_depth, 0.00001)+1.0, 0., 1.)
         self.center = np.where(center < start, start * beach_slope + center * (1.0 - beach_slope), center)
-        self.beach = np.clip(np.negative(np.absolute((self.center - water_level)/max(beach_height, 0.00001)))+1.0, 0., 1.)
-
-
     def analyze(self):
         self.neighborgrid()
         # just looking at up and left to avoid needless double calculations
