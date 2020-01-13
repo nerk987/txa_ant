@@ -699,7 +699,7 @@ class Grid:
             # sediment[center] = scc + ds + sds
 
 
-    def flow(self, Ks, Kz, Ka, Kdep, numexpr, water_plane, water_level):
+    def flow(self, Ks, Kz, Ka, Kdep, numexpr, water_plane, water_level, beach_height, beach_erosion):
         zeros = np.zeros
         where = np.where
         min = np.minimum
@@ -710,8 +710,8 @@ class Grid:
         
         # A flow value of 1 moves all the rock in one go, 2 does half etc.
         # Use the high flow near the bottom of the hill and low at the top to stabilise the flow
-        # hi_flow = 4.0
-        # lo_flow = 2.0
+        hi_flow = 4.0
+        lo_flow = 2.0
 
 
         center = (slice(   1,   -1,None),slice(   1,  -1,None))
@@ -721,12 +721,14 @@ class Grid:
         ds = self.flowrate[center]/self.flowratemax
         dsed = self.flowrate[center]
         rcc = rock[center]
+        #reduce fluvial erosion effects as the beach starts till there is no erosion at water level
+        beach = np.clip((rcc - water_level)/beach_height, 0., 1.) * (1. - beach_erosion) + np.ones(rcc.shape) * beach_erosion
         # print("Kz: ", Kz, Kdep)
         #Simple Method (Don't delete)
         # rock[center] = rcc - ds * Kz/(rcc * (lo_flow-hi_flow)+lo_flow)
         #Scour Method
-        rock[center] = rcc - self.scour[center] * Kz
-        # rock[center] = rcc + dsed * Kdep/(rcc * (lo_flow-hi_flow)+lo_flow)
+        rock[center] = rcc - np.multiply(self.scour[center], beach) * Kz
+        rock[center] = rcc + dsed * Kdep/(rcc * (lo_flow-hi_flow)+lo_flow)
         # there isn't really a bottom to the rock but negative values look ugly
         rock[center] = where(rcc<0,0,rcc)
 
@@ -743,8 +745,8 @@ class Grid:
         self.watermax = np.max(self.water)
 
 
-    def fluvial_erosion(self, rainamount, rainvariance, userainmap, Ks, Kz, Ka, Kdep, Kspring, Kspringx, Kspringy, Kspringr, numexpr, water_plane, water_level):
-        self.flow(Ks, Kz, Ka, Kdep, numexpr, water_plane, water_level)
+    def fluvial_erosion(self, rainamount, rainvariance, userainmap, Ks, Kz, Ka, Kdep, Kspring, Kspringx, Kspringy, Kspringr, numexpr, water_plane, water_level, beach_height, beach_erosion):
+        self.flow(Ks, Kz, Ka, Kdep, numexpr, water_plane, water_level, beach_height, beach_erosion)
         # self.flowratemax = np.max(self.flowrate)
         # self.scourmax = np.max(self.scour)
         # self.scourmin = np.min(self.scour)

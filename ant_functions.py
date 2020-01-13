@@ -1302,6 +1302,13 @@ class EroderProps(bpy.types.PropertyGroup):
             min=-10,
             max=1
             )
+    BeachErosion: FloatProperty(
+            name="Beach Erosion",
+            description="Amount of fluvial erosion on beach and foam",
+            default=0.5,
+            min=0,
+            max=1
+            )
     smooth: BoolProperty(
             name="Smooth",
             description="Set smooth shading",
@@ -1387,7 +1394,7 @@ class Eroder(bpy.types.Operator):
                 for i in range(pEP.IterSoilMovement):
                             
                     if pEP.Kz > 0:
-                        g.fluvial_erosion(pEP.Kr, pEP.Kv, pEP.userainmap, pEP.Ks, pEP.Kz, pEP.Ka, pEP.Kdep, 0,0,0,0, pEP.numexpr, ob.txaant_landscape.water_plane, ob.txaant_landscape.water_level)
+                        g.fluvial_erosion(pEP.Kr, pEP.Kv, pEP.userainmap, pEP.Ks, pEP.Kz, pEP.Ka, pEP.Kdep, 0,0,0,0, pEP.numexpr,ob.txaant_landscape.water_plane,ob.txaant_landscape.water_level, pEP.BeachHeight, pEP.BeachErosion)
                         # self.counts['water']+=1
                     
                     if pEP.Kt < radians(90):
@@ -1490,5 +1497,5 @@ class ANTMAIN_PT_eroder(bpy.types.Panel):
             layout.prop(pEP, 'BeachHeight')
             layout.prop(pEP, 'BeachSlope')
             layout.prop(pEP, 'FoamDepth')
-
+            layout.prop(pEP, 'BeachErosion')
         layout.prop(pEP,'smooth')
