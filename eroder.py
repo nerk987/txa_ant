@@ -321,7 +321,7 @@ class Grid:
             pixels = np.zeros((dim_x,dim_y,4), dtype = np.float16)
             pixels[:,:,-1:] = 1.0
             pixels[:,:,0] = self.beach
-            pixels[:,:,1] = pixels[:,:,0]
+            pixels[:,:,1] = self.foam
             pixels[:,:,2] = pixels[:,:,0]
             BeachImg.pixels = pixels.ravel()
             BeachImg.pack()
@@ -699,7 +699,7 @@ class Grid:
             # sediment[center] = scc + ds + sds
 
 
-    def flow(self, Ks, Kz, Ka, Kdep, numexpr):
+    def flow(self, Ks, Kz, Ka, Kdep, numexpr, water_plane, water_level):
         zeros = np.zeros
         where = np.where
         min = np.minimum
@@ -710,8 +710,8 @@ class Grid:
         
         # A flow value of 1 moves all the rock in one go, 2 does half etc.
         # Use the high flow near the bottom of the hill and low at the top to stabilise the flow
-        hi_flow = 4.0
-        lo_flow = 2.0
+        # hi_flow = 4.0
+        # lo_flow = 2.0
 
 
         center = (slice(   1,   -1,None),slice(   1,  -1,None))
@@ -743,8 +743,8 @@ class Grid:
         self.watermax = np.max(self.water)
 
 
-    def fluvial_erosion(self, rainamount, rainvariance, userainmap, Ks, Kz, Ka, Kdep, Kspring, Kspringx, Kspringy, Kspringr, numexpr):
-        self.flow(Ks, Kz, Ka, Kdep, numexpr)
+    def fluvial_erosion(self, rainamount, rainvariance, userainmap, Ks, Kz, Ka, Kdep, Kspring, Kspringx, Kspringy, Kspringr, numexpr, water_plane, water_level):
+        self.flow(Ks, Kz, Ka, Kdep, numexpr, water_plane, water_level)
         # self.flowratemax = np.max(self.flowrate)
         # self.scourmax = np.max(self.scour)
         # self.scourmin = np.min(self.scour)
@@ -753,9 +753,13 @@ class Grid:
     def beach_erosion(self, water_level, beach_height, beach_slope, foam_depth):
         start = water_level + beach_height
         center = self.center
-        self.beach = np.clip(np.negative(np.absolute((center - water_level)/max(beach_height, 0.00001)))+1.0, 0., 1.)
-        self.foam = np.clip((center - water_level)/max(foam_depth, 0.00001)+1.0, 0., 1.)
         self.center = np.where(center < start, start * beach_slope + center * (1.0 - beach_slope), center)
+        self.beach = np.clip(np.negative(np.absolute((self.center - water_level)/max(beach_height, 0.00001)))+1.0, 0., 1.)
+        self.foam = (self.center - water_level)/max(foam_depth, 0.00001)+1.0
+        # self.foam = np.where(self.foam > 1., 2.-self.foam, self.foam)
+        self.foam = np.clip(self.foam, 0., 1000.)
+        self.center = np.clip(self.center, water_level + 0.0001, 10000.0)
+        
     def analyze(self):
         self.neighborgrid()
         # just looking at up and left to avoid needless double calculations

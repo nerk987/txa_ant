@@ -96,8 +96,8 @@ class AntLandscapeAddPanel(bpy.types.Panel):
     bl_space_type = "VIEW_3D"
     bl_context = "objectmode"
     bl_region_type = "UI"
-    bl_label = "Landscape"
-    bl_category = "TXA Landscape"
+    bl_label = "TXA Landscape"
+    bl_category = "Create"
     bl_options = {'DEFAULT_CLOSED'}
 
     def draw(self, context):

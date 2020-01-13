@@ -418,6 +418,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
         # turn off undo
         # undo = bpy.context.preferences.edit.use_global_undo
         # bpy.context.preferences.edit.use_global_undo = False
+        wobj = None
         
         nodedict = SaveImageNodes()
         # print("Starting Regen")
@@ -501,12 +502,11 @@ class AntLandscapeRegenerate(bpy.types.Operator):
                 ANTDisplaceMod.texture_coords = 'UV'                
                 ANTDisplaceMod.strength = ob['mesh_size_z']                
                 ANTDisplaceMod.mid_level = 0.0                
-                # SubMod.use_opensubdiv = True
-                # AddLandscapeMaterial(new_ob, "NormalOnly", new_name)
                 new_ob.select_set(True)
                 bpy.ops.object.mode_set(mode = 'EDIT')
                 AddUVLayer(new_ob, ob['mesh_size_x'], ob['mesh_size_y'])
                 bpy.ops.object.mode_set(mode = 'OBJECT')
+                # print("Object location 1: ",obj.location)
 
             new_ob.select_set(True)
 
@@ -522,54 +522,55 @@ class AntLandscapeRegenerate(bpy.types.Operator):
             if ob['water_plane']:
                 water_name = new_name + "_water"
                 #delete old water plane
-                if new_name + "_water" in bpy.context.scene.objects:
-                    wobj_old = bpy.context.scene.objects[water_name]
-                    wobj_old.select_set(True)
-                    context.view_layer.objects.active = wobj_old
-                    bpy.ops.object.delete(use_global=False)
+                if new_name + "_water" not in bpy.context.scene.objects:
+                    # wobj_old = bpy.context.scene.objects[water_name]
+                    # wobj_old.select_set(True)
+                    # context.view_layer.objects.active = wobj_old
+                    # bpy.ops.object.delete(use_global=False)
 
-                if ob['sphere_mesh']:
-                    # sphere
-                    verts, faces = sphere_gen(
-                            ob['subdivision_y'],
+                # else:    
+                    if ob['sphere_mesh']:
+                        # sphere
+                        verts, faces = sphere_gen(
+                                ob['subdivision_y'],
+                                ob['subdivision_x'],
+                                ob['tri_face'],
+                                ob['mesh_size'],
+                                ant_props,
+                                ob['water_plane'],
+                                ob['water_level']
+                                )
+                        wobj = create_mesh_object(context, verts, [], faces, new_name+"_plane").object
+                        if ob['remove_double']:
+                            wobj.select_set(True)
+                            bpy.ops.object.mode_set(mode = 'EDIT')
+                            bpy.ops.mesh.remove_doubles(threshold=0.0001, use_unselected=False)
+                            bpy.ops.object.mode_set(mode = 'OBJECT')
+                    else:
+                        # grid
+                        verts, faces = grid_gen(
                             ob['subdivision_x'],
+                            ob['subdivision_y'],
+                            ob['tex_size_x'],
+                            ob['tex_size_y'],
                             ob['tri_face'],
-                            ob['mesh_size'],
+                            ob['mesh_size_x']*2,
+                            ob['mesh_size_y']*2,
+                            ob['mesh_size_z'],
                             ant_props,
                             ob['water_plane'],
-                            ob['water_level']
+                            ob['water_level'],
+                            new_name + "_water"
                             )
-                    wobj = create_mesh_object(context, verts, [], faces, new_name+"_plane").object
-                    if ob['remove_double']:
+                        
+                        # print("Grid_Gen Run water")
+                        wobj = create_mesh_object(context, verts, [], faces, new_name+"_water")
+                        wobj.name = water_name
                         wobj.select_set(True)
                         bpy.ops.object.mode_set(mode = 'EDIT')
-                        bpy.ops.mesh.remove_doubles(threshold=0.0001, use_unselected=False)
+                        AddUVLayer(wobj, ob['mesh_size_x'], ob['mesh_size_y'])
                         bpy.ops.object.mode_set(mode = 'OBJECT')
-                else:
-                    # grid
-                    verts, faces = grid_gen(
-                        ob['subdivision_x'],
-                        ob['subdivision_y'],
-                        ob['tex_size_x'],
-                        ob['tex_size_y'],
-                        ob['tri_face'],
-                        ob['mesh_size_x']*2,
-                        ob['mesh_size_y']*2,
-                        ob['mesh_size_z'],
-                        ant_props,
-                        ob['water_plane'],
-                        ob['water_level'],
-                        new_name + "_water"
-                        )
-                    
-                    # print("Grid_Gen Run water")
-                    wobj = create_mesh_object(context, verts, [], faces, new_name+"_water")
-                    wobj.name = water_name
-                    wobj.select_set(True)
-                    bpy.ops.object.mode_set(mode = 'EDIT')
-                    AddUVLayer(wobj, ob['mesh_size_x'], ob['mesh_size_y'])
-                    bpy.ops.object.mode_set(mode = 'OBJECT')
-                    AddLandscapeMaterial(wobj, "Water", new_name, False)
+                        AddLandscapeMaterial(wobj, "water", new_name, False)
 
                 if ob['smooth_mesh']:
                     bpy.ops.object.shade_smooth()
@@ -581,7 +582,8 @@ class AntLandscapeRegenerate(bpy.types.Operator):
                     # bpy.context.object.data.materials.append(mat)
 
             # Loc Rot Scale
-            if ob['water_plane']:
+            # if ob['water_plane']:
+            if wobj is not None:
                 wobj.location = obj.location
                 wobj.rotation_euler = obj.rotation_euler
                 wobj.scale = obj.scale
@@ -1385,7 +1387,7 @@ class Eroder(bpy.types.Operator):
                 for i in range(pEP.IterSoilMovement):
                             
                     if pEP.Kz > 0:
-                        g.fluvial_erosion(pEP.Kr, pEP.Kv, pEP.userainmap, pEP.Ks, pEP.Kz, pEP.Ka, pEP.Kdep, 0,0,0,0, pEP.numexpr)
+                        g.fluvial_erosion(pEP.Kr, pEP.Kv, pEP.userainmap, pEP.Ks, pEP.Kz, pEP.Ka, pEP.Kdep, 0,0,0,0, pEP.numexpr, ob.txaant_landscape.water_plane, ob.txaant_landscape.water_level)
                         # self.counts['water']+=1
                     
                     if pEP.Kt < radians(90):
@@ -1396,7 +1398,7 @@ class Eroder(bpy.types.Operator):
                             
             #Beach erosion
             if ob.txaant_landscape.water_plane:
-                g.beach_erosion(ob.txaant_landscape.water_level, pEP.BeachHeight, pEP.BeachSlope)
+                g.beach_erosion(ob.txaant_landscape.water_level, pEP.BeachHeight, pEP.BeachSlope, pEP.FoamDepth)
                             # self.counts['avalanche']+=1
             # g.makegradient()
         g.toImage(ob.txaant_landscape.mesh_size_x, ob.txaant_landscape.mesh_size_y, ob.txaant_landscape.mesh_size_z, ob.name)
@@ -1487,5 +1489,6 @@ class ANTMAIN_PT_eroder(bpy.types.Panel):
             layout.label(text="Beach")
             layout.prop(pEP, 'BeachHeight')
             layout.prop(pEP, 'BeachSlope')
+            layout.prop(pEP, 'FoamDepth')
 
         layout.prop(pEP,'smooth')
