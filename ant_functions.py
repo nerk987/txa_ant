@@ -1148,6 +1148,7 @@ class EroderProps(bpy.types.PropertyGroup):
             min=1,
             soft_max=100
             )
+#Not used at this time
     Ef: FloatProperty(
             name="Rain on Plains",
             description="1 gives equal rain across the terrain, 0 rains more at the mountain tops",
@@ -1284,7 +1285,7 @@ class EroderProps(bpy.types.PropertyGroup):
     BeachHeight: FloatProperty(
             name="Beach Height",
             description="Height above water where beach starts",
-            default=0.025,
+            default=0.01,
             min=0,
             max=10
             )
@@ -1472,7 +1473,7 @@ class ANTMAIN_PT_eroder(bpy.types.Panel):
         layout.prop(pEP, 'Kr')
         layout.prop(pEP, 'Kv')
         layout.prop(pEP, 'Kev')
-        layout.prop(pEP, 'Ef')
+        # layout.prop(pEP, 'Ef')
 
         layout.label(text="Soil Movment")
         layout.prop(pEP, 'IterSoilMovement')

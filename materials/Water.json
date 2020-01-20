@@ -14,12 +14,12 @@
     "frames": [],
     "nodes": [
         {
-            "node": "ShaderNodeOutputMaterial",
-            "name": "__node__Material Output",
+            "node": "ShaderNodeTexCoord",
+            "name": "__node__Texture Coordinate",
             "label": "",
             "location": [
-                235.94778442382812,
-                -94.89384460449219
+                -764.2042846679688,
+                -490.42376708984375
             ],
             "hide": false,
             "main_socket_type": "",
@@ -30,8 +30,8 @@
             "extra_settings": [
                 [
                     0,
-                    "target",
-                    "ALL"
+                    "from_instancer",
+                    false
                 ]
             ]
         },
@@ -40,8 +40,8 @@
             "name": "__node__Principled BSDF",
             "label": "",
             "location": [
-                -59.67156982421875,
-                -92.216796875
+                44.0062255859375,
+                -169.7691650390625
             ],
             "hide": false,
             "main_socket_type": "",
@@ -63,7 +63,7 @@
                 [
                     1,
                     "Subsurface",
-                    0.2545454502105713
+                    0.0
                 ],
                 [
                     1,
@@ -73,7 +73,7 @@
                 [
                     1,
                     "Specular",
-                    0.5
+                    0.5272727012634277
                 ],
                 [
                     1,
@@ -83,7 +83,7 @@
                 [
                     1,
                     "Roughness",
-                    0.104545459151268
+                    0.0
                 ],
                 [
                     1,
@@ -113,7 +113,7 @@
                 [
                     1,
                     "Clearcoat Roughness",
-                    0.029999999329447746
+                    0.0
                 ],
                 [
                     1,
@@ -134,9 +134,9 @@
                     1,
                     "Base Color",
                     [
-                        0.011554908938705921,
-                        0.3452654778957367,
+                        0.10724107176065445,
                         0.353392630815506,
+                        0.32070815563201904,
                         1.0
                     ]
                 ],
@@ -144,8 +144,8 @@
                     1,
                     "Subsurface Color",
                     [
-                        0.06669697910547256,
-                        0.1533069908618927,
+                        0.7733175158500671,
+                        0.7799385786056519,
                         0.8000000715255737,
                         1.0
                     ]
@@ -155,41 +155,9 @@
                     "Subsurface Radius",
                     [
                         1.0,
-                        0.20000000298023224,
-                        0.10000000149011612
+                        1.0,
+                        1.0
                     ]
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeBump",
-            "name": "__node__Bump",
-            "label": "",
-            "location": [
-                -257.79644775390625,
-                -493.7772216796875
-            ],
-            "hide": false,
-            "main_socket_type": "",
-            "parent": "",
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 140.0,
-            "extra_settings": [
-                [
-                    0,
-                    "invert",
-                    false
-                ],
-                [
-                    1,
-                    "Strength",
-                    1.0
-                ],
-                [
-                    1,
-                    "Distance",
-                    0.0010000000474974513
                 ]
             ]
         },
@@ -198,8 +166,8 @@
             "name": "__node__Wave Texture",
             "label": "",
             "location": [
-                -525.8422241210938,
-                -441.2950744628906
+                -527.0479125976562,
+                -495.3784484863281
             ],
             "hide": false,
             "main_socket_type": "",
@@ -226,12 +194,12 @@
                 [
                     1,
                     "Distortion",
-                    11.09999942779541
+                    20.0
                 ],
                 [
                     1,
                     "Detail",
-                    7.499999523162842
+                    100.0
                 ],
                 [
                     1,
@@ -241,12 +209,12 @@
             ]
         },
         {
-            "node": "ShaderNodeTexCoord",
-            "name": "__node__Texture Coordinate",
+            "node": "ShaderNodeBump",
+            "name": "__node__Bump",
             "label": "",
             "location": [
-                -918.8850708007812,
-                -422.1451416015625
+                -281.676513671875,
+                -516.631103515625
             ],
             "hide": false,
             "main_socket_type": "",
@@ -257,17 +225,137 @@
             "extra_settings": [
                 [
                     0,
-                    "from_instancer",
+                    "invert",
                     false
+                ],
+                [
+                    1,
+                    "Strength",
+                    0.5
+                ],
+                [
+                    1,
+                    "Distance",
+                    0.0010000000474974513
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeOutputMaterial",
+            "name": "__node__Material Output",
+            "label": "",
+            "location": [
+                475.62384033203125,
+                -173.47027587890625
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    0,
+                    "target",
+                    "ALL"
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeTexNoise",
+            "name": "__node__Noise Texture",
+            "label": "",
+            "location": [
+                -495.9937744140625,
+                -147.49937438964844
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    1,
+                    "Scale",
+                    5.0
+                ],
+                [
+                    1,
+                    "Detail",
+                    2.0
+                ],
+                [
+                    1,
+                    "Distortion",
+                    0.0
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeValToRGB",
+            "name": "__node__ColorRamp",
+            "label": "",
+            "location": [
+                -275.9937744140625,
+                -104.23255920410156
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 240.0,
+            "extra_settings": [
+                [
+                    7,
+                    "color_mode",
+                    "RGB"
+                ],
+                [
+                    7,
+                    "interpolation",
+                    "LINEAR"
+                ],
+                [
+                    7,
+                    "hue_interpolation",
+                    "NEAR"
+                ],
+                [
+                    8,
+                    "color_ramp",
+                    [
+                        [
+                            0.40909087657928467,
+                            [
+                                0.007499032653868198,
+                                0.05612849444150925,
+                                0.12743771076202393,
+                                1.0
+                            ]
+                        ],
+                        [
+                            0.6772726774215698,
+                            [
+                                0.001062344410456717,
+                                0.11953846365213394,
+                                0.22696588933467865,
+                                1.0
+                            ]
+                        ]
+                    ]
                 ]
             ]
         }
     ],
     "links": [
         {
-            "output_node": "__node__Principled BSDF",
-            "output_socket": "BSDF",
-            "input_node": "__node__Material Output",
+            "output_node": "__node__ColorRamp",
+            "output_socket": "Color",
+            "input_node": "__node__Principled BSDF",
             "input_socket": 0,
             "main_socket_type": ""
         },
@@ -279,6 +367,13 @@
             "main_socket_type": ""
         },
         {
+            "output_node": "__node__Texture Coordinate",
+            "output_socket": "Object",
+            "input_node": "__node__Wave Texture",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
             "output_node": "__node__Wave Texture",
             "output_socket": "Fac",
             "input_node": "__node__Bump",
@@ -286,9 +381,16 @@
             "main_socket_type": ""
         },
         {
-            "output_node": "__node__Texture Coordinate",
-            "output_socket": "Object",
-            "input_node": "__node__Wave Texture",
+            "output_node": "__node__Principled BSDF",
+            "output_socket": "BSDF",
+            "input_node": "__node__Material Output",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Noise Texture",
+            "output_socket": "Fac",
+            "input_node": "__node__ColorRamp",
             "input_socket": 0,
             "main_socket_type": ""
         }
