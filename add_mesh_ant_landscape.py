@@ -18,7 +18,7 @@
 
 # Another Noise Tool - Add Landscape
 # Jimmy Hazevoet
-#TXA version v2.81.2
+#TXA version v2.81.3
 #Based on ANT version v0.1.8
 
 # import modules
@@ -736,7 +736,7 @@ class AntAddLandscape(bpy.types.Operator):
             bpy.ops.object.shade_smooth()
 
         if not self.at_cursor:
-            new_ob.object.location = (0.0, 0.0, 0.0)
+            new_ob.location = (0.0, 0.0, 0.0)
 
         # Landscape Material
         if self.land_material != "" and self.land_material in bpy.data.materials:
