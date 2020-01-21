@@ -2,7 +2,7 @@
 
 V2.81.3 For Blender 2.81/2.82 - Alpha version, Island Textures 
 
-Addon Download : [txa_ant_2_81_3.zip](https://github.com/nerk987/txa_ant/releases/download/v2.81.2/txa_ant_2_81_3.zip) 
+Addon Download : [txa_ant_2_81_3.zip](https://github.com/nerk987/txa_ant/releases/download/v2.81.3/txa_ant_2_81_3.zip) 
 
 Note, the materials supplied in the add-on are only suitable for Blender 2.81 and 2.82
 
