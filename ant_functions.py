@@ -923,9 +923,9 @@ def draw_ant_noise(self, context, generate=True):
             col.prop(self, "fx_turb")
 
             col = box.column(align=True)
-            row = col.row(align=True).split(factor=0.92, align=True)
-            row.prop(self, "fx_height")
-            row.prop(self, "fx_invert", toggle=True, text="", icon='ARROW_LEFTRIGHT')
+            # row = col.row(align=True).split(factor=0.92, align=True)
+            col.prop(self, "fx_height")
+            col.prop(self, "fx_invert", toggle=True, text="Invert")
             col.prop(self, "fx_offset")
 
 

@@ -105,28 +105,28 @@ class AntLandscapeAddPanel(bpy.types.Panel):
         col.operator('mesh.txa_landscape_add', text="Landscape", icon="RNDCURVE")
 
 
-# Landscape Tools:
-class AntLandscapeToolsPanel(bpy.types.Panel):
-    bl_space_type = "VIEW_3D"
-    bl_context = "objectmode"
-    bl_region_type = "UI"
-    bl_label = "Landscape Tools"
-    bl_category = "TXA Landscape"
-    bl_options = {'DEFAULT_CLOSED'}
+# # Landscape Tools:
+# class AntLandscapeToolsPanel(bpy.types.Panel):
+    # bl_space_type = "VIEW_3D"
+    # bl_context = "objectmode"
+    # bl_region_type = "UI"
+    # bl_label = "Landscape Tools"
+    # bl_category = "TXA Landscape"
+    # bl_options = {'DEFAULT_CLOSED'}
 
-    @classmethod
-    def poll(cls, context):
-        ob = bpy.context.active_object
-        return (ob and ob.type == 'MESH')
+    # @classmethod
+    # def poll(cls, context):
+        # ob = bpy.context.active_object
+        # return (ob and ob.type == 'MESH')
 
-    def draw(self, context):
-        layout = self.layout
-        ob = context.active_object
-        col = layout.column()
-        col.operator('mesh.txa_ant_displace', text="Mesh Displace", icon="RNDCURVE")
-        col.operator('mesh.txa_ant_slope_map', icon='GROUP_VERTEX')
-        if ob.txaant_landscape.keys() and not ob.txaant_landscape['sphere_mesh']:
-            col.operator('mesh.txa_eroder', text="Landscape Eroder", icon='SMOOTHCURVE')
+    # def draw(self, context):
+        # layout = self.layout
+        # ob = context.active_object
+        # col = layout.column()
+        # col.operator('mesh.txa_ant_displace', text="Mesh Displace", icon="RNDCURVE")
+        # col.operator('mesh.txa_ant_slope_map', icon='GROUP_VERTEX')
+        # if ob.txaant_landscape.keys() and not ob.txaant_landscape['sphere_mesh']:
+            # col.operator('mesh.txa_eroder', text="Landscape Eroder", icon='SMOOTHCURVE')
 
 
 # Landscape Main Settings
@@ -373,7 +373,7 @@ class AntNoiseSettingsPanel(bpy.types.Panel):
             # layout = box.layoutumn(align=True)
             # layout = layout.layout(align=True).split(0.92, align=True)
             layout.prop(ant, "fx_height")
-            layout.prop(ant, "fx_invert", toggle=True, text="")
+            layout.prop(ant, "fx_invert", toggle=True, text="Invert")
             layout.prop(ant, "fx_offset")
 
 
@@ -983,7 +983,7 @@ def GetEroderMatItems(self, context):
 
 classes = (
     AntLandscapeAddPanel,
-    AntLandscapeToolsPanel,
+    # AntLandscapeToolsPanel,
     AntMainSettingsPanel,
     AntNoiseSettingsPanel,
     AntDisplaceSettingsPanel,
