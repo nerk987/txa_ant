@@ -74,6 +74,7 @@ from .ant_functions import (
         draw_ant_displace,
         EroderProps,
         MESH_MT_ant_presets,
+        MESH_MT_main_ant_presets,
         AddPresetTxa_Ant,
         )
 
@@ -370,10 +371,11 @@ class AntNoiseSettingsPanel(bpy.types.Panel):
                 layout.prop(ant, "fx_amplitude")
             layout.prop(ant, "fx_turb")
 
-            # layout = box.layoutumn(align=True)
-            # layout = layout.layout(align=True).split(0.92, align=True)
-            layout.prop(ant, "fx_height")
-            layout.prop(ant, "fx_invert", toggle=True, text="Invert")
+            col = layout.column(align=True)
+            row = col.row(align=True).split(factor=0.92, align=True)
+            row.prop(ant, "fx_height")
+            row.prop(ant, "fx_invert", toggle=True, text="", icon='ARROW_LEFTRIGHT')
+            # layout.prop(ant, "fx_invert", toggle=True, text="Invert")
             layout.prop(ant, "fx_offset")
 
 
@@ -998,6 +1000,7 @@ classes = (
     ant_functions.ANTMAIN_PT_eroder,
     ant_functions.EroderProps,
     MESH_MT_ant_presets,
+    MESH_MT_main_ant_presets,
     AddPresetTxa_Ant,
 )
 

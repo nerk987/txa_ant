@@ -182,7 +182,7 @@ def MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, 
     outputImg = bpy.data.images[ImageName]
     outputImg.colorspace_settings.name = 'Linear'
     
-    print("MakeeightImage: strata: ", props[46])
+    # print("MakeeightImage: strata: ", props[46])
 
 
     pixels = np.zeros((tex_size_y,tex_size_x,4), dtype = np.float16)
@@ -425,6 +425,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
 
         scene = bpy.context.scene
         # ant object items
+        # ant object items
         obj = bpy.context.active_object
         # print("TTTTTTT: ", context.scene.EroderMats)
         # if context.scene.EroderMats == '':
@@ -441,6 +442,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
             # print("Regen: Strata:", len(obi), obi[46])
             
             #get existing modifer details
+            # print("obj.modifers length: ", len(obj.modifiers))
             if "ANTSubsurf" in obj.modifiers:
                 levels = obj.modifiers["ANTSubsurf"].levels
             else:
@@ -665,7 +667,7 @@ class AntVgSlopeMap(bpy.types.Operator):
     def execute(self, context):
         message = "Popup Values: %d, %f, %s, %s" % \
             (self.select_flat, self.select_range, self.group_name, self.z_method)
-        self.report({'INFO'}, message)
+        # self.report({'INFO'}, message)
 
         bpy.ops.object.mode_set(mode='OBJECT')
         ob = bpy.context.active_object
@@ -703,6 +705,10 @@ class AntVgSlopeMap(bpy.types.Operator):
 
 def draw_ant_refresh(self, context):
     layout = self.layout
+    row = layout.row()
+    row.menu("MESH_MT_main_ant_presets", text=bpy.types.MESH_MT_main_ant_presets.bl_label)
+    row.operator(AddPresetTxa_Ant.bl_idname, text="", icon='ZOOM_IN')
+    row.operator(AddPresetTxa_Ant.bl_idname, text="", icon='ZOOM_OUT').remove_active = True        
     if self.auto_refresh is False:
         self.refresh = False
     elif self.auto_refresh is True:
@@ -718,6 +724,7 @@ def draw_ant_main(self, context, generate=True):
     layout = self.layout
     box = layout.box()
     box.prop(self, "show_main_settings", toggle=True)
+
     if self.show_main_settings:
         if generate:
             row = box.row(align=True)
@@ -726,14 +733,14 @@ def draw_ant_main(self, context, generate=True):
             split.prop(self, "smooth_mesh", toggle=True, icon_only=True, icon='SHADING_SOLID')
             split.prop(self, "tri_face", toggle=True, icon_only=True, icon='MESH_DATA')
 
-            if not self.sphere_mesh:
-                row = box.row(align=True)
-                row.prop(self, "sphere_mesh", toggle=True)
-            else:
-                row = box.row(align=True)
-                split = row.split(factor=0.5, align=True)
-                split.prop(self, "sphere_mesh", toggle=True)
-                split.prop(self, "remove_double", toggle=True)
+            # if not self.sphere_mesh:
+                # row = box.row(align=True)
+                # row.prop(self, "sphere_mesh", toggle=True)
+            # else:
+                # row = box.row(align=True)
+                # split = row.split(factor=0.5, align=True)
+                # split.prop(self, "sphere_mesh", toggle=True)
+                # split.prop(self, "remove_double", toggle=True)
 
             box.prop(self, "ant_terrain_name")
             # box.prop_search(self, "land_material",  bpy.data, "materials")
@@ -923,9 +930,10 @@ def draw_ant_noise(self, context, generate=True):
             col.prop(self, "fx_turb")
 
             col = box.column(align=True)
-            # row = col.row(align=True).split(factor=0.92, align=True)
-            col.prop(self, "fx_height")
-            col.prop(self, "fx_invert", toggle=True, text="Invert")
+            row = col.row(align=True).split(factor=0.92, align=True)
+            row.prop(self, "fx_height")
+            # col.prop(self, "fx_invert", toggle=True, text="Invert")
+            row.prop(self, "fx_invert", toggle=True, text="", icon='ARROW_LEFTRIGHT')
             col.prop(self, "fx_offset")
 
 
@@ -1073,6 +1081,13 @@ def availableVertexGroupsOrNone(self, context):
 class MESH_MT_ant_presets(bpy.types.Menu):
     bl_label = "Erosion Presets"
     preset_subdir = "../addons/txa_ant/presets"
+    preset_subdir = "../addons/txa_ant/presets"
+    preset_operator = "script.execute_preset"
+    draw = bpy.types.Menu.draw_preset
+
+class MESH_MT_main_ant_presets(bpy.types.Menu):
+    bl_label = "Main Presets"
+    preset_subdir = "../addons/txa_ant/mainpresets"
     preset_operator = "script.execute_preset"
     draw = bpy.types.Menu.draw_preset
     
