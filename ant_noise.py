@@ -18,7 +18,7 @@
 
 # Another Noise Tool - Noise and Effects
 # Jimmy Hazevoet
-#TXA version v2.81.3
+#TXA version v2.81.4
 #Based on ANT version v0.1.8
 
 import bpy
@@ -41,7 +41,7 @@ from math import (
         sin, cos, pi,
         )
 
-noise_basis_default = "PERLIN_ORIGINAL"
+noise_basis_default = "BLENDER"
 noise_basis = [
     ("BLENDER", "Blender", "Blender default noise", 0),
     ("PERLIN_ORIGINAL", "Perlin", "Perlin noise", 1),
