@@ -1,10 +1,10 @@
 # TXA_ant - Textured version of A.N.T. Landscape
 
-V2.81.4 For Blender 2.81/2.82 - First release version, with Desert Textures 
+V2.81.5 For Blender 2.81/2.82/2.83 - Minor fixes (1. Support custom script locations 2. Set displace mapping to 'Extend')
 
-Addon Download : [txa_ant_2_81_4.zip](https://github.com/nerk987/txa_ant/releases/download/v2.81.4/txa_ant_2_81_4.zip) 
+Addon Download : [txa_ant_2_81_5.zip](https://github.com/nerk987/txa_ant/releases/download/v2.81.5/txa_ant_2_81_5.zip) 
 
-Note, the materials supplied in the add-on are only suitable for Blender 2.81 and 2.82
+Note, the materials supplied in the add-on are only suitable for Blender 2.81, 2.82 and 2.83
 
 # Introduction
 This add-on is a fork of the A.N.T. Lanscape addon and creates landscapes and planets using various noise types. Unlike ANT, TXA produced simple geometry and generates the landscapes with height and normal maps.
