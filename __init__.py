@@ -25,7 +25,7 @@ bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (2, 81, 3),
+    "version": (2, 81, 4),
     "blender": (2, 81, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
@@ -961,9 +961,9 @@ def GetEroderMatItems(self, context):
     # print("OS Type: ", platform.system())
     if platform.system() == 'Windows':
         # print("Using Windows")
-        directory = bpy.utils.user_resource('SCRIPTS', "addons") + "\\txa_ant\\materials"
+        directory = os.path.join(os.path.dirname(__file__), "materials")
     else:
-        directory = bpy.utils.user_resource('SCRIPTS', "addons") + "/txa_ant/materials"
+        directory = os.path.join(os.path.dirname(__file__), "materials")
     # print("Directory: ", directory)
     if directory and os.path.exists(directory):
         # Scan the directory for json files

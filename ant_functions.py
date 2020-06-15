@@ -106,10 +106,10 @@ def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
             sep = "\\"
         else:
             sep = "/"
-        filename = bpy.utils.user_resource('SCRIPTS', "addons") + sep + "txa_ant" + sep + "materials" + sep + "island" + sep + PrefMat + ".json"
+        filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "island" + sep + PrefMat + ".json")
         # print("Island material: ", water_plane, filename)
         if not water_plane or not os.path.isfile(filename):    
-            filename = bpy.utils.user_resource('SCRIPTS', "addons") + sep + "txa_ant" + sep + "materials" + sep + PrefMat + ".json"
+            filename = os.path.join(os.path.dirname(__file__), "materials" + sep + PrefMat + ".json")
         # print("Used material: ", filename)
         read(filename)
         
