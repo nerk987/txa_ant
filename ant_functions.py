@@ -498,6 +498,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
                 else:
                     ANTDisplaceTex = bpy.data.textures[DisplaceTexName]
                 ANTDisplaceTex.image = bpy.data.images[new_name+'_heightmap']
+                ANTDisplaceTex.extension = 'EXTEND'                
                 ANTDisplaceMod = new_ob.modifiers.new("ANTDisplace", type='DISPLACE')
                 ANTDisplaceMod.texture = ANTDisplaceTex                
                 ANTDisplaceMod.direction = 'Z'                
