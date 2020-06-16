@@ -30,7 +30,8 @@ bl_info = {
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
     "warning": "",
-    "wiki_url": "https://github.com/nerk987/txa_ant"
+    "wiki_url": "https://github.com/nerk987/txa_ant",
+    "tracker_url": "http://github.com/nerk987/txa_ant/issues",
     "category": "Add Mesh",
 }
 
