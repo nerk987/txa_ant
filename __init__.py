@@ -18,20 +18,19 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v2.81.4
+#TXA version v2.81.5
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (2, 81, 4),
+    "version": (2, 81, 5),
     "blender": (2, 81, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
     "warning": "",
-    "wiki_url": "https://wiki.blender.org/index.php/Extensions:2.6/Py/"
-                "Scripts/Add_Mesh/ANT_Landscape",
+    "wiki_url": "https://github.com/nerk987/txa_ant"
     "category": "Add Mesh",
 }
 
