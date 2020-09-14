@@ -5776,7 +5776,7 @@
                             "Foam"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Normal"
                         ]
                     ],

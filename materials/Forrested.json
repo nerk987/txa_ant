@@ -5092,7 +5092,7 @@
                             "Scour"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Normal"
                         ]
                     ],

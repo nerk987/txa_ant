@@ -1,8 +1,8 @@
 # TXA_ant - Textured version of A.N.T. Landscape
 
-V2.81.5 For Blender 2.81/2.82/2.83 - Minor fixes (1. Support custom script locations 2. Set displace mapping to 'Extend')
+V2.81.6 For Blender 2.81/2.82/2.83/2.9 - Updated materials to fix issues in Blender 2.83 and 2.9
 
-Addon Download : [txa_ant_2_81_5.zip](https://github.com/nerk987/txa_ant/releases/download/v2.81.5/txa_ant_2_81_5.zip) 
+Addon Download : [txa_ant_2_81_6.zip](https://github.com/nerk987/txa_ant/releases/download/v2.81.6/txa_ant_2_81_6.zip) 
 
 Note, the materials supplied in the add-on are only suitable for Blender 2.81, 2.82 and 2.83
 

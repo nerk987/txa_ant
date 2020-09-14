@@ -757,31 +757,31 @@
                             "Height"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Flowrate"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Sediment"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Water"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Avalanced"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Gradient"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Scour"
                         ],
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Normal"
                         ]
                     ],
