@@ -3293,7 +3293,7 @@
                     "Bump",
                     "Normal",
                     "Principled BSDF",
-                    19
+                    20
                 ],
                 [
                     "Reroute.002",
@@ -4158,7 +4158,7 @@
                     "Bump.001",
                     "Normal",
                     "Principled BSDF.002",
-                    19
+                    20
                 ],
                 [
                     "ColorRamp",
@@ -5132,7 +5132,7 @@
                     "Bump",
                     "Normal",
                     "Principled BSDF.001",
-                    19
+                    20
                 ],
                 [
                     "Normal Map",
@@ -6500,7 +6500,7 @@
                     "Map Range.001",
                     "Result",
                     "Principled BSDF",
-                    18
+                    19
                 ],
                 [
                     "Group Input",

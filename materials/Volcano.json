@@ -1199,7 +1199,7 @@
                     "Normal Map",
                     "Normal",
                     "Principled BSDF",
-                    19
+                    20
                 ],
                 [
                     "ColorRamp",
@@ -1765,7 +1765,7 @@
                     "Bump.001",
                     "Normal",
                     "Principled BSDF",
-                    19
+                    20
                 ],
                 [
                     "Noise Texture",

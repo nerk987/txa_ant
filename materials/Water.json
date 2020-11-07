@@ -363,7 +363,7 @@
             "output_node": "__node__Bump",
             "output_socket": "Normal",
             "input_node": "__node__Principled BSDF",
-            "input_socket": 19,
+            "input_socket": 20,
             "main_socket_type": ""
         },
         {

@@ -18,7 +18,7 @@
 
 # Another Noise Tool - Add Landscape
 # Jimmy Hazevoet
-#TXA version v2.81.5
+#TXA version v2.91.0
 #Based on ANT version v0.1.8
 
 # import modules
