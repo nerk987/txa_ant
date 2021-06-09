@@ -18,7 +18,7 @@
 
 # Another Noise Tool - Add Landscape
 # Jimmy Hazevoet
-#TXA version v2.91.0
+#TXA version v2.91.1 Presets fix
 #Based on ANT version v0.1.8
 
 # import modules
@@ -46,6 +46,18 @@ from .ant_functions import (
         )
 
 from txa_ant import ant_noise
+import os
+import platform
+
+def add_preset_files():
+    presets   = bpy.utils.user_resource('SCRIPTS', "presets")
+    if platform.system() == 'Windows':
+        mypresets = os.path.join(presets, "operator\\txa_ant")
+    else:
+        mypresets = os.path.join(presets, "operator/txa_ant")
+    if not os.path.exists(mypresets):
+        os.makedirs(mypresets)
+        
 
 # ------------------------------------------------------------
 # Add landscape
@@ -612,6 +624,8 @@ class AntAddLandscape(bpy.types.Operator):
 
 
     def execute(self, context):
+        #ensure there is a presets directory present
+        add_preset_files()
         if not self.refresh:
             return {'PASS_THROUGH'}
 

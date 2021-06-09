@@ -18,14 +18,14 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v2.91.0
+#TXA version v2.91.1 Presets fix
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (2, 91, 0),
+    "version": (2, 91, 1),
     "blender": (2, 81, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",

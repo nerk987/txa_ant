@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v2.91.0
+#TXA version v2.91.1 Presets fix
 #Based on ANT version v0.1.8
 
 # import modules
@@ -63,16 +63,8 @@ from bpy_extras import object_utils
             # count = count + len(node.node_tree.nodes)
     # return count
 
-def add_preset_files():
-    presets   = bpy.utils.user_resource('SCRIPTS', "presets")
-    if platform.system() == 'Windows':
-        mypresets = os.path.join(presets, "operator\\txa_ant")
-    else:
-        mypresets = os.path.join(presets, "operator/txa_ant")
-    if not os.path.exists(mypresets):
-        os.makedirs(mypresets)
-        
 # Use NodeCustomBuilder package to add node tree
+
 def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
 
     # nodedict = SaveImageNodes()
@@ -1459,7 +1451,6 @@ class ANTMAIN_PT_eroder(bpy.types.Panel):
         return ob.txaant_landscape.keys() if ob else False
 
     def draw(self,context):
-        add_preset_files()
         
         pEP = context.scene.txaEroderProps
         layout = self.layout
