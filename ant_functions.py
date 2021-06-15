@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v2.91.1 Presets fix
+#TXA version v3.00.0 For Blender version 3.0
 #Based on ANT version v0.1.8
 
 # import modules
@@ -360,12 +360,16 @@ class AntLandscapeRefresh(bpy.types.Operator):
         bpy.ops.object.mode_set(mode = 'EDIT')
         bpy.ops.object.mode_set(mode = 'OBJECT')
 
-        if obj and obj.txaant_landscape.keys():
+        keys = obj.txaant_landscape.keys()
+        if keys:
+
             ob = obj.txaant_landscape
-            obi = ob.items()
+
+
             prop = []
-            for i in range(len(obi)):
-                prop.append(obi[i][1])
+            for key in keys:
+
+                prop.append(getattr(ob, key))
 
             # redraw verts
             mesh = obj.data
@@ -423,14 +427,16 @@ class AntLandscapeRegenerate(bpy.types.Operator):
         # if context.scene.EroderMats == '':
             # context.scene.EroderMats = 'Forrested'
 
-        if obj and obj.txaant_landscape.keys():
-            # print("Regen Allowed")
+        keys = obj.txaant_landscape.keys()
+        if keys:
+
             ob = obj.txaant_landscape
-            # print("ant_landscape:", obj.txaant_landscape)
-            obi = ob.items()
+
+
             ant_props = []
-            for i in range(len(obi)):
-                ant_props.append(obi[i][1])
+            for key in keys:
+
+                ant_props.append(getattr(ob, key))
             # print("Regen: Strata:", len(obi), obi[46])
             
             #get existing modifer details
