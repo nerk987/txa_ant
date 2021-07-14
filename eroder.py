@@ -263,10 +263,11 @@ class Grid:
         AvalancheImg = self.CreateImage(name+"_avalanche", dim_y, dim_x)
         pixels = np.zeros((dim_x,dim_y,4), dtype = np.float16)
         pixels[:,:,-1:] = 1.0
-        ava_max = np.amax(self.avalanced)
-        ava_min = np.amin(self.avalanced)
-        ava_span = max(ava_max, math.fabs(ava_min))/1.0+.00005
-        pixels[:,:,0] = self.avalanced/ava_span + 0.5
+        # ava_max = np.amax(self.avalanced)
+        # ava_min = np.amin(self.avalanced)
+        # ava_span = max(ava_max, math.fabs(ava_min))/1.0+.00005
+        # pixels[:,:,0] = self.avalanced/ava_span + 0.5
+        pixels[:,:,0] = self.avalanced
         grad_max = np.amax(self.gradient)
         pixels[:,:,1] = self.gradient/(grad_max + 0.000001)
         
@@ -439,7 +440,7 @@ class Grid:
                 x = self.center[i,j]/height_max
                 self.sedimentpct[i,j] = (-13.054*x**4+34.542*x**3-30.84*x**2+9.41*x-0.0484 + spct2[i,j]) * (1.0 - Kc)
                 #This doesn't really belong here, just convenient
-                self.noise[i,j] = mathutils.noise.noise((5.0*i/self.center.shape[0],5.0*j/self.center.shape[0],0.0))*0.5+0.5
+                self.noise[i,j] = mathutils.noise.noise((50.0*i/self.center.shape[0],50.0*j/self.center.shape[0],0.0))*0.5+0.5
 
 
     def diffuse(self, Kd, IterDiffuse, numexpr):
@@ -479,10 +480,10 @@ class Grid:
         max_cap = np.amax(cap)
         cap_inv = np.ones(c.shape, dtype = np.float16) - cap*(1.0-river_sense)/max_cap
         ne = self.noise[1:-1,2:]
-        cap_inv = cap_inv - ne * 2 * (1.0 - noise_effect)
-        # cap_inv2 = where(cap_inv > 0.9, 1.0, 0.0)
-        cap_inv2 = np.clip(cap_inv * 2 - 0.5, 0., 1.)
-        # cap_inv = np.multiply(cap_inv, cap_inv)
+        cap_inv = cap_inv - ne * noise_effect
+
+        # cap_inv2 = np.clip(cap_inv * 2 - 0.5, 0., 1.)
+        cap_inv2 = np.clip(cap_inv, 0., 1.)
         
         # delta_array = cap_inv
         # delta_array = np.multiply(cap_inv, delta)
@@ -504,18 +505,21 @@ class Grid:
                  + where((left -c) < -delta,(left -c +delta)/2, 0)  \
                  + where((right-c) < -delta,(right-c +delta)/2, 0)')
         else:
-            sa = (
+            sa_in = (
                 # incoming
                    where((up   -c) > delta_y ,(up   -c -delta_y) * in_factor, 0)
                  + where((down -c) > delta_y ,(down -c -delta_y) * in_factor, 0)
                  + where((left -c) > delta_x ,(left -c -delta_x) * in_factor, 0)
                  + where((right-c) > delta_x ,(right-c -delta_x) * in_factor, 0)
+                 )
+            sa_out = (
                 # outgoing
-                 + where((up   -c) < -delta_y,(up   -c +delta_y) * out_factor, 0)
+                   where((up   -c) < -delta_y,(up   -c +delta_y) * out_factor, 0)
                  + where((down -c) < -delta_y,(down -c +delta_y) * out_factor, 0)
                  + where((left -c) < -delta_x,(left -c +delta_x) * out_factor, 0)
                  + where((right-c) < -delta_x,(right-c +delta_x) * out_factor, 0)
                  )
+            sa = sa_in + sa_out
         # else:
             # sa = (
                 # # incoming
@@ -547,8 +551,8 @@ class Grid:
         # self.avalanced[1:-1,1:-1] = self.avalanced[1:-1,1:-1] + sa2/iterava
         
         # Normal addition of sa 
-        self.avalanced[1:-1,1:-1] = cap_inv2#delta_array
-        # self.avalanced[1:-1,1:-1] = self.avalanced[1:-1,1:-1] + sa/iterava
+        # self.avalanced[1:-1,1:-1] = cap_inv
+        self.avalanced[1:-1,1:-1] = where(sa_in > 0 , 1, 0)
         
         self.center[1:-1,1:-1] = c + sa
 

@@ -999,6 +999,7 @@ classes = (
     ant_functions.MESH_OT_ImageSave,
     ant_functions.ANTMAIN_PT_eroder,
     ant_functions.EroderProps,
+    ant_functions.AntMaterialReplace,
     MESH_MT_ant_presets,
     MESH_MT_main_ant_presets,
     AddPresetTxa_Ant,

@@ -618,6 +618,44 @@ class AntLandscapeRegenerate(bpy.types.Operator):
 
         return {'FINISHED'}
 
+class AntMaterialReplace(bpy.types.Operator):
+    bl_idname = "mesh.txa_ant_material_replace"
+    bl_label = "MaterialReplace"
+    bl_description = "Replace image textures in currrent material with TXA textures"
+    bl_options = {'REGISTER', 'UNDO'}
+    
+    tex_keys = ["water", "avalanche", "normal", "height", "erodedheight"]
+
+
+    @classmethod
+    def poll(cls, context):
+        ob = bpy.context.active_object
+        if ob.mode == 'EDIT':
+            return False
+        return ob.ant_landscape
+
+    def swap_tex(self, nodes, ob):
+        for node in nodes:
+            if node.bl_idname == "ShaderNodeGroup":
+                self.swap_tex(node.node_tree.nodes, ob)
+            if node.bl_idname == "ShaderNodeTexImage":
+                for tex_type in self.tex_keys:
+                    if node.image.name.find(tex_type) > -1:
+                        new_tex = ob.name + "_" + tex_type
+                        print("Texture Name: ", node.image.name, new_tex)
+                        if new_tex in bpy.data.images:
+                            print("Replacing image")
+                            node.image = bpy.data.images[new_tex]
+                        
+                        
+            
+    def execute(self, context):
+        ob = context.object
+        self.swap_tex(ob.active_material.node_tree.nodes, ob)
+        
+        return {'FINISHED'}
+
+
 
 # ------------------------------------------------------------
 # Z normal value to vertex group (Slope map)
@@ -1180,7 +1218,7 @@ class EroderProps(bpy.types.PropertyGroup):
     Kt: FloatProperty(
             name="Kt",
             description="Maximum stable rock talus angle",
-            default=radians(80),
+            default=radians(65),
             min=0,
             max=radians(90),
             subtype='ANGLE'
@@ -1276,7 +1314,7 @@ class EroderProps(bpy.types.PropertyGroup):
     Pn: FloatProperty(
             name="Noise Effect",
             description="Randomize Avalanche Effects",
-            default=0.5,
+            default=0.6,
             min=0,
             max=1
             )
@@ -1471,6 +1509,8 @@ class ANTMAIN_PT_eroder(bpy.types.Panel):
         layout.label(text="Preferred Material")
         # layout.prop(pEP, 'PrefMat')
         layout.prop(context.scene, 'EroderMats')
+        layout.operator('mesh.txa_ant_material_replace', text="Replace existing textures")
+        layout.label(text="Erosion Preferences")
         layout.prop(pEP, 'Iterations')
 
         # # box = layout.box()
