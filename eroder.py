@@ -263,9 +263,9 @@ class Grid:
         AvalancheImg = self.CreateImage(name+"_avalanche", dim_y, dim_x)
         pixels = np.zeros((dim_x,dim_y,4), dtype = np.float16)
         pixels[:,:,-1:] = 1.0
-        # ava_max = np.amax(self.avalanced)
-        # ava_min = np.amin(self.avalanced)
-        # ava_span = max(ava_max, math.fabs(ava_min))/1.0+.00005
+        ava_max = np.amax(self.avalanced)
+        ava_min = np.amin(self.avalanced)
+        ava_span = max(ava_max, math.fabs(ava_min))/1.0+.00005
         # pixels[:,:,0] = self.avalanced/ava_span + 0.5
         pixels[:,:,0] = self.avalanced
         grad_max = np.amax(self.gradient)
@@ -481,7 +481,6 @@ class Grid:
         cap_inv = np.ones(c.shape, dtype = np.float16) - cap*(1.0-river_sense)/max_cap
         ne = self.noise[1:-1,2:]
         cap_inv = cap_inv - ne * noise_effect
-
         # cap_inv2 = np.clip(cap_inv * 2 - 0.5, 0., 1.)
         cap_inv2 = np.clip(cap_inv, 0., 1.)
         

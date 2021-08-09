@@ -1,0 +1,652 @@
+{
+    "material": [
+        {
+            "use_backface_culling": false,
+            "blend_method": "OPAQUE",
+            "shadow_method": "OPAQUE",
+            "alpha_threshold": 0.5,
+            "use_screen_refraction": false,
+            "refraction_depth": 0.0,
+            "use_sss_translucency": false,
+            "pass_index": 0
+        }
+    ],
+    "frames": [],
+    "nodes": [
+        {
+            "node": "ShaderNodeOutputMaterial",
+            "name": "__node__Material Output",
+            "label": "Material Output",
+            "location": [
+                447.7485046386719,
+                -79.10137939453125
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    0,
+                    "target",
+                    "ALL"
+                ],
+                [
+                    5,
+                    "Surface",
+                    "SHADER",
+                    false
+                ],
+                [
+                    5,
+                    "Volume",
+                    "SHADER",
+                    false
+                ],
+                [
+                    1,
+                    2,
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    false
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeBsdfPrincipled",
+            "name": "__node__Principled BSDF",
+            "label": "",
+            "location": [
+                132.83111572265625,
+                -107.46737670898438
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 240.0,
+            "extra_settings": [
+                [
+                    -2,
+                    "SHADER",
+                    "BSDF",
+                    false
+                ],
+                [
+                    0,
+                    "distribution",
+                    "GGX"
+                ],
+                [
+                    0,
+                    "subsurface_method",
+                    "BURLEY"
+                ],
+                [
+                    1,
+                    "Base Color",
+                    [
+                        0.800000011920929,
+                        0.800000011920929,
+                        0.800000011920929,
+                        1.0
+                    ],
+                    false
+                ],
+                [
+                    1,
+                    1,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    2,
+                    [
+                        1.0,
+                        0.20000000298023224,
+                        0.10000000149011612
+                    ],
+                    false
+                ],
+                [
+                    1,
+                    "Subsurface Color",
+                    [
+                        0.800000011920929,
+                        0.800000011920929,
+                        0.800000011920929,
+                        1.0
+                    ],
+                    false
+                ],
+                [
+                    1,
+                    4,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    5,
+                    0.5,
+                    false
+                ],
+                [
+                    1,
+                    6,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    7,
+                    0.5,
+                    false
+                ],
+                [
+                    1,
+                    8,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    9,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    10,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    11,
+                    0.5,
+                    false
+                ],
+                [
+                    1,
+                    12,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    13,
+                    0.029999999329447746,
+                    false
+                ],
+                [
+                    1,
+                    14,
+                    1.4500000476837158,
+                    false
+                ],
+                [
+                    1,
+                    15,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    16,
+                    0.0,
+                    false
+                ],
+                [
+                    1,
+                    "Emission",
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ],
+                    false
+                ],
+                [
+                    1,
+                    18,
+                    1.0,
+                    false
+                ],
+                [
+                    1,
+                    19,
+                    1.0,
+                    false
+                ],
+                [
+                    1,
+                    20,
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    false
+                ],
+                [
+                    1,
+                    21,
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    false
+                ],
+                [
+                    1,
+                    22,
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    false
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeTexImage",
+            "name": "__node__Image Texture",
+            "label": "",
+            "location": [
+                -266.1866455078125,
+                -187.89419555664062
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 240.0,
+            "extra_settings": [
+                [
+                    -2,
+                    "RGBA",
+                    "Color",
+                    false
+                ],
+                [
+                    -2,
+                    "VALUE",
+                    "Alpha",
+                    false
+                ],
+                [
+                    5,
+                    "source",
+                    "GENERATED"
+                ],
+                [
+                    14,
+                    "image",
+                    "ant01_basecolor"
+                ],
+                [
+                    4,
+                    "filepath",
+                    ""
+                ],
+                [
+                    12,
+                    "name",
+                    "sRGB"
+                ],
+                [
+                    0,
+                    "interpolation",
+                    "Linear"
+                ],
+                [
+                    0,
+                    "projection",
+                    "FLAT"
+                ],
+                [
+                    0,
+                    "extension",
+                    "REPEAT"
+                ],
+                [
+                    1,
+                    0,
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    false
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeTexCoord",
+            "name": "__node__Texture Coordinate",
+            "label": "",
+            "location": [
+                -634.7598266601562,
+                -299.9015808105469
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    -2,
+                    "VECTOR",
+                    "Generated",
+                    false
+                ],
+                [
+                    -2,
+                    "VECTOR",
+                    "Normal",
+                    false
+                ],
+                [
+                    -2,
+                    "VECTOR",
+                    "UV",
+                    false
+                ],
+                [
+                    -2,
+                    "VECTOR",
+                    "Object",
+                    false
+                ],
+                [
+                    -2,
+                    "VECTOR",
+                    "Camera",
+                    false
+                ],
+                [
+                    -2,
+                    "VECTOR",
+                    "Window",
+                    false
+                ],
+                [
+                    -2,
+                    "VECTOR",
+                    "Reflection",
+                    false
+                ],
+                [
+                    0,
+                    "from_instancer",
+                    false
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeTexImage",
+            "name": "__node__Image Texture.001",
+            "label": "",
+            "location": [
+                -269.94171142578125,
+                -471.6080017089844
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 240.0,
+            "extra_settings": [
+                [
+                    -2,
+                    "RGBA",
+                    "Color",
+                    false
+                ],
+                [
+                    -2,
+                    "VALUE",
+                    "Alpha",
+                    false
+                ],
+                [
+                    5,
+                    "source",
+                    "GENERATED"
+                ],
+                [
+                    14,
+                    "image",
+                    "ant01_roughness"
+                ],
+                [
+                    4,
+                    "filepath",
+                    ""
+                ],
+                [
+                    12,
+                    "name",
+                    "Non-Color"
+                ],
+                [
+                    0,
+                    "interpolation",
+                    "Linear"
+                ],
+                [
+                    0,
+                    "projection",
+                    "FLAT"
+                ],
+                [
+                    0,
+                    "extension",
+                    "REPEAT"
+                ],
+                [
+                    1,
+                    0,
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    false
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeNormalMap",
+            "name": "__node__Normal Map",
+            "label": "",
+            "location": [
+                -175.90415954589844,
+                -755.6668090820312
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 150.0,
+            "extra_settings": [
+                [
+                    -2,
+                    "VECTOR",
+                    "Normal",
+                    false
+                ],
+                [
+                    0,
+                    "space",
+                    "TANGENT"
+                ],
+                [
+                    0,
+                    "uv_map",
+                    ""
+                ],
+                [
+                    1,
+                    0,
+                    1.0,
+                    false
+                ],
+                [
+                    1,
+                    "Color",
+                    [
+                        0.5,
+                        0.5,
+                        1.0,
+                        1.0
+                    ],
+                    false
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeTexImage",
+            "name": "__node__Image Texture.002",
+            "label": "",
+            "location": [
+                -487.0307922363281,
+                -767.0651245117188
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 240.0,
+            "extra_settings": [
+                [
+                    -2,
+                    "RGBA",
+                    "Color",
+                    false
+                ],
+                [
+                    -2,
+                    "VALUE",
+                    "Alpha",
+                    false
+                ],
+                [
+                    5,
+                    "source",
+                    "FILE"
+                ],
+                [
+                    14,
+                    "image",
+                    "ant01_normal"
+                ],
+                [
+                    4,
+                    "filepath",
+                    ""
+                ],
+                [
+                    12,
+                    "name",
+                    "Non-Color"
+                ],
+                [
+                    0,
+                    "interpolation",
+                    "Linear"
+                ],
+                [
+                    0,
+                    "projection",
+                    "FLAT"
+                ],
+                [
+                    0,
+                    "extension",
+                    "REPEAT"
+                ],
+                [
+                    1,
+                    0,
+                    [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    false
+                ]
+            ]
+        }
+    ],
+    "links": [
+        {
+            "output_node": "__node__Principled BSDF",
+            "output_socket": 0,
+            "input_node": "__node__Material Output",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Image Texture",
+            "output_socket": 0,
+            "input_node": "__node__Principled BSDF",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Image Texture.001",
+            "output_socket": 0,
+            "input_node": "__node__Principled BSDF",
+            "input_socket": 7,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Normal Map",
+            "output_socket": 0,
+            "input_node": "__node__Principled BSDF",
+            "input_socket": 20,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Texture Coordinate",
+            "output_socket": 2,
+            "input_node": "__node__Image Texture",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Texture Coordinate",
+            "output_socket": 2,
+            "input_node": "__node__Image Texture.001",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Image Texture.002",
+            "output_socket": 0,
+            "input_node": "__node__Normal Map",
+            "input_socket": 0,
+            "main_socket_type": ""
+        }
+    ],
+    "keyframes": [],
+    "groups": []
+}

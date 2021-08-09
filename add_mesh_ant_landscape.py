@@ -50,7 +50,7 @@ import os
 import platform
 
 def add_preset_files():
-    presets   = bpy.utils.user_resource('SCRIPTS', "presets")
+    presets   = bpy.utils.user_resource('SCRIPTS', path="presets")
     if platform.system() == 'Windows':
         mypresets = os.path.join(presets, "operator\\txa_ant")
     else:

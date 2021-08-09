@@ -18,14 +18,14 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v3.00.0 For Blender version 3.0
+#TXA version v3.00.1 For Blender version 3.0 Bake Function
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (3, 00, 0),
+    "version": (3, 00, 1),
     "blender": (3, 00, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
@@ -41,19 +41,15 @@ if "bpy" in locals():
     importlib.reload(mesh_ant_displace)
     importlib.reload(ant_functions)
     importlib.reload(ant_noise)
-    # importlib.reload(Textures)
     importlib.reload(ncb.read_json)
-    # importlib.reload(txaExtraSetting)
-    # importlib.reload(txaExtraSettingComp)
+    importlib.reload(ant_bake)
 else:
     from txa_ant import add_mesh_ant_landscape
     from txa_ant import mesh_ant_displace
     from txa_ant import ant_functions
     from txa_ant import ant_noise
-    # from txa_ant import Textures
     from txa_ant.ncb import read_json
-    # from txa_ant import txaExtraSetting
-    # from txa_ant import txaExtraSettingComp
+    from txa_ant import ant_bake
 
 import bpy
 import os
@@ -1003,6 +999,7 @@ classes = (
     MESH_MT_ant_presets,
     MESH_MT_main_ant_presets,
     AddPresetTxa_Ant,
+    ant_bake.AntLandscapeBake
 )
 
 def register():

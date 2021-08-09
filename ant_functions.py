@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v3.00.0 For Blender version 3.0
+#TXA version v3.00.1 For Blender version 3.0 - bake function
 #Based on ANT version v0.1.8
 
 # import modules
@@ -41,6 +41,8 @@ from math import (
 from .ant_noise import noise_gen
 from .eroder import SaveImageNodes
 from .eroder import RestoreImageNodes
+from .ant_bake import AntLandscapeBake
+from .ant_bake import AddLandscapeMaterial
 from bl_operators.presets import AddPresetBase
 import numpy as np
 import os
@@ -65,45 +67,54 @@ from bpy_extras import object_utils
 
 # Use NodeCustomBuilder package to add node tree
 
-def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
+def BaseCalc(tex_size):
+    i = 0
+    while (tex_size > 0):
+        tex_size = int(tex_size / 2)
+        i = i + 1
+    return min(max(i,1), 12)
 
-    # nodedict = SaveImageNodes()
+# def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
 
-    newmat = False
+    # # nodedict = SaveImageNodes()
+
+    # newmat = False
     
-    matName = ob_name + "_" + PrefMat
+    # matName = ob_name + "_" + PrefMat
 
-    mat = bpy.data.materials.get(matName)
+    # mat = bpy.data.materials.get(matName)
 
-    if  mat is None:
-        newmat = True
-        mat = bpy.data.materials.new(matName)
-        mat.use_nodes = True
+    # if  mat is None:
+        # newmat = True
+        # mat = bpy.data.materials.new(matName)
+        # mat.use_nodes = True
 
-        nt = mat.node_tree
-        for node in nt.nodes:
-            nt.nodes.remove(node)
+        # nt = mat.node_tree
+        # for node in nt.nodes:
+            # nt.nodes.remove(node)
         
         
-    if ob.data.materials:
-        # assign to 1st material slot
-        ob.data.materials[0] = mat
-    else:
-        # no slots
-        ob.data.materials.append(mat)
+    # if ob.data.materials:
+        # # assign to 1st material slot
+        # ob.data.materials[0] = mat
+    # else:
+        # # no slots
+        # ob.data.materials.append(mat)
         
-    #If adding new material, use NodeCustomBuiler read_json to add nodes
-    if newmat:
-        if platform.system() == 'Windows':
-            sep = "\\"
-        else:
-            sep = "/"
-        filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "island" + sep + PrefMat + ".json")
-        # print("Island material: ", water_plane, filename)
-        if not water_plane or not os.path.isfile(filename):    
-            filename = os.path.join(os.path.dirname(__file__), "materials" + sep + PrefMat + ".json")
-        # print("Used material: ", filename)
-        read(filename)
+    # #If adding new material, use NodeCustomBuiler read_json to add nodes
+    # if newmat:
+        # if platform.system() == 'Windows':
+            # sep = "\\"
+        # else:
+            # sep = "/"
+        # filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "island" + sep + PrefMat + ".json")
+        # # print("Island material: ", water_plane, filename)
+        # if PrefMat == 'pbr':
+            # filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "pbr" + sep + PrefMat + ".json")
+        # elif not water_plane or not os.path.isfile(filename):    
+            # filename = os.path.join(os.path.dirname(__file__), "materials" + sep + PrefMat + ".json")
+        # # print("Used material: ", filename)
+        # read(filename)
         
     
 
@@ -359,7 +370,7 @@ class AntLandscapeRefresh(bpy.types.Operator):
 
         bpy.ops.object.mode_set(mode = 'EDIT')
         bpy.ops.object.mode_set(mode = 'OBJECT')
-
+        
         keys = obj.txaant_landscape.keys()
         if keys:
 
@@ -490,6 +501,8 @@ class AntLandscapeRegenerate(bpy.types.Operator):
                 SubMod = new_ob.modifiers.new(name="ANTSubsurf", type='SUBSURF')
                 SubMod.subdivision_type = 'SIMPLE'
                 SubMod.levels = levels
+                SubMod.render_levels = BaseCalc(max(ob['tex_size_x'], ob['tex_size_y']))
+                print("Render Levels: ", SubMod.render_levels)
                 DisplaceTexName = new_name + "_antdisplace"
                 if DisplaceTexName not in bpy.data.textures:
                     ANTDisplaceTex = bpy.data.textures.new(DisplaceTexName, type = 'IMAGE')
@@ -654,7 +667,6 @@ class AntMaterialReplace(bpy.types.Operator):
         self.swap_tex(ob.active_material.node_tree.nodes, ob)
         
         return {'FINISHED'}
-
 
 
 # ------------------------------------------------------------
@@ -1510,6 +1522,7 @@ class ANTMAIN_PT_eroder(bpy.types.Panel):
         # layout.prop(pEP, 'PrefMat')
         layout.prop(context.scene, 'EroderMats')
         layout.operator('mesh.txa_ant_material_replace', text="Replace existing textures")
+        layout.operator('object.txa_ant_bake', text="Bake to PBR material")
         layout.label(text="Erosion Preferences")
         layout.prop(pEP, 'Iterations')
 
