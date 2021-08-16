@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v3.00.1 For Blender version 3.0 - bake function
+#TXA version v3.00.2 For Blender version 3.0 - bake function
 #Based on ANT version v0.1.8
 
 # import modules
@@ -502,7 +502,7 @@ class AntLandscapeRegenerate(bpy.types.Operator):
                 SubMod.subdivision_type = 'SIMPLE'
                 SubMod.levels = levels
                 SubMod.render_levels = BaseCalc(max(ob['tex_size_x'], ob['tex_size_y']))
-                print("Render Levels: ", SubMod.render_levels)
+                # print("Render Levels: ", SubMod.render_levels)
                 DisplaceTexName = new_name + "_antdisplace"
                 if DisplaceTexName not in bpy.data.textures:
                     ANTDisplaceTex = bpy.data.textures.new(DisplaceTexName, type = 'IMAGE')
@@ -645,7 +645,7 @@ class AntMaterialReplace(bpy.types.Operator):
         ob = bpy.context.active_object
         if ob.mode == 'EDIT':
             return False
-        return ob.ant_landscape
+        return ob.txaant_landscape
 
     def swap_tex(self, nodes, ob):
         for node in nodes:
@@ -655,9 +655,9 @@ class AntMaterialReplace(bpy.types.Operator):
                 for tex_type in self.tex_keys:
                     if node.image.name.find(tex_type) > -1:
                         new_tex = ob.name + "_" + tex_type
-                        print("Texture Name: ", node.image.name, new_tex)
+                        # print("Texture Name: ", node.image.name, new_tex)
                         if new_tex in bpy.data.images:
-                            print("Replacing image")
+                            # print("Replacing image")
                             node.image = bpy.data.images[new_tex]
                         
                         

@@ -1,8 +1,8 @@
 # TXA_ant - Textured version of A.N.T. Landscape
 
-V3.00.0 For Blender 3.0 - Fix issues relating to the python update inb Blender 3.0
+V3.00.2 For Blender 3.0 - Fix issues relating to the python update inb Blender 3.0, adds baking, texture replacement and high peak material
 
-Addon Download : [txa_ant_3_00_0.zip](https://github.com/nerk987/txa_ant/releases/download/v3.00.0/txa_ant_3.00.0.zip) 
+Addon Download : [txa_ant_3_00_2.zip](https://github.com/nerk987/txa_ant/releases/download/v3.00.2/txa_ant_3_00_2.zip) 
 
 Note, the materials supplied in the add-on are only suitable for Blender 2.91, 2.92 and 2.93 and 3.0. Use version 2.81.6 for earlier versions.
 
