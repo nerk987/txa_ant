@@ -18,8 +18,8 @@
             "name": "__node__Image Texture",
             "label": "",
             "location": [
-                -1084.679931640625,
-                -64.06100463867188
+                -986.8623046875,
+                487.250732421875
             ],
             "hide": false,
             "main_socket_type": "",
@@ -28,18 +28,6 @@
             "height": 100.0,
             "width": 240.0,
             "extra_settings": [
-                [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
                 [
                     5,
                     "source",
@@ -74,16 +62,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
                 ]
             ]
         },
@@ -92,8 +70,8 @@
             "name": "__node__Image Texture.002",
             "label": "",
             "location": [
-                -1096.0855712890625,
-                269.2536926269531
+                -998.26806640625,
+                820.5653076171875
             ],
             "hide": false,
             "main_socket_type": "",
@@ -102,18 +80,6 @@
             "height": 100.0,
             "width": 240.0,
             "extra_settings": [
-                [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
                 [
                     5,
                     "source",
@@ -148,106 +114,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeOutputMaterial",
-            "name": "__node__Material Output",
-            "label": "",
-            "location": [
-                3448.83154296875,
-                27.250205993652344
-            ],
-            "hide": false,
-            "main_socket_type": "",
-            "parent": "",
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 140.0,
-            "extra_settings": [
-                [
-                    0,
-                    "target",
-                    "ALL"
-                ],
-                [
-                    5,
-                    "Surface",
-                    "SHADER",
-                    false
-                ],
-                [
-                    5,
-                    "Volume",
-                    "SHADER",
-                    false
-                ],
-                [
-                    1,
-                    2,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeMixShader",
-            "name": "__node__Mix Shader",
-            "label": "",
-            "location": [
-                2795.24365234375,
-                23.52014923095703
-            ],
-            "hide": false,
-            "main_socket_type": "",
-            "parent": "",
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 140.0,
-            "extra_settings": [
-                [
-                    -2,
-                    "SHADER",
-                    "Shader",
-                    false
-                ],
-                [
-                    -1,
-                    -1,
-                    -1
-                ],
-                [
-                    1,
-                    0,
-                    0.0,
-                    false
-                ],
-                [
-                    5,
-                    "Shader",
-                    "SHADER",
-                    false
-                ],
-                [
-                    5,
-                    "Shader",
-                    "SHADER",
-                    false
                 ]
             ]
         },
@@ -256,8 +122,8 @@
             "name": "__node__Image Texture.001",
             "label": "",
             "location": [
-                -1096.926025390625,
-                -328.1605529785156
+                -999.1085205078125,
+                223.1512451171875
             ],
             "hide": false,
             "main_socket_type": "",
@@ -266,18 +132,6 @@
             "height": 100.0,
             "width": 240.0,
             "extra_settings": [
-                [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
                 [
                     5,
                     "source",
@@ -312,67 +166,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeSeparateRGB",
-            "name": "__node__Separate RGB",
-            "label": "",
-            "location": [
-                -725.2509155273438,
-                247.06451416015625
-            ],
-            "hide": false,
-            "main_socket_type": "",
-            "parent": "",
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 140.0,
-            "extra_settings": [
-                [
-                    -2,
-                    "VALUE",
-                    "R",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "G",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "B",
-                    false
-                ],
-                [
-                    -1,
-                    -1,
-                    -1
-                ],
-                [
-                    1,
-                    "Image",
-                    [
-                        0.800000011920929,
-                        0.800000011920929,
-                        0.800000011920929,
-                        1.0
-                    ],
-                    false
                 ]
             ]
         },
@@ -381,8 +174,8 @@
             "name": "__node__Image Texture.003",
             "label": "",
             "location": [
-                -1248.849365234375,
-                -727.2832641601562
+                -1007.510009765625,
+                -85.397705078125
             ],
             "hide": false,
             "main_socket_type": "",
@@ -391,18 +184,6 @@
             "height": 100.0,
             "width": 240.0,
             "extra_settings": [
-                [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
                 [
                     5,
                     "source",
@@ -437,16 +218,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
                 ]
             ]
         },
@@ -455,8 +226,8 @@
             "name": "__node__Group.001",
             "label": "",
             "location": [
-                1964.712158203125,
-                -669.3291015625
+                -261.21527099609375,
+                -35.1119384765625
             ],
             "node_tree": "__node__NodeGroup.002",
             "main_socket_type": "",
@@ -479,12 +250,61 @@
             ]
         },
         {
+            "node": "ShaderNodeOutputMaterial",
+            "name": "__node__Material Output",
+            "label": "",
+            "location": [
+                667.546142578125,
+                490.4822998046875
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    0,
+                    "target",
+                    "ALL"
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeSeparateRGB",
+            "name": "__node__Separate RGB",
+            "label": "",
+            "location": [
+                -627.433349609375,
+                798.3763427734375
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    1,
+                    "Image",
+                    [
+                        0.800000011920929,
+                        0.800000011920929,
+                        0.800000011920929,
+                        1.0
+                    ]
+                ]
+            ]
+        },
+        {
             "node": "ShaderNodeGroup",
             "name": "__node__Group",
             "label": "",
             "location": [
-                355.2497863769531,
-                -983.7974243164062
+                -243.7177734375,
+                279.60430908203125
             ],
             "node_tree": "__node__NodeGroup.001",
             "main_socket_type": "",
@@ -525,69 +345,91 @@
                     ]
                 ]
             ]
+        },
+        {
+            "node": "ShaderNodeMixShader",
+            "name": "__node__Mix Shader",
+            "label": "",
+            "location": [
+                278.0662841796875,
+                457.392578125
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    1,
+                    "Fac",
+                    0.0
+                ]
+            ]
         }
     ],
     "links": [
         {
-            "output_node": "__node__Mix Shader",
-            "output_socket": 0,
-            "input_node": "__node__Material Output",
-            "input_socket": 0,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Separate RGB",
-            "output_socket": 0,
-            "input_node": "__node__Mix Shader",
-            "input_socket": 0,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Group",
-            "output_socket": 0,
-            "input_node": "__node__Mix Shader",
-            "input_socket": 1,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Group.001",
-            "output_socket": 0,
-            "input_node": "__node__Mix Shader",
-            "input_socket": 2,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Image Texture.002",
-            "output_socket": 0,
-            "input_node": "__node__Separate RGB",
-            "input_socket": 0,
-            "main_socket_type": ""
-        },
-        {
             "output_node": "__node__Image Texture.003",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Group.001",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
+            "output_node": "__node__Mix Shader",
+            "output_socket": "Shader",
+            "input_node": "__node__Material Output",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Image Texture.002",
+            "output_socket": "Color",
+            "input_node": "__node__Separate RGB",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
             "output_node": "__node__Image Texture",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Group",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Image Texture.001",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Group",
             "input_socket": 1,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Image Texture.003",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Group",
+            "input_socket": 2,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Separate RGB",
+            "output_socket": "R",
+            "input_node": "__node__Mix Shader",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Group",
+            "output_socket": "BSDF",
+            "input_node": "__node__Mix Shader",
+            "input_socket": 1,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Group.001",
+            "output_socket": "BSDF",
+            "input_node": "__node__Mix Shader",
             "input_socket": 2,
             "main_socket_type": ""
         }
@@ -613,12 +455,6 @@
                     "width": 240.0,
                     "extra_settings": [
                         [
-                            -2,
-                            "SHADER",
-                            "BSDF",
-                            false
-                        ],
-                        [
                             0,
                             "distribution",
                             "GGX"
@@ -630,30 +466,83 @@
                         ],
                         [
                             1,
+                            "Subsurface",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Metallic",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Specular",
+                            0.5
+                        ],
+                        [
+                            1,
+                            "Specular Tint",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Roughness",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Anisotropic",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Anisotropic Rotation",
+                            0.5
+                        ],
+                        [
+                            1,
+                            "Sheen",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Sheen Tint",
+                            0.08454544842243195
+                        ],
+                        [
+                            1,
+                            "Clearcoat",
+                            1.4500000476837158
+                        ],
+                        [
+                            1,
+                            "Clearcoat Roughness",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "IOR",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Transmission",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Transmission Roughness",
+                            1.0
+                        ],
+                        [
+                            1,
                             "Base Color",
                             [
                                 0.800000011920929,
                                 0.800000011920929,
                                 0.800000011920929,
                                 1.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            1,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            [
-                                1.0,
-                                0.20000000298023224,
-                                0.10000000149011612
-                            ],
-                            false
+                            ]
                         ],
                         [
                             1,
@@ -663,139 +552,16 @@
                                 0.800000011920929,
                                 0.800000011920929,
                                 1.0
-                            ],
-                            false
+                            ]
                         ],
                         [
                             1,
-                            4,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            5,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            6,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            7,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            8,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            9,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            10,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            11,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            12,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            13,
-                            0.08454544842243195,
-                            false
-                        ],
-                        [
-                            1,
-                            14,
-                            1.4500000476837158,
-                            false
-                        ],
-                        [
-                            1,
-                            15,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            16,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            "Emission",
+                            "Subsurface Radius",
                             [
-                                0.0,
-                                0.0,
-                                0.0,
-                                1.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            18,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            19,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            20,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            21,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            22,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
+                                1.0,
+                                0.20000000298023224,
+                                0.10000000149011612
+                            ]
                         ]
                     ]
                 },
@@ -815,12 +581,6 @@
                     "width": 150.0,
                     "extra_settings": [
                         [
-                            -2,
-                            "VECTOR",
-                            "Normal",
-                            false
-                        ],
-                        [
                             0,
                             "space",
                             "TANGENT"
@@ -832,9 +592,8 @@
                         ],
                         [
                             1,
-                            0,
-                            0.5,
-                            false
+                            "Strength",
+                            0.5
                         ],
                         [
                             1,
@@ -844,8 +603,7 @@
                                 0.5,
                                 1.0,
                                 1.0
-                            ],
-                            false
+                            ]
                         ]
                     ]
                 },
@@ -905,21 +663,18 @@
                     "Normal Map",
                     "Normal",
                     "Principled BSDF",
-                    20,
-                    0
+                    22
                 ],
                 [
                     "Group Input",
                     "Color",
                     "Normal Map",
-                    1,
-                    0
+                    1
                 ],
                 [
                     "Principled BSDF",
                     "BSDF",
                     "Group Output",
-                    0,
                     0
                 ]
             ]
@@ -928,214 +683,12 @@
             "name": "__node__NodeGroup.001",
             "nodes": [
                 {
-                    "node": "ShaderNodeBsdfPrincipled",
-                    "name": "Principled BSDF.001",
-                    "label": "",
-                    "location": [
-                        1051.2691650390625,
-                        345.29034423828125
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            -2,
-                            "SHADER",
-                            "BSDF",
-                            false
-                        ],
-                        [
-                            0,
-                            "distribution",
-                            "GGX"
-                        ],
-                        [
-                            0,
-                            "subsurface_method",
-                            "BURLEY"
-                        ],
-                        [
-                            1,
-                            "Base Color",
-                            [
-                                0.0,
-                                0.0,
-                                0.0,
-                                1.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            1,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            [
-                                1.0,
-                                0.20000000298023224,
-                                0.10000000149011612
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            "Subsurface Color",
-                            [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929,
-                                1.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            4,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            5,
-                            0.26363635063171387,
-                            false
-                        ],
-                        [
-                            1,
-                            6,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            7,
-                            0.7954545617103577,
-                            false
-                        ],
-                        [
-                            1,
-                            8,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            9,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            10,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            11,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            12,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            13,
-                            0.104545459151268,
-                            false
-                        ],
-                        [
-                            1,
-                            14,
-                            1.4500000476837158,
-                            false
-                        ],
-                        [
-                            1,
-                            15,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            16,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            "Emission",
-                            [
-                                0.0,
-                                0.0,
-                                0.0,
-                                1.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            18,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            19,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            20,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            21,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            22,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
-                        ]
-                    ]
-                },
-                {
                     "node": "ShaderNodeSeparateRGB",
                     "name": "Separate RGB.001",
                     "label": "",
                     "location": [
-                        -773.42626953125,
-                        371.59442138671875
+                        -798.689453125,
+                        287.53240966796875
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1145,29 +698,6 @@
                     "width": 140.0,
                     "extra_settings": [
                         [
-                            -2,
-                            "VALUE",
-                            "R",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VALUE",
-                            "G",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VALUE",
-                            "B",
-                            false
-                        ],
-                        [
-                            -1,
-                            -1,
-                            -1
-                        ],
-                        [
                             1,
                             "Image",
                             [
@@ -1175,8 +705,7 @@
                                 0.800000011920929,
                                 0.800000011920929,
                                 1.0
-                            ],
-                            false
+                            ]
                         ]
                     ]
                 },
@@ -1185,8 +714,8 @@
                     "name": "ColorRamp",
                     "label": "",
                     "location": [
-                        -333.4262390136719,
-                        424.82379150390625
+                        -358.6893005371094,
+                        340.76177978515625
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1195,18 +724,6 @@
                     "height": 100.0,
                     "width": 240.0,
                     "extra_settings": [
-                        [
-                            -2,
-                            "RGBA",
-                            "Color",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VALUE",
-                            "Alpha",
-                            false
-                        ],
                         [
                             7,
                             "color_mode",
@@ -1254,63 +771,6 @@
                                     ]
                                 ]
                             ]
-                        ],
-                        [
-                            1,
-                            0,
-                            0.5,
-                            false
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeSeparateRGB",
-                    "name": "Separate RGB.002",
-                    "label": "",
-                    "location": [
-                        -759.13916015625,
-                        119.77850341796875
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            -2,
-                            "VALUE",
-                            "R",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VALUE",
-                            "G",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VALUE",
-                            "B",
-                            false
-                        ],
-                        [
-                            -1,
-                            -1,
-                            -1
-                        ],
-                        [
-                            1,
-                            "Image",
-                            [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929,
-                                1.0
-                            ],
-                            false
                         ]
                     ]
                 },
@@ -1319,8 +779,8 @@
                     "name": "Math",
                     "label": "",
                     "location": [
-                        391.2691955566406,
-                        337.37738037109375
+                        366.0060729980469,
+                        253.31536865234375
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1329,12 +789,6 @@
                     "height": 100.0,
                     "width": 140.0,
                     "extra_settings": [
-                        [
-                            -2,
-                            "VALUE",
-                            "Value",
-                            false
-                        ],
                         [
                             0,
                             "operation",
@@ -1354,24 +808,6 @@
                             10,
                             1,
                             0.5
-                        ],
-                        [
-                            1,
-                            0,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            1,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            0.0,
-                            false
                         ]
                     ]
                 },
@@ -1380,8 +816,8 @@
                     "name": "ColorRamp.002",
                     "label": "",
                     "location": [
-                        183.53512573242188,
-                        104.29058837890625
+                        158.27206420898438,
+                        20.228607177734375
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1390,18 +826,6 @@
                     "height": 100.0,
                     "width": 240.0,
                     "extra_settings": [
-                        [
-                            -2,
-                            "RGBA",
-                            "Color",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VALUE",
-                            "Alpha",
-                            false
-                        ],
                         [
                             7,
                             "color_mode",
@@ -1440,73 +864,6 @@
                                     ]
                                 ]
                             ]
-                        ],
-                        [
-                            1,
-                            0,
-                            0.5,
-                            false
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeMath",
-                    "name": "Math.003",
-                    "label": "",
-                    "location": [
-                        -331.7247619628906,
-                        75.42181396484375
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            -2,
-                            "VALUE",
-                            "Value",
-                            false
-                        ],
-                        [
-                            0,
-                            "operation",
-                            "ADD"
-                        ],
-                        [
-                            0,
-                            "use_clamp",
-                            false
-                        ],
-                        [
-                            10,
-                            0,
-                            0.5
-                        ],
-                        [
-                            10,
-                            1,
-                            200.0
-                        ],
-                        [
-                            1,
-                            0,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            1,
-                            200.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            0.0,
-                            false
                         ]
                     ]
                 },
@@ -1515,8 +872,8 @@
                     "name": "Noise Texture",
                     "label": "",
                     "location": [
-                        -48.730804443359375,
-                        369.71319580078125
+                        -73.99386596679688,
+                        285.65118408203125
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1526,61 +883,19 @@
                     "width": 140.0,
                     "extra_settings": [
                         [
-                            -2,
-                            "VALUE",
-                            "Fac",
-                            false
-                        ],
-                        [
-                            -2,
-                            "RGBA",
-                            "Color",
-                            false
-                        ],
-                        [
-                            -1,
-                            -1,
-                            -1
+                            1,
+                            "Scale",
+                            5.0
                         ],
                         [
                             1,
-                            0,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
+                            "Detail",
+                            2.0
                         ],
                         [
                             1,
-                            1,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            5.0,
-                            false
-                        ],
-                        [
-                            1,
-                            3,
-                            2.0,
-                            false
-                        ],
-                        [
-                            1,
-                            4,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            5,
-                            0.0,
-                            false
+                            "Distortion",
+                            0.0
                         ]
                     ]
                 },
@@ -1589,8 +904,8 @@
                     "name": "Math.004",
                     "label": "",
                     "location": [
-                        171.26919555664062,
-                        383.85723876953125
+                        146.00613403320312,
+                        299.79522705078125
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1599,12 +914,6 @@
                     "height": 100.0,
                     "width": 140.0,
                     "extra_settings": [
-                        [
-                            -2,
-                            "VALUE",
-                            "Value",
-                            false
-                        ],
                         [
                             0,
                             "operation",
@@ -1624,24 +933,6 @@
                             10,
                             1,
                             0.5
-                        ],
-                        [
-                            1,
-                            0,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            1,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            0.0,
-                            false
                         ]
                     ]
                 },
@@ -1650,8 +941,8 @@
                     "name": "Noise Texture.001",
                     "label": "",
                     "location": [
-                        -59.874420166015625,
-                        135.82476806640625
+                        -85.13754272460938,
+                        51.762786865234375
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1661,61 +952,19 @@
                     "width": 140.0,
                     "extra_settings": [
                         [
-                            -2,
-                            "VALUE",
-                            "Fac",
-                            false
-                        ],
-                        [
-                            -2,
-                            "RGBA",
-                            "Color",
-                            false
-                        ],
-                        [
-                            -1,
-                            -1,
-                            -1
+                            1,
+                            "Scale",
+                            20.0
                         ],
                         [
                             1,
-                            0,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
+                            "Detail",
+                            2.0
                         ],
                         [
                             1,
-                            1,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            20.0,
-                            false
-                        ],
-                        [
-                            1,
-                            3,
-                            2.0,
-                            false
-                        ],
-                        [
-                            1,
-                            4,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            5,
-                            0.0,
-                            false
+                            "Distortion",
+                            0.0
                         ]
                     ]
                 },
@@ -1724,8 +973,8 @@
                     "name": "Texture Coordinate",
                     "label": "",
                     "location": [
-                        -1051.2691650390625,
-                        -189.42742919921875
+                        -1076.5322265625,
+                        -273.48944091796875
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1734,48 +983,6 @@
                     "height": 100.0,
                     "width": 140.0,
                     "extra_settings": [
-                        [
-                            -2,
-                            "VECTOR",
-                            "Generated",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VECTOR",
-                            "Normal",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VECTOR",
-                            "UV",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VECTOR",
-                            "Object",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VECTOR",
-                            "Camera",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VECTOR",
-                            "Window",
-                            false
-                        ],
-                        [
-                            -2,
-                            "VECTOR",
-                            "Reflection",
-                            false
-                        ],
                         [
                             0,
                             "from_instancer",
@@ -1788,8 +995,8 @@
                     "name": "Noise Texture.003",
                     "label": "",
                     "location": [
-                        -806.2822265625,
-                        -424.82379150390625
+                        -831.54541015625,
+                        -508.88580322265625
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -1799,196 +1006,19 @@
                     "width": 140.0,
                     "extra_settings": [
                         [
-                            -2,
-                            "VALUE",
-                            "Fac",
-                            false
-                        ],
-                        [
-                            -2,
-                            "RGBA",
-                            "Color",
-                            false
-                        ],
-                        [
-                            -1,
-                            -1,
-                            -1
+                            1,
+                            "Scale",
+                            30.0
                         ],
                         [
                             1,
-                            0,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
+                            "Detail",
+                            5.0
                         ],
                         [
                             1,
-                            1,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            30.0,
-                            false
-                        ],
-                        [
-                            1,
-                            3,
-                            5.0,
-                            false
-                        ],
-                        [
-                            1,
-                            4,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            5,
-                            0.0,
-                            false
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeTexNoise",
-                    "name": "Noise Texture.002",
-                    "label": "",
-                    "location": [
-                        -795.966796875,
-                        -163.56011962890625
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            -2,
-                            "VALUE",
-                            "Fac",
-                            false
-                        ],
-                        [
-                            -2,
-                            "RGBA",
-                            "Color",
-                            false
-                        ],
-                        [
-                            -1,
-                            -1,
-                            -1
-                        ],
-                        [
-                            1,
-                            0,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
-                        ],
-                        [
-                            1,
-                            1,
-                            0.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            10.0,
-                            false
-                        ],
-                        [
-                            1,
-                            3,
-                            2.0,
-                            false
-                        ],
-                        [
-                            1,
-                            4,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            5,
-                            0.0,
-                            false
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeMath",
-                    "name": "Math.002",
-                    "label": "",
-                    "location": [
-                        -595.62158203125,
-                        -162.55914306640625
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            -2,
-                            "VALUE",
-                            "Value",
-                            false
-                        ],
-                        [
-                            0,
-                            "operation",
-                            "MULTIPLY"
-                        ],
-                        [
-                            0,
-                            "use_clamp",
-                            false
-                        ],
-                        [
-                            10,
-                            0,
-                            0.5
-                        ],
-                        [
-                            10,
-                            1,
-                            0.05000000074505806
-                        ],
-                        [
-                            1,
-                            0,
-                            0.5,
-                            false
-                        ],
-                        [
-                            1,
-                            1,
-                            0.05000000074505806,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            0.0,
-                            false
+                            "Distortion",
+                            0.0
                         ]
                     ]
                 },
@@ -1997,8 +1027,8 @@
                     "name": "Normal Map",
                     "label": "",
                     "location": [
-                        607.66943359375,
-                        -98.60955810546875
+                        582.4063110351562,
+                        -182.6715850830078
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -2007,12 +1037,6 @@
                     "height": 100.0,
                     "width": 150.0,
                     "extra_settings": [
-                        [
-                            -2,
-                            "VECTOR",
-                            "Normal",
-                            false
-                        ],
                         [
                             0,
                             "space",
@@ -2025,9 +1049,8 @@
                         ],
                         [
                             1,
-                            0,
-                            1.0,
-                            false
+                            "Strength",
+                            1.0
                         ],
                         [
                             1,
@@ -2037,8 +1060,7 @@
                                 0.5,
                                 1.0,
                                 1.0
-                            ],
-                            false
+                            ]
                         ]
                     ]
                 },
@@ -2047,8 +1069,8 @@
                     "name": "Bump",
                     "label": "",
                     "location": [
-                        831.2691650390625,
-                        118.39056396484375
+                        806.0059814453125,
+                        34.328521728515625
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -2058,55 +1080,19 @@
                     "width": 140.0,
                     "extra_settings": [
                         [
-                            -2,
-                            "VECTOR",
-                            "Normal",
-                            false
-                        ],
-                        [
                             0,
                             "invert",
                             false
                         ],
                         [
                             1,
-                            0,
-                            0.4000000059604645,
-                            false
+                            "Strength",
+                            0.4000000059604645
                         ],
                         [
                             1,
-                            1,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            2,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            3,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            4,
-                            1.0,
-                            false
-                        ],
-                        [
-                            1,
-                            5,
-                            [
-                                0.0,
-                                0.0,
-                                0.0
-                            ],
-                            false
+                            "Distance",
+                            1.0
                         ]
                     ]
                 },
@@ -2129,8 +1115,8 @@
                         ]
                     ],
                     "location": [
-                        -1251.2691650390625,
-                        -0.0
+                        -1276.5322265625,
+                        -84.06201171875
                     ],
                     "parent": "",
                     "hide": false,
@@ -2154,8 +1140,8 @@
                         ]
                     ],
                     "location": [
-                        1341.2691650390625,
-                        -0.0
+                        1316.006103515625,
+                        -84.06201171875
                     ],
                     "hide": false,
                     "parent": "",
@@ -2173,8 +1159,8 @@
                     "name": "Math.001",
                     "label": "",
                     "location": [
-                        611.2691650390625,
-                        306.39105224609375
+                        586.0060424804688,
+                        222.32904052734375
                     ],
                     "hide": false,
                     "main_socket_type": "",
@@ -2183,12 +1169,6 @@
                     "height": 100.0,
                     "width": 140.0,
                     "extra_settings": [
-                        [
-                            -2,
-                            "VALUE",
-                            "Value",
-                            false
-                        ],
                         [
                             0,
                             "operation",
@@ -2208,175 +1188,226 @@
                             10,
                             1,
                             0.5
-                        ],
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeBsdfPrincipled",
+                    "name": "Principled BSDF.001",
+                    "label": "",
+                    "location": [
+                        1026.006103515625,
+                        261.22833251953125
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
                         [
-                            1,
                             0,
-                            0.5,
-                            false
+                            "distribution",
+                            "GGX"
+                        ],
+                        [
+                            0,
+                            "subsurface_method",
+                            "BURLEY"
                         ],
                         [
                             1,
-                            1,
-                            0.5,
-                            false
+                            "Subsurface",
+                            0.0
                         ],
                         [
                             1,
-                            2,
-                            0.0,
-                            false
+                            "Metallic",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Specular",
+                            0.7954545617103577
+                        ],
+                        [
+                            1,
+                            "Specular Tint",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Roughness",
+                            1.0
+                        ],
+                        [
+                            1,
+                            "Anisotropic",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Anisotropic Rotation",
+                            0.5
+                        ],
+                        [
+                            1,
+                            "Sheen",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Sheen Tint",
+                            0.104545459151268
+                        ],
+                        [
+                            1,
+                            "Clearcoat",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Clearcoat Roughness",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "IOR",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Transmission",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Transmission Roughness",
+                            1.0
+                        ],
+                        [
+                            1,
+                            "Base Color",
+                            [
+                                0.0,
+                                0.0,
+                                0.0,
+                                1.0
+                            ]
+                        ],
+                        [
+                            1,
+                            "Subsurface Color",
+                            [
+                                0.800000011920929,
+                                0.800000011920929,
+                                0.800000011920929,
+                                1.0
+                            ]
+                        ],
+                        [
+                            1,
+                            "Subsurface Radius",
+                            [
+                                1.0,
+                                0.20000000298023224,
+                                0.10000000149011612
+                            ]
                         ]
                     ]
                 }
             ],
             "links": [
                 [
-                    "Bump",
-                    "Normal",
-                    "Principled BSDF.001",
-                    20,
-                    0
-                ],
-                [
                     "Group Input",
                     "Image",
                     "Separate RGB.001",
-                    0,
                     0
                 ],
                 [
                     "Separate RGB.001",
                     "R",
                     "ColorRamp",
-                    0,
                     0
-                ],
-                [
-                    "Group Input",
-                    "Image",
-                    "Separate RGB.002",
-                    0,
-                    1
                 ],
                 [
                     "Math.004",
                     "Value",
                     "Math",
-                    0,
                     0
                 ],
                 [
                     "Noise Texture.001",
                     "Fac",
                     "Math",
-                    1,
-                    0
+                    1
                 ],
                 [
                     "Noise Texture.003",
                     "Fac",
                     "ColorRamp.002",
-                    0,
-                    0
-                ],
-                [
-                    "Separate RGB.002",
-                    "R",
-                    "Math.003",
-                    0,
-                    0
-                ],
-                [
-                    "Math.002",
-                    "Value",
-                    "Math.003",
-                    1,
                     0
                 ],
                 [
                     "ColorRamp",
                     "Color",
                     "Noise Texture",
-                    1,
-                    0
+                    1
                 ],
                 [
                     "Noise Texture",
                     "Fac",
                     "Math.004",
-                    0,
-                    0
-                ],
-                [
-                    "Math.003",
-                    "Value",
-                    "Noise Texture.001",
-                    1,
                     0
                 ],
                 [
                     "Texture Coordinate",
                     "Generated",
                     "Noise Texture.003",
-                    0,
-                    0
-                ],
-                [
-                    "Texture Coordinate",
-                    "UV",
-                    "Noise Texture.002",
-                    0,
-                    2
-                ],
-                [
-                    "Noise Texture.002",
-                    "Fac",
-                    "Math.002",
-                    0,
                     0
                 ],
                 [
                     "Group Input",
                     "Color",
                     "Normal Map",
-                    1,
-                    2
+                    1
                 ],
                 [
                     "Math.001",
                     "Value",
                     "Bump",
-                    2,
-                    0
+                    2
                 ],
                 [
                     "Normal Map",
                     "Normal",
                     "Bump",
-                    5,
-                    0
+                    5
                 ],
                 [
                     "Principled BSDF.001",
                     "BSDF",
                     "Group Output",
-                    0,
                     0
                 ],
                 [
                     "Math",
                     "Value",
                     "Math.001",
-                    0,
                     0
                 ],
                 [
                     "ColorRamp.002",
                     "Color",
                     "Math.001",
-                    1,
-                    0
+                    1
+                ],
+                [
+                    "Bump",
+                    "Normal",
+                    "Principled BSDF.001",
+                    22
                 ]
             ]
         }

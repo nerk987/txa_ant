@@ -711,7 +711,7 @@
                 -1682.88134765625,
                 -504.07574462890625
             ],
-            "node_tree": "__node__Maps",
+            "node_tree": "__node__Maps.002",
             "main_socket_type": "",
             "parent": "",
             "hide": false,
@@ -1193,7 +1193,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -2650,7 +2650,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -2763,7 +2763,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -2879,7 +2879,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -2901,7 +2901,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -3036,7 +3036,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -3505,7 +3505,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -3912,7 +3912,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -3934,7 +3934,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -4576,7 +4576,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -4598,7 +4598,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -4803,7 +4803,7 @@
                     "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
-                    "width": 16.0,
+                    "width": 100.0,
                     "extra_settings": [
                         [
                             -1,
@@ -4877,7 +4877,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -5168,7 +5168,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -5376,7 +5376,7 @@
             ]
         },
         {
-            "name": "__node__Maps",
+            "name": "__node__Maps.002",
             "nodes": [
                 {
                     "node": "ShaderNodeTexImage",
@@ -6007,7 +6007,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -6500,7 +6500,7 @@
                     "Map Range.001",
                     "Result",
                     "Principled BSDF",
-                    19
+                    21
                 ],
                 [
                     "Group Input",

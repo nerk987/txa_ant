@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v3.00.2 For Blender version 3.0
+#TXA version v3.00.4 Blender 3.0 Release Version
 #Based on ANT version v0.1.8
 
 # import modules
@@ -124,6 +124,8 @@ class AntLandscapeBake(bpy.types.Operator):
 
     def ReplaceDisplacement(self, node_tree, pbrTexture):
         #Remove links from material output and replace with emmission node fed with displacement link
+        for n in [n for n in node_tree.nodes if n.type == 'GROUP']:
+            n.node_tree = n.node_tree.copy()
         BakeRequired = False
         Disp_to = None
         DispScale = 0.01
@@ -149,6 +151,14 @@ class AntLandscapeBake(bpy.types.Operator):
         return BakeRequired, DispScale
             
         
+
+    def CopyOnly(self, node_tree, pbrTexture):
+        #for each Principled node, record basecolor, roughness, normal connections or setting
+        # node_tree = bake_mat.node_tree
+        # print("pbrTexture: ", pbrTexture)
+        for n in [n for n in node_tree.nodes if n.type == 'GROUP']:
+            n.node_tree = n.node_tree.copy()
+            self.CopyOnly(n.node_tree, pbrTexture)
 
     def ReplaceWithEmission(self, node_tree, pbrTexture):
         #for each Principled node, record basecolor, roughness, normal connections or setting
@@ -232,11 +242,14 @@ class AntLandscapeBake(bpy.types.Operator):
         # pbrTextures = [{'type':'basecolor', 'id':'Base Color', 'input_type':'vector'}]
         # pbrTextures = [{'type':'basecolor', 'id':'Base Color', 'input_type':'vector'}, {'type':'roughness', 'id':'Roughness', 'input_type':'float'}]
         # pbrTextures = [{'type':'basecolor', 'id':'Base Color', 'input_type':'vector'}, {'type':'roughness', 'id':'Roughness', 'input_type':'float'}, {'type':'normal2', 'id':'Normal', 'input_type':'vector'}]
+        # pbrTextures = [{'type':'basecolor', 'id':'Base Color', 'input_type':'vector'}, {'type':'roughness', 'id':'Roughness', 'input_type':'float'}, {'type':'normal2', 'id':'Normal', 'input_type':'vector'}, {'type':'emmission', 'id':'Emission', 'input_type':'vector'}]
         pbrTextures = [{'type':'basecolor', 'id':'Base Color', 'input_type':'vector'}, {'type':'roughness', 'id':'Roughness', 'input_type':'float'}, {'type':'normal2', 'id':'Normal', 'input_type':'vector'}, {'type':'emmission', 'id':'Emission', 'input_type':'vector'}, {'type':'displacement', 'id':'Displacement', 'input_type':'vector'}]
         #Identify object
         # print("Starting")
         saveRenderEngine = bpy.context.scene.render.engine
         context.scene.render.engine = 'CYCLES'
+        GPUSave = bpy.context.scene.cycles.device
+        bpy.context.scene.cycles.device = 'CPU'
         SampleSave = bpy.context.scene.cycles.samples
         bpy.context.scene.cycles.samples = 1
         # print("Render Engine: ", context.scene.render.engine)
@@ -263,7 +276,9 @@ class AntLandscapeBake(bpy.types.Operator):
             node_tree = bake_mat.node_tree
             if pbrTexture['type'] == 'displacement':
                 DisplacementRequired, DispScale = self.ReplaceDisplacement(node_tree, pbrTexture)
-            elif pbrTexture['type'] != 'emmission':
+            elif pbrTexture['type'] == 'emmission':
+                self.CopyOnly(node_tree, pbrTexture)
+            else:
                 self.ReplaceWithEmission(node_tree, pbrTexture)
             # print("Displacement Required: ", DisplacementRequired)
                 
@@ -291,10 +306,7 @@ class AntLandscapeBake(bpy.types.Operator):
                         img.scale(ob.txaant_landscape.tex_size_x, ob.txaant_landscape.tex_size_y)
                         node.image = img
                     else:
-                        if pbrTexture['type'] == 'basecolor':
-                            node.image = bpy.data.images.new(img_name, ob.txaant_landscape.tex_size_x, ob.txaant_landscape.tex_size_y, alpha=False)
-                        else:
-                            node.image = bpy.data.images.new(img_name, ob.txaant_landscape.tex_size_x, ob.txaant_landscape.tex_size_y, alpha=False, float_buffer=True)
+                        node.image = bpy.data.images.new(img_name, ob.txaant_landscape.tex_size_x, ob.txaant_landscape.tex_size_y, alpha=False)
                         node.image.pack()
                         if pbrTexture['type'] == 'basecolor':
                             node.image.colorspace_settings.name = "sRGB"
@@ -316,11 +328,13 @@ class AntLandscapeBake(bpy.types.Operator):
                     img.colorspace_settings.name = 'Linear'
 
                 ob.material_slots[0].material = save_mat
-                
-                #remove bake material
-                # for n in [n for n in bake_mat.node_tree.nodes if n.type == 'GROUP']:
-                    # bpy.data.node_groups.remove(n.node_tree)
-                # bpy.data.materials.remove(bake_mat)
+            
+            #remove bake material
+            print("Bake MAterial Name: ", bake_mat.name)
+            for n in [n for n in bake_mat.node_tree.nodes if n.type == 'GROUP']:
+                print("Node", n.type)
+                bpy.data.node_groups.remove(n.node_tree)
+            bpy.data.materials.remove(bake_mat)
             
         
             
@@ -339,6 +353,7 @@ class AntLandscapeBake(bpy.types.Operator):
         
         #Clean up
         
+        bpy.context.scene.cycles.device = GPUSave
         bpy.context.scene.cycles.samples = SampleSave
         context.scene.render.engine = saveRenderEngine
         return {'FINISHED'}

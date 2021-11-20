@@ -29,12 +29,6 @@
             "width": 240.0,
             "extra_settings": [
                 [
-                    -2,
-                    "SHADER",
-                    "BSDF",
-                    false
-                ],
-                [
                     0,
                     "distribution",
                     "GGX"
@@ -46,30 +40,83 @@
                 ],
                 [
                     1,
+                    "Subsurface",
+                    0.0
+                ],
+                [
+                    1,
+                    "Metallic",
+                    0.0
+                ],
+                [
+                    1,
+                    "Specular",
+                    0.5
+                ],
+                [
+                    1,
+                    "Specular Tint",
+                    0.0
+                ],
+                [
+                    1,
+                    "Roughness",
+                    0.5
+                ],
+                [
+                    1,
+                    "Anisotropic",
+                    0.0
+                ],
+                [
+                    1,
+                    "Anisotropic Rotation",
+                    0.0
+                ],
+                [
+                    1,
+                    "Sheen",
+                    0.0
+                ],
+                [
+                    1,
+                    "Sheen Tint",
+                    0.5
+                ],
+                [
+                    1,
+                    "Clearcoat",
+                    0.0
+                ],
+                [
+                    1,
+                    "Clearcoat Roughness",
+                    0.029999999329447746
+                ],
+                [
+                    1,
+                    "IOR",
+                    1.4500000476837158
+                ],
+                [
+                    1,
+                    "Transmission",
+                    0.0
+                ],
+                [
+                    1,
+                    "Transmission Roughness",
+                    0.0
+                ],
+                [
+                    1,
                     "Base Color",
                     [
                         0.800000011920929,
                         0.800000011920929,
                         0.800000011920929,
                         1.0
-                    ],
-                    false
-                ],
-                [
-                    1,
-                    1,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    2,
-                    [
-                        1.0,
-                        0.20000000298023224,
-                        0.10000000149011612
-                    ],
-                    false
+                    ]
                 ],
                 [
                     1,
@@ -79,139 +126,16 @@
                         0.800000011920929,
                         0.800000011920929,
                         1.0
-                    ],
-                    false
+                    ]
                 ],
                 [
                     1,
-                    4,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    5,
-                    0.5,
-                    false
-                ],
-                [
-                    1,
-                    6,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    7,
-                    0.5,
-                    false
-                ],
-                [
-                    1,
-                    8,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    9,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    10,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    11,
-                    0.5,
-                    false
-                ],
-                [
-                    1,
-                    12,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    13,
-                    0.029999999329447746,
-                    false
-                ],
-                [
-                    1,
-                    14,
-                    1.4500000476837158,
-                    false
-                ],
-                [
-                    1,
-                    15,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    16,
-                    0.0,
-                    false
-                ],
-                [
-                    1,
-                    "Emission",
+                    "Subsurface Radius",
                     [
-                        0.0,
-                        0.0,
-                        0.0,
-                        1.0
-                    ],
-                    false
-                ],
-                [
-                    1,
-                    18,
-                    1.0,
-                    false
-                ],
-                [
-                    1,
-                    19,
-                    1.0,
-                    false
-                ],
-                [
-                    1,
-                    20,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
-                ],
-                [
-                    1,
-                    21,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
-                ],
-                [
-                    1,
-                    22,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
+                        1.0,
+                        0.20000000298023224,
+                        0.10000000149011612
+                    ]
                 ]
             ]
         },
@@ -230,18 +154,6 @@
             "height": 100.0,
             "width": 240.0,
             "extra_settings": [
-                [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
                 [
                     5,
                     "source",
@@ -276,16 +188,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
                 ]
             ]
         },
@@ -304,18 +206,6 @@
             "height": 100.0,
             "width": 240.0,
             "extra_settings": [
-                [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
                 [
                     5,
                     "source",
@@ -350,16 +240,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
                 ]
             ]
         },
@@ -379,12 +259,6 @@
             "width": 150.0,
             "extra_settings": [
                 [
-                    -2,
-                    "VECTOR",
-                    "Normal",
-                    false
-                ],
-                [
                     0,
                     "space",
                     "OBJECT"
@@ -396,9 +270,8 @@
                 ],
                 [
                     1,
-                    0,
-                    1.0,
-                    false
+                    "Strength",
+                    1.0
                 ],
                 [
                     1,
@@ -408,8 +281,7 @@
                         0.5,
                         1.0,
                         1.0
-                    ],
-                    false
+                    ]
                 ]
             ]
         },
@@ -429,18 +301,6 @@
             "width": 240.0,
             "extra_settings": [
                 [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
-                [
                     5,
                     "source",
                     "FILE"
@@ -448,7 +308,7 @@
                 [
                     14,
                     "image",
-                    "ant01_normal"
+                    "ant01_normal2"
                 ],
                 [
                     4,
@@ -474,16 +334,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
                 ]
             ]
         },
@@ -503,18 +353,6 @@
             "width": 240.0,
             "extra_settings": [
                 [
-                    -2,
-                    "RGBA",
-                    "Color",
-                    false
-                ],
-                [
-                    -2,
-                    "VALUE",
-                    "Alpha",
-                    false
-                ],
-                [
                     5,
                     "source",
                     "FILE"
@@ -532,7 +370,7 @@
                 [
                     12,
                     "name",
-                    "Linear"
+                    "Non-Color"
                 ],
                 [
                     0,
@@ -548,16 +386,6 @@
                     0,
                     "extension",
                     "REPEAT"
-                ],
-                [
-                    1,
-                    0,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
                 ]
             ]
         },
@@ -577,48 +405,6 @@
             "width": 140.0,
             "extra_settings": [
                 [
-                    -2,
-                    "VECTOR",
-                    "Generated",
-                    false
-                ],
-                [
-                    -2,
-                    "VECTOR",
-                    "Normal",
-                    false
-                ],
-                [
-                    -2,
-                    "VECTOR",
-                    "UV",
-                    false
-                ],
-                [
-                    -2,
-                    "VECTOR",
-                    "Object",
-                    false
-                ],
-                [
-                    -2,
-                    "VECTOR",
-                    "Camera",
-                    false
-                ],
-                [
-                    -2,
-                    "VECTOR",
-                    "Window",
-                    false
-                ],
-                [
-                    -2,
-                    "VECTOR",
-                    "Reflection",
-                    false
-                ],
-                [
                     0,
                     "from_instancer",
                     false
@@ -630,8 +416,8 @@
             "name": "__node__Material Output",
             "label": "Material Output",
             "location": [
-                697.46044921875,
-                -101.505615234375
+                1071.458251953125,
+                -97.90716552734375
             ],
             "hide": false,
             "main_socket_type": "",
@@ -644,28 +430,6 @@
                     0,
                     "target",
                     "ALL"
-                ],
-                [
-                    5,
-                    "Surface",
-                    "SHADER",
-                    false
-                ],
-                [
-                    5,
-                    "Volume",
-                    "SHADER",
-                    false
-                ],
-                [
-                    1,
-                    2,
-                    [
-                        0.0,
-                        0.0,
-                        0.0
-                    ],
-                    false
                 ]
             ]
         }
@@ -673,63 +437,63 @@
     "links": [
         {
             "output_node": "__node__Image Texture",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Principled BSDF",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Image Texture.001",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Principled BSDF",
-            "input_socket": 7,
+            "input_socket": 9,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Image Texture.003",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Principled BSDF",
-            "input_socket": 17,
+            "input_socket": 19,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Normal Map",
-            "output_socket": 0,
+            "output_socket": "Normal",
             "input_node": "__node__Principled BSDF",
-            "input_socket": 20,
+            "input_socket": 22,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Texture Coordinate",
-            "output_socket": 2,
+            "output_socket": "UV",
             "input_node": "__node__Image Texture",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Texture Coordinate",
-            "output_socket": 2,
+            "output_socket": "UV",
             "input_node": "__node__Image Texture.001",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Image Texture.002",
-            "output_socket": 0,
+            "output_socket": "Color",
             "input_node": "__node__Normal Map",
             "input_socket": 1,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Texture Coordinate",
-            "output_socket": 2,
+            "output_socket": "UV",
             "input_node": "__node__Image Texture.003",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
             "output_node": "__node__Principled BSDF",
-            "output_socket": 0,
+            "output_socket": "BSDF",
             "input_node": "__node__Material Output",
             "input_socket": 0,
             "main_socket_type": ""

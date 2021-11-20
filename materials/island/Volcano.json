@@ -125,8 +125,58 @@
         },
         {
             "node": "ShaderNodeGroup",
-            "name": "__node__Group.002",
-            "label": "",
+            "name": "__node__Rocks",
+            "label": "Rocks",
+            "location": [
+                -635.0984497070312,
+                4.231414794921875
+            ],
+            "node_tree": "__node__VocanicRocks",
+            "main_socket_type": "",
+            "parent": "",
+            "hide": false,
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 205.5758056640625,
+            "extra_settings": [
+                [
+                    10,
+                    0,
+                    [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0
+                    ]
+                ]
+            ]
+        },
+        {
+            "node": "NodeReroute",
+            "name": "__node__Reroute.005",
+            "label": "Reroute.005",
+            "location": [
+                -661.5919799804688,
+                -397.12677001953125
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 16.0,
+            "extra_settings": [
+                [
+                    -1,
+                    -1,
+                    -1
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeGroup",
+            "name": "__node__Lava",
+            "label": "Lava",
             "location": [
                 -294.1834716796875,
                 2.579315185546875
@@ -159,43 +209,41 @@
                     [
                         0.0,
                         0.0,
-                        0.0
+                        0.0,
+                        1.0
                     ]
                 ]
             ]
         },
         {
-            "node": "ShaderNodeGroup",
-            "name": "__node__Group",
-            "label": "",
+            "node": "NodeReroute",
+            "name": "__node__Reroute.006",
+            "label": "Reroute.005",
             "location": [
-                -635.0984497070312,
-                4.231414794921875
+                -318.476806640625,
+                -388.07025146484375
             ],
-            "node_tree": "__node__VocanicRocks",
+            "hide": false,
             "main_socket_type": "",
             "parent": "",
-            "hide": false,
             "hidden_outputs": [],
             "height": 100.0,
-            "width": 205.5758056640625,
+            "width": 16.0,
             "extra_settings": [
                 [
-                    11,
-                    0,
-                    0.0,
-                    -3.4028234663852886e+38,
-                    3.4028234663852886e+38
+                    -1,
+                    -1,
+                    -1
                 ]
             ]
         },
         {
             "node": "NodeReroute",
-            "name": "__node__Reroute.005",
+            "name": "__node__Reroute.007",
             "label": "Reroute.005",
             "location": [
-                -664.8081665039062,
-                -430.876708984375
+                -325.71942138671875,
+                -157.1287841796875
             ],
             "hide": false,
             "main_socket_type": "",
@@ -216,8 +264,8 @@
             "name": "__node__Material Output",
             "label": "Material Output",
             "location": [
-                145.8165283203125,
-                4.338613033294678
+                266.6722106933594,
+                -2.665618896484375
             ],
             "hide": false,
             "main_socket_type": "",
@@ -235,11 +283,11 @@
         },
         {
             "node": "NodeReroute",
-            "name": "__node__Reroute.006",
+            "name": "__node__Reroute.009",
             "label": "",
             "location": [
-                -104.09033203125,
-                -103.67939758300781
+                -58.5904541015625,
+                -91.9810791015625
             ],
             "hide": false,
             "main_socket_type": "",
@@ -257,11 +305,11 @@
         },
         {
             "node": "NodeReroute",
-            "name": "__node__Reroute.007",
+            "name": "__node__Reroute.008",
             "label": "",
             "location": [
-                -102.63047790527344,
-                -406.268798828125
+                -63.7083740234375,
+                -438.865234375
             ],
             "hide": false,
             "main_socket_type": "",
@@ -279,13 +327,36 @@
         },
         {
             "node": "ShaderNodeGroup",
-            "name": "__node__Group.003",
+            "name": "__node__Group.001",
+            "label": "Group.001",
+            "location": [
+                -872.9830932617188,
+                -205.8477325439453
+            ],
+            "node_tree": "__node__Maps.006",
+            "main_socket_type": "",
+            "parent": "",
+            "hide": false,
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    -1,
+                    -1,
+                    -1
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeGroup",
+            "name": "__node__Group",
             "label": "",
             "location": [
-                -74.1834716796875,
-                6.4558563232421875
+                3.849884033203125,
+                23.182571411132812
             ],
-            "node_tree": "__node__FoamLava",
+            "node_tree": "__node__Foam",
             "main_socket_type": "",
             "parent": "",
             "hide": false,
@@ -313,29 +384,6 @@
                     0.30000001192092896,
                     -3.4028234663852886e+38,
                     3.4028234663852886e+38
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeGroup",
-            "name": "__node__Group.001",
-            "label": "",
-            "location": [
-                -872.9830932617188,
-                -205.8477325439453
-            ],
-            "node_tree": "__node__Maps",
-            "main_socket_type": "",
-            "parent": "",
-            "hide": false,
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 140.0,
-            "extra_settings": [
-                [
-                    -1,
-                    -1,
-                    -1
                 ]
             ]
         }
@@ -377,37 +425,9 @@
             "main_socket_type": ""
         },
         {
-            "output_node": "__node__Group",
-            "output_socket": "BSDF",
-            "input_node": "__node__Group.002",
-            "input_socket": 0,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Reroute.003",
-            "output_socket": "Output",
-            "input_node": "__node__Group.002",
-            "input_socket": 1,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Reroute.001",
-            "output_socket": "Output",
-            "input_node": "__node__Group.002",
-            "input_socket": 2,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Group",
-            "output_socket": "Normal",
-            "input_node": "__node__Group.002",
-            "input_socket": 3,
-            "main_socket_type": ""
-        },
-        {
             "output_node": "__node__Reroute.004",
             "output_socket": "Output",
-            "input_node": "__node__Group",
+            "input_node": "__node__Rocks",
             "input_socket": 0,
             "main_socket_type": ""
         },
@@ -419,495 +439,85 @@
             "main_socket_type": ""
         },
         {
-            "output_node": "__node__Group.003",
-            "output_socket": "Shader",
-            "input_node": "__node__Material Output",
+            "output_node": "__node__Rocks",
+            "output_socket": "BSDF",
+            "input_node": "__node__Lava",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
+            "output_node": "__node__Reroute.003",
+            "output_socket": "Output",
+            "input_node": "__node__Lava",
+            "input_socket": 1,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Reroute.001",
+            "output_socket": "Output",
+            "input_node": "__node__Lava",
+            "input_socket": 2,
+            "main_socket_type": ""
+        },
+        {
             "output_node": "__node__Reroute.007",
+            "output_socket": "Output",
+            "input_node": "__node__Lava",
+            "input_socket": 3,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Reroute.005",
             "output_socket": "Output",
             "input_node": "__node__Reroute.006",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
-            "output_node": "__node__Group.001",
-            "output_socket": "Foam",
+            "output_node": "__node__Reroute.006",
+            "output_socket": "Output",
             "input_node": "__node__Reroute.007",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
-            "output_node": "__node__Group.002",
+            "output_node": "__node__Group",
             "output_socket": "Shader",
-            "input_node": "__node__Group.003",
+            "input_node": "__node__Material Output",
             "input_socket": 0,
             "main_socket_type": ""
         },
         {
-            "output_node": "__node__Reroute.006",
+            "output_node": "__node__Reroute.008",
             "output_socket": "Output",
-            "input_node": "__node__Group.003",
+            "input_node": "__node__Reroute.009",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Group.001",
+            "output_socket": "Foam",
+            "input_node": "__node__Reroute.008",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Lava",
+            "output_socket": "Shader",
+            "input_node": "__node__Group",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Reroute.009",
+            "output_socket": "Output",
+            "input_node": "__node__Group",
             "input_socket": 1,
             "main_socket_type": ""
         }
     ],
     "keyframes": [],
     "groups": [
-        {
-            "name": "__node__Lava",
-            "nodes": [
-                {
-                    "node": "ShaderNodeBsdfPrincipled",
-                    "name": "Principled BSDF",
-                    "label": "Principled BSDF",
-                    "location": [
-                        -98.40892028808594,
-                        -177.26150512695312
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            0,
-                            "distribution",
-                            "GGX"
-                        ],
-                        [
-                            0,
-                            "subsurface_method",
-                            "BURLEY"
-                        ],
-                        [
-                            1,
-                            "Subsurface",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Metallic",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Specular",
-                            0.5
-                        ],
-                        [
-                            1,
-                            "Specular Tint",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Roughness",
-                            1.0
-                        ],
-                        [
-                            1,
-                            "Anisotropic",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Anisotropic Rotation",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Sheen",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Sheen Tint",
-                            0.5
-                        ],
-                        [
-                            1,
-                            "Clearcoat",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Clearcoat Roughness",
-                            0.029999999329447746
-                        ],
-                        [
-                            1,
-                            "IOR",
-                            1.4500000476837158
-                        ],
-                        [
-                            1,
-                            "Transmission",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Transmission Roughness",
-                            0.0
-                        ],
-                        [
-                            1,
-                            "Base Color",
-                            [
-                                0.5578729510307312,
-                                0.003515138989314437,
-                                0.006752153392881155,
-                                1.0
-                            ]
-                        ],
-                        [
-                            1,
-                            "Subsurface Color",
-                            [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929,
-                                1.0
-                            ]
-                        ],
-                        [
-                            1,
-                            "Subsurface Radius",
-                            [
-                                1.0,
-                                0.20000000298023224,
-                                0.10000000149011612
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeMixShader",
-                    "name": "Mix Shader",
-                    "label": "Mix Shader",
-                    "location": [
-                        247.41757202148438,
-                        19.162277221679688
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            1,
-                            "Fac",
-                            0.5
-                        ]
-                    ]
-                },
-                {
-                    "node": "NodeGroupOutput",
-                    "name": "Group Output",
-                    "label": "Group Output",
-                    "inputs": [
-                        [
-                            "NodeSocketShader",
-                            "Shader"
-                        ]
-                    ],
-                    "location": [
-                        447.4175720214844,
-                        -0.0
-                    ],
-                    "hide": false,
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        -1,
-                        -1,
-                        -1
-                    ]
-                },
-                {
-                    "node": "NodeGroupInput",
-                    "name": "Group Input",
-                    "label": "Group Input",
-                    "outputs": [
-                        [
-                            "NodeSocketShader",
-                            "Shader"
-                        ],
-                        [
-                            "NodeSocketFloatFactor",
-                            "Flowrate"
-                        ],
-                        [
-                            "NodeSocketFloatFactor",
-                            "Scour"
-                        ],
-                        [
-                            "NodeSocketVector",
-                            "Normal"
-                        ]
-                    ],
-                    "location": [
-                        -778.84326171875,
-                        -28.37753677368164
-                    ],
-                    "parent": "",
-                    "hide": false,
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        -1,
-                        -1,
-                        -1
-                    ]
-                },
-                {
-                    "node": "ShaderNodeValToRGB",
-                    "name": "ColorRamp.001",
-                    "label": "ColorRamp.001",
-                    "location": [
-                        -426.4230041503906,
-                        -106.5140380859375
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            7,
-                            "color_mode",
-                            "RGB"
-                        ],
-                        [
-                            7,
-                            "interpolation",
-                            "LINEAR"
-                        ],
-                        [
-                            7,
-                            "hue_interpolation",
-                            "NEAR"
-                        ],
-                        [
-                            8,
-                            "color_ramp",
-                            [
-                                [
-                                    0.0,
-                                    [
-                                        1.0,
-                                        0.004459273535758257,
-                                        0.003755458164960146,
-                                        1.0
-                                    ]
-                                ],
-                                [
-                                    0.17727302014827728,
-                                    [
-                                        1.0,
-                                        0.028477344661951065,
-                                        0.004321696236729622,
-                                        1.0
-                                    ]
-                                ],
-                                [
-                                    1.0,
-                                    [
-                                        1.0,
-                                        0.23428356647491455,
-                                        0.0,
-                                        1.0
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeNormalMap",
-                    "name": "Normal Map",
-                    "label": "Normal Map",
-                    "location": [
-                        -353.77813720703125,
-                        -461.4598388671875
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 150.0,
-                    "extra_settings": [
-                        [
-                            0,
-                            "space",
-                            "TANGENT"
-                        ],
-                        [
-                            0,
-                            "uv_map",
-                            ""
-                        ],
-                        [
-                            1,
-                            "Strength",
-                            1.0
-                        ],
-                        [
-                            1,
-                            "Color",
-                            [
-                                0.5,
-                                0.5,
-                                1.0,
-                                1.0
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeValToRGB",
-                    "name": "ColorRamp",
-                    "label": "ColorRamp",
-                    "location": [
-                        -247.41754150390625,
-                        177.26150512695312
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            7,
-                            "color_mode",
-                            "RGB"
-                        ],
-                        [
-                            7,
-                            "interpolation",
-                            "LINEAR"
-                        ],
-                        [
-                            7,
-                            "hue_interpolation",
-                            "NEAR"
-                        ],
-                        [
-                            8,
-                            "color_ramp",
-                            [
-                                [
-                                    0.0,
-                                    [
-                                        1.0,
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ]
-                                ],
-                                [
-                                    0.08181818574666977,
-                                    [
-                                        1.0,
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ]
-                                ],
-                                [
-                                    0.9568180441856384,
-                                    [
-                                        0.0,
-                                        0.0,
-                                        0.0,
-                                        1.0
-                                    ]
-                                ],
-                                [
-                                    1.0,
-                                    [
-                                        0.0,
-                                        0.0,
-                                        0.0,
-                                        1.0
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ]
-                }
-            ],
-            "links": [
-                [
-                    "ColorRamp.001",
-                    "Color",
-                    "Principled BSDF",
-                    17
-                ],
-                [
-                    "Normal Map",
-                    "Normal",
-                    "Principled BSDF",
-                    19
-                ],
-                [
-                    "ColorRamp",
-                    "Color",
-                    "Mix Shader",
-                    0
-                ],
-                [
-                    "Principled BSDF",
-                    "BSDF",
-                    "Mix Shader",
-                    1
-                ],
-                [
-                    "Group Input",
-                    "Shader",
-                    "Mix Shader",
-                    2
-                ],
-                [
-                    "Mix Shader",
-                    "Shader",
-                    "Group Output",
-                    0
-                ],
-                [
-                    "Group Input",
-                    "Scour",
-                    "ColorRamp.001",
-                    0
-                ],
-                [
-                    "Group Input",
-                    "Normal",
-                    "Normal Map",
-                    1
-                ],
-                [
-                    "Group Input",
-                    "Flowrate",
-                    "ColorRamp",
-                    0
-                ]
-            ]
-        },
         {
             "name": "__node__VocanicRocks",
             "nodes": [
@@ -1294,7 +904,7 @@
                     "label": "Group Input",
                     "outputs": [
                         [
-                            "NodeSocketFloat",
+                            "NodeSocketColor",
                             "Normal"
                         ]
                     ],
@@ -1304,35 +914,6 @@
                     ],
                     "parent": "",
                     "hide": false,
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        -1,
-                        -1,
-                        -1
-                    ]
-                },
-                {
-                    "node": "NodeGroupOutput",
-                    "name": "Group Output",
-                    "label": "Group Output",
-                    "inputs": [
-                        [
-                            "NodeSocketShader",
-                            "BSDF"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Normal"
-                        ]
-                    ],
-                    "location": [
-                        1024.608642578125,
-                        270.7277526855469
-                    ],
-                    "hide": false,
-                    "parent": "",
                     "hidden_outputs": [],
                     "height": 100.0,
                     "width": 140.0,
@@ -1415,6 +996,31 @@
                             ]
                         ]
                     ]
+                },
+                {
+                    "node": "NodeGroupOutput",
+                    "name": "Group Output",
+                    "label": "Group Output",
+                    "inputs": [
+                        [
+                            "NodeSocketShader",
+                            "BSDF"
+                        ]
+                    ],
+                    "location": [
+                        1024.608642578125,
+                        270.7277526855469
+                    ],
+                    "hide": false,
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        -1,
+                        -1,
+                        -1
+                    ]
                 }
             ],
             "links": [
@@ -1422,13 +1028,13 @@
                     "ColorRamp.002",
                     "Color",
                     "Principled BSDF",
-                    7
+                    9
                 ],
                 [
                     "Bump.001",
                     "Normal",
                     "Principled BSDF",
-                    20
+                    22
                 ],
                 [
                     "Noise Texture",
@@ -1455,18 +1061,6 @@
                     0
                 ],
                 [
-                    "Principled BSDF",
-                    "BSDF",
-                    "Group Output",
-                    0
-                ],
-                [
-                    "Bump.001",
-                    "Normal",
-                    "Group Output",
-                    1
-                ],
-                [
                     "ColorRamp.001",
                     "Color",
                     "Bump.001",
@@ -1483,11 +1077,1018 @@
                     "Normal",
                     "Normal Map",
                     1
+                ],
+                [
+                    "Principled BSDF",
+                    "BSDF",
+                    "Group Output",
+                    0
                 ]
             ]
         },
         {
-            "name": "__node__FoamLava",
+            "name": "__node__Lava",
+            "nodes": [
+                {
+                    "node": "ShaderNodeBsdfPrincipled",
+                    "name": "Principled BSDF",
+                    "label": "Principled BSDF",
+                    "location": [
+                        -98.40892028808594,
+                        -177.26150512695312
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            0,
+                            "distribution",
+                            "GGX"
+                        ],
+                        [
+                            0,
+                            "subsurface_method",
+                            "BURLEY"
+                        ],
+                        [
+                            1,
+                            "Subsurface",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Metallic",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Specular",
+                            0.5
+                        ],
+                        [
+                            1,
+                            "Specular Tint",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Roughness",
+                            1.0
+                        ],
+                        [
+                            1,
+                            "Anisotropic",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Anisotropic Rotation",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Sheen",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Sheen Tint",
+                            0.5
+                        ],
+                        [
+                            1,
+                            "Clearcoat",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Clearcoat Roughness",
+                            0.029999999329447746
+                        ],
+                        [
+                            1,
+                            "IOR",
+                            1.4500000476837158
+                        ],
+                        [
+                            1,
+                            "Transmission",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Transmission Roughness",
+                            0.0
+                        ],
+                        [
+                            1,
+                            "Base Color",
+                            [
+                                0.5578729510307312,
+                                0.003515138989314437,
+                                0.006752153392881155,
+                                1.0
+                            ]
+                        ],
+                        [
+                            1,
+                            "Subsurface Color",
+                            [
+                                0.800000011920929,
+                                0.800000011920929,
+                                0.800000011920929,
+                                1.0
+                            ]
+                        ],
+                        [
+                            1,
+                            "Subsurface Radius",
+                            [
+                                1.0,
+                                0.20000000298023224,
+                                0.10000000149011612
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeMixShader",
+                    "name": "Mix Shader",
+                    "label": "Mix Shader",
+                    "location": [
+                        247.41757202148438,
+                        19.162277221679688
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        [
+                            1,
+                            "Fac",
+                            0.5
+                        ]
+                    ]
+                },
+                {
+                    "node": "NodeGroupOutput",
+                    "name": "Group Output",
+                    "label": "Group Output",
+                    "inputs": [
+                        [
+                            "NodeSocketShader",
+                            "Shader"
+                        ]
+                    ],
+                    "location": [
+                        447.4175720214844,
+                        -0.0
+                    ],
+                    "hide": false,
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        -1,
+                        -1,
+                        -1
+                    ]
+                },
+                {
+                    "node": "NodeGroupInput",
+                    "name": "Group Input",
+                    "label": "Group Input",
+                    "outputs": [
+                        [
+                            "NodeSocketShader",
+                            "Shader"
+                        ],
+                        [
+                            "NodeSocketFloatFactor",
+                            "Flowrate"
+                        ],
+                        [
+                            "NodeSocketFloatFactor",
+                            "Scour"
+                        ],
+                        [
+                            "NodeSocketColor",
+                            "Normal"
+                        ]
+                    ],
+                    "location": [
+                        -778.84326171875,
+                        -28.37753677368164
+                    ],
+                    "parent": "",
+                    "hide": false,
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        -1,
+                        -1,
+                        -1
+                    ]
+                },
+                {
+                    "node": "ShaderNodeValToRGB",
+                    "name": "ColorRamp.001",
+                    "label": "ColorRamp.001",
+                    "location": [
+                        -426.4230041503906,
+                        -106.5140380859375
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            7,
+                            "color_mode",
+                            "RGB"
+                        ],
+                        [
+                            7,
+                            "interpolation",
+                            "LINEAR"
+                        ],
+                        [
+                            7,
+                            "hue_interpolation",
+                            "NEAR"
+                        ],
+                        [
+                            8,
+                            "color_ramp",
+                            [
+                                [
+                                    0.0,
+                                    [
+                                        1.0,
+                                        0.004459273535758257,
+                                        0.003755458164960146,
+                                        1.0
+                                    ]
+                                ],
+                                [
+                                    0.17727302014827728,
+                                    [
+                                        1.0,
+                                        0.028477344661951065,
+                                        0.004321696236729622,
+                                        1.0
+                                    ]
+                                ],
+                                [
+                                    1.0,
+                                    [
+                                        1.0,
+                                        0.23428356647491455,
+                                        0.0,
+                                        1.0
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeNormalMap",
+                    "name": "Normal Map",
+                    "label": "Normal Map",
+                    "location": [
+                        -353.77813720703125,
+                        -461.4598388671875
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 150.0,
+                    "extra_settings": [
+                        [
+                            0,
+                            "space",
+                            "OBJECT"
+                        ],
+                        [
+                            0,
+                            "uv_map",
+                            ""
+                        ],
+                        [
+                            1,
+                            "Strength",
+                            1.0
+                        ],
+                        [
+                            1,
+                            "Color",
+                            [
+                                0.5,
+                                0.5,
+                                1.0,
+                                1.0
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeValToRGB",
+                    "name": "ColorRamp",
+                    "label": "ColorRamp",
+                    "location": [
+                        -247.41754150390625,
+                        177.26150512695312
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            7,
+                            "color_mode",
+                            "RGB"
+                        ],
+                        [
+                            7,
+                            "interpolation",
+                            "LINEAR"
+                        ],
+                        [
+                            7,
+                            "hue_interpolation",
+                            "NEAR"
+                        ],
+                        [
+                            8,
+                            "color_ramp",
+                            [
+                                [
+                                    0.0,
+                                    [
+                                        1.0,
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ]
+                                ],
+                                [
+                                    0.08181818574666977,
+                                    [
+                                        1.0,
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ]
+                                ],
+                                [
+                                    0.9568180441856384,
+                                    [
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        1.0
+                                    ]
+                                ],
+                                [
+                                    1.0,
+                                    [
+                                        0.0,
+                                        0.0,
+                                        0.0,
+                                        1.0
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "links": [
+                [
+                    "ColorRamp.001",
+                    "Color",
+                    "Principled BSDF",
+                    19
+                ],
+                [
+                    "Normal Map",
+                    "Normal",
+                    "Principled BSDF",
+                    22
+                ],
+                [
+                    "ColorRamp",
+                    "Color",
+                    "Mix Shader",
+                    0
+                ],
+                [
+                    "Principled BSDF",
+                    "BSDF",
+                    "Mix Shader",
+                    1
+                ],
+                [
+                    "Group Input",
+                    "Shader",
+                    "Mix Shader",
+                    2
+                ],
+                [
+                    "Mix Shader",
+                    "Shader",
+                    "Group Output",
+                    0
+                ],
+                [
+                    "Group Input",
+                    "Scour",
+                    "ColorRamp.001",
+                    0
+                ],
+                [
+                    "Group Input",
+                    "Normal",
+                    "Normal Map",
+                    1
+                ],
+                [
+                    "Group Input",
+                    "Flowrate",
+                    "ColorRamp",
+                    0
+                ]
+            ]
+        },
+        {
+            "name": "__node__Maps.006",
+            "nodes": [
+                {
+                    "node": "ShaderNodeTexImage",
+                    "name": "Image Texture.001",
+                    "label": "Image Texture.001",
+                    "location": [
+                        -186.68304443359375,
+                        38.99102783203125
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            5,
+                            "source",
+                            "FILE"
+                        ],
+                        [
+                            14,
+                            "image",
+                            "ant01_water"
+                        ],
+                        [
+                            4,
+                            "filepath",
+                            ""
+                        ],
+                        [
+                            12,
+                            "name",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "interpolation",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "projection",
+                            "FLAT"
+                        ],
+                        [
+                            0,
+                            "extension",
+                            "REPEAT"
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeSeparateRGB",
+                    "name": "Separate RGB",
+                    "label": "Separate RGB",
+                    "location": [
+                        152.31439208984375,
+                        32.90861511230469
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        [
+                            1,
+                            "Image",
+                            [
+                                0.800000011920929,
+                                0.800000011920929,
+                                0.800000011920929,
+                                1.0
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "node": "NodeGroupInput",
+                    "name": "Group Input",
+                    "label": "Group Input",
+                    "outputs": [],
+                    "location": [
+                        -943.32666015625,
+                        142.98455810546875
+                    ],
+                    "parent": "",
+                    "hide": false,
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        -1,
+                        -1,
+                        -1
+                    ]
+                },
+                {
+                    "node": "ShaderNodeTexImage",
+                    "name": "Image Texture.002",
+                    "label": "Image Texture.002",
+                    "location": [
+                        -188.44964599609375,
+                        -261.78948974609375
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            5,
+                            "source",
+                            "FILE"
+                        ],
+                        [
+                            14,
+                            "image",
+                            "ant01_avalanche"
+                        ],
+                        [
+                            4,
+                            "filepath",
+                            ""
+                        ],
+                        [
+                            12,
+                            "name",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "interpolation",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "projection",
+                            "FLAT"
+                        ],
+                        [
+                            0,
+                            "extension",
+                            "REPEAT"
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeTexImage",
+                    "name": "Image Texture",
+                    "label": "Image Texture",
+                    "location": [
+                        -180.95367431640625,
+                        310.60162353515625
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            5,
+                            "source",
+                            "FILE"
+                        ],
+                        [
+                            14,
+                            "image",
+                            "ant01_erodedheight"
+                        ],
+                        [
+                            4,
+                            "filepath",
+                            ""
+                        ],
+                        [
+                            12,
+                            "name",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "interpolation",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "projection",
+                            "FLAT"
+                        ],
+                        [
+                            0,
+                            "extension",
+                            "REPEAT"
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeTexImage",
+                    "name": "Image Texture.003",
+                    "label": "Image Texture.002",
+                    "location": [
+                        -186.682861328125,
+                        -567.7094116210938
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            5,
+                            "source",
+                            "FILE"
+                        ],
+                        [
+                            14,
+                            "image",
+                            "ant01_normal"
+                        ],
+                        [
+                            4,
+                            "filepath",
+                            ""
+                        ],
+                        [
+                            12,
+                            "name",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "interpolation",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "projection",
+                            "FLAT"
+                        ],
+                        [
+                            0,
+                            "extension",
+                            "REPEAT"
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeTexCoord",
+                    "name": "Texture Coordinate",
+                    "label": "Texture Coordinate",
+                    "location": [
+                        -541.0579833984375,
+                        89.90663146972656
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        [
+                            0,
+                            "from_instancer",
+                            false
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeSeparateRGB",
+                    "name": "Separate RGB.001",
+                    "label": "Separate RGB.001",
+                    "location": [
+                        152.19036865234375,
+                        -133.1087646484375
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        [
+                            1,
+                            "Image",
+                            [
+                                0.800000011920929,
+                                0.800000011920929,
+                                0.800000011920929,
+                                1.0
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "node": "ShaderNodeTexImage",
+                    "name": "Image Texture.004",
+                    "label": "Image Texture.002",
+                    "location": [
+                        -185.37872314453125,
+                        -868.16015625
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 240.0,
+                    "extra_settings": [
+                        [
+                            5,
+                            "source",
+                            "FILE"
+                        ],
+                        [
+                            14,
+                            "image",
+                            "ant01_beach"
+                        ],
+                        [
+                            4,
+                            "filepath",
+                            ""
+                        ],
+                        [
+                            12,
+                            "name",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "interpolation",
+                            "Linear"
+                        ],
+                        [
+                            0,
+                            "projection",
+                            "FLAT"
+                        ],
+                        [
+                            0,
+                            "extension",
+                            "REPEAT"
+                        ]
+                    ]
+                },
+                {
+                    "node": "NodeGroupOutput",
+                    "name": "Group Output",
+                    "label": "Group Output",
+                    "inputs": [
+                        [
+                            "NodeSocketColor",
+                            "Height"
+                        ],
+                        [
+                            "NodeSocketFloat",
+                            "Flowrate"
+                        ],
+                        [
+                            "NodeSocketFloat",
+                            "Sediment"
+                        ],
+                        [
+                            "NodeSocketFloat",
+                            "Water"
+                        ],
+                        [
+                            "NodeSocketFloat",
+                            "Avalanced"
+                        ],
+                        [
+                            "NodeSocketFloat",
+                            "Gradient"
+                        ],
+                        [
+                            "NodeSocketFloat",
+                            "Scour"
+                        ],
+                        [
+                            "NodeSocketFloat",
+                            "Foam"
+                        ],
+                        [
+                            "NodeSocketColor",
+                            "Normal"
+                        ]
+                    ],
+                    "location": [
+                        451.2421875,
+                        21.364883422851562
+                    ],
+                    "hide": false,
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        -1,
+                        -1,
+                        -1
+                    ]
+                },
+                {
+                    "node": "ShaderNodeSeparateRGB",
+                    "name": "Separate RGB.002",
+                    "label": "Separate RGB.001",
+                    "location": [
+                        124.5206298828125,
+                        -835.2451782226562
+                    ],
+                    "hide": false,
+                    "main_socket_type": "",
+                    "parent": "",
+                    "hidden_outputs": [],
+                    "height": 100.0,
+                    "width": 140.0,
+                    "extra_settings": [
+                        [
+                            1,
+                            "Image",
+                            [
+                                0.800000011920929,
+                                0.800000011920929,
+                                0.800000011920929,
+                                1.0
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "links": [
+                [
+                    "Texture Coordinate",
+                    "UV",
+                    "Image Texture.001",
+                    0
+                ],
+                [
+                    "Image Texture.001",
+                    "Color",
+                    "Separate RGB",
+                    0
+                ],
+                [
+                    "Texture Coordinate",
+                    "UV",
+                    "Image Texture.002",
+                    0
+                ],
+                [
+                    "Texture Coordinate",
+                    "UV",
+                    "Image Texture",
+                    0
+                ],
+                [
+                    "Texture Coordinate",
+                    "UV",
+                    "Image Texture.003",
+                    0
+                ],
+                [
+                    "Image Texture.002",
+                    "Color",
+                    "Separate RGB.001",
+                    0
+                ],
+                [
+                    "Texture Coordinate",
+                    "UV",
+                    "Image Texture.004",
+                    0
+                ],
+                [
+                    "Image Texture",
+                    "Color",
+                    "Group Output",
+                    0
+                ],
+                [
+                    "Separate RGB",
+                    "R",
+                    "Group Output",
+                    1
+                ],
+                [
+                    "Separate RGB",
+                    "G",
+                    "Group Output",
+                    2
+                ],
+                [
+                    "Separate RGB",
+                    "B",
+                    "Group Output",
+                    3
+                ],
+                [
+                    "Separate RGB.001",
+                    "R",
+                    "Group Output",
+                    4
+                ],
+                [
+                    "Separate RGB.001",
+                    "G",
+                    "Group Output",
+                    5
+                ],
+                [
+                    "Separate RGB.001",
+                    "B",
+                    "Group Output",
+                    6
+                ],
+                [
+                    "Separate RGB.002",
+                    "G",
+                    "Group Output",
+                    7
+                ],
+                [
+                    "Image Texture.003",
+                    "Color",
+                    "Group Output",
+                    8
+                ],
+                [
+                    "Image Texture.004",
+                    "Color",
+                    "Separate RGB.002",
+                    0
+                ]
+            ]
+        },
+        {
+            "name": "__node__Foam",
             "nodes": [
                 {
                     "node": "NodeGroupOutput",
@@ -1559,7 +2160,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -1950,18 +2551,18 @@
                                 [
                                     0.949999988079071,
                                     [
-                                        0.024165667593479156,
-                                        0.0034091658890247345,
-                                        0.0031842300668358803,
+                                        0.0,
+                                        0.2788942754268646,
+                                        0.19806936383247375,
                                         1.0
                                     ]
                                 ],
                                 [
                                     1.0,
                                     [
-                                        0.0,
-                                        0.0,
-                                        0.0,
+                                        0.5245921015739441,
+                                        0.5245921015739441,
+                                        0.5245921015739441,
                                         1.0
                                     ]
                                 ]
@@ -2052,7 +2653,7 @@
                     "Map Range.001",
                     "Result",
                     "Principled BSDF",
-                    19
+                    21
                 ],
                 [
                     "Group Input",
@@ -2113,565 +2714,6 @@
                     "Extent",
                     "Map Range.001",
                     1
-                ]
-            ]
-        },
-        {
-            "name": "__node__Maps",
-            "nodes": [
-                {
-                    "node": "ShaderNodeTexImage",
-                    "name": "Image Texture.001",
-                    "label": "Image Texture.001",
-                    "location": [
-                        -186.68304443359375,
-                        38.99102783203125
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            5,
-                            "source",
-                            "FILE"
-                        ],
-                        [
-                            14,
-                            "image",
-                            "ant01_water"
-                        ],
-                        [
-                            4,
-                            "filepath",
-                            ""
-                        ],
-                        [
-                            12,
-                            "name",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "interpolation",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "projection",
-                            "FLAT"
-                        ],
-                        [
-                            0,
-                            "extension",
-                            "REPEAT"
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeSeparateRGB",
-                    "name": "Separate RGB",
-                    "label": "Separate RGB",
-                    "location": [
-                        152.31439208984375,
-                        32.90861511230469
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            1,
-                            "Image",
-                            [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929,
-                                1.0
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "node": "NodeGroupInput",
-                    "name": "Group Input",
-                    "label": "Group Input",
-                    "outputs": [],
-                    "location": [
-                        -943.32666015625,
-                        142.98455810546875
-                    ],
-                    "parent": "",
-                    "hide": false,
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        -1,
-                        -1,
-                        -1
-                    ]
-                },
-                {
-                    "node": "ShaderNodeTexCoord",
-                    "name": "Texture Coordinate",
-                    "label": "Texture Coordinate",
-                    "location": [
-                        -541.0579833984375,
-                        89.90663146972656
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            0,
-                            "from_instancer",
-                            false
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeTexImage",
-                    "name": "Image Texture.002",
-                    "label": "Image Texture.002",
-                    "location": [
-                        -188.44964599609375,
-                        -261.78948974609375
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            5,
-                            "source",
-                            "FILE"
-                        ],
-                        [
-                            14,
-                            "image",
-                            "ant01_avalanche"
-                        ],
-                        [
-                            4,
-                            "filepath",
-                            ""
-                        ],
-                        [
-                            12,
-                            "name",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "interpolation",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "projection",
-                            "FLAT"
-                        ],
-                        [
-                            0,
-                            "extension",
-                            "REPEAT"
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeTexImage",
-                    "name": "Image Texture",
-                    "label": "Image Texture",
-                    "location": [
-                        -180.95367431640625,
-                        310.60162353515625
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            5,
-                            "source",
-                            "FILE"
-                        ],
-                        [
-                            14,
-                            "image",
-                            "ant01_erodedheight"
-                        ],
-                        [
-                            4,
-                            "filepath",
-                            ""
-                        ],
-                        [
-                            12,
-                            "name",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "interpolation",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "projection",
-                            "FLAT"
-                        ],
-                        [
-                            0,
-                            "extension",
-                            "REPEAT"
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeTexImage",
-                    "name": "Image Texture.003",
-                    "label": "Image Texture.002",
-                    "location": [
-                        -202.0371856689453,
-                        -946.946044921875
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            5,
-                            "source",
-                            "FILE"
-                        ],
-                        [
-                            14,
-                            "image",
-                            "ant01_normal"
-                        ],
-                        [
-                            4,
-                            "filepath",
-                            ""
-                        ],
-                        [
-                            12,
-                            "name",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "interpolation",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "projection",
-                            "FLAT"
-                        ],
-                        [
-                            0,
-                            "extension",
-                            "REPEAT"
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeTexImage",
-                    "name": "Image Texture.004",
-                    "label": "Image Texture.002",
-                    "location": [
-                        -202.0371856689453,
-                        -618.9575805664062
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 240.0,
-                    "extra_settings": [
-                        [
-                            5,
-                            "source",
-                            "FILE"
-                        ],
-                        [
-                            14,
-                            "image",
-                            "ant01_beach"
-                        ],
-                        [
-                            4,
-                            "filepath",
-                            ""
-                        ],
-                        [
-                            12,
-                            "name",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "interpolation",
-                            "Linear"
-                        ],
-                        [
-                            0,
-                            "projection",
-                            "FLAT"
-                        ],
-                        [
-                            0,
-                            "extension",
-                            "REPEAT"
-                        ]
-                    ]
-                },
-                {
-                    "node": "ShaderNodeSeparateRGB",
-                    "name": "Separate RGB.001",
-                    "label": "Separate RGB.001",
-                    "location": [
-                        152.19036865234375,
-                        -133.1087646484375
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            1,
-                            "Image",
-                            [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929,
-                                1.0
-                            ]
-                        ]
-                    ]
-                },
-                {
-                    "node": "NodeGroupOutput",
-                    "name": "Group Output",
-                    "label": "Group Output",
-                    "inputs": [
-                        [
-                            "NodeSocketColor",
-                            "Height"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Flowrate"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Sediment"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Water"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Avalanced"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Gradient"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Scour"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Beach"
-                        ],
-                        [
-                            "NodeSocketFloat",
-                            "Foam"
-                        ],
-                        [
-                            "NodeSocketColor",
-                            "Normal"
-                        ]
-                    ],
-                    "location": [
-                        451.2421875,
-                        21.364883422851562
-                    ],
-                    "hide": false,
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        -1,
-                        -1,
-                        -1
-                    ]
-                },
-                {
-                    "node": "ShaderNodeSeparateRGB",
-                    "name": "Separate RGB.002",
-                    "label": "Separate RGB.001",
-                    "location": [
-                        156.11024475097656,
-                        -281.40899658203125
-                    ],
-                    "hide": false,
-                    "main_socket_type": "",
-                    "parent": "",
-                    "hidden_outputs": [],
-                    "height": 100.0,
-                    "width": 140.0,
-                    "extra_settings": [
-                        [
-                            1,
-                            "Image",
-                            [
-                                0.800000011920929,
-                                0.800000011920929,
-                                0.800000011920929,
-                                1.0
-                            ]
-                        ]
-                    ]
-                }
-            ],
-            "links": [
-                [
-                    "Texture Coordinate",
-                    "UV",
-                    "Image Texture.001",
-                    0
-                ],
-                [
-                    "Image Texture.001",
-                    "Color",
-                    "Separate RGB",
-                    0
-                ],
-                [
-                    "Texture Coordinate",
-                    "UV",
-                    "Image Texture.002",
-                    0
-                ],
-                [
-                    "Texture Coordinate",
-                    "UV",
-                    "Image Texture",
-                    0
-                ],
-                [
-                    "Texture Coordinate",
-                    "UV",
-                    "Image Texture.003",
-                    0
-                ],
-                [
-                    "Texture Coordinate",
-                    "UV",
-                    "Image Texture.004",
-                    0
-                ],
-                [
-                    "Image Texture.002",
-                    "Color",
-                    "Separate RGB.001",
-                    0
-                ],
-                [
-                    "Image Texture",
-                    "Color",
-                    "Group Output",
-                    0
-                ],
-                [
-                    "Separate RGB",
-                    "R",
-                    "Group Output",
-                    1
-                ],
-                [
-                    "Separate RGB",
-                    "G",
-                    "Group Output",
-                    2
-                ],
-                [
-                    "Separate RGB",
-                    "B",
-                    "Group Output",
-                    3
-                ],
-                [
-                    "Separate RGB.001",
-                    "R",
-                    "Group Output",
-                    4
-                ],
-                [
-                    "Separate RGB.001",
-                    "G",
-                    "Group Output",
-                    5
-                ],
-                [
-                    "Separate RGB.001",
-                    "B",
-                    "Group Output",
-                    6
-                ],
-                [
-                    "Separate RGB.002",
-                    "R",
-                    "Group Output",
-                    7
-                ],
-                [
-                    "Separate RGB.002",
-                    "G",
-                    "Group Output",
-                    8
-                ],
-                [
-                    "Image Texture.003",
-                    "Color",
-                    "Group Output",
-                    9
-                ],
-                [
-                    "Image Texture.004",
-                    "Color",
-                    "Separate RGB.002",
-                    0
                 ]
             ]
         }

@@ -18,7 +18,7 @@
 
 # Another Noise Tool - Mesh Displace
 # Jimmy Hazevoet
-#TXA version v2.91.0
+#TXA version v3.00.4 Blender 3.0 Release Version
 #Based on ANT version v0.1.8
 
 # ------------------------------------------------------------

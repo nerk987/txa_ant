@@ -35,7 +35,7 @@ def txaChangeImageName(imageName):
 
 def checkVersion():
     numero = bpy.app.version
-    tulos = int(eval(f"{numero[0]}{numero[1]}"))
+    tulos = int(eval(f"{numero[0]}{numero[1]}{numero[2]}"))
     return tulos
 
 def writeGroupExtraSettings(node):

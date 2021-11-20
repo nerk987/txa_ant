@@ -36,6 +36,127 @@
             ]
         },
         {
+            "node": "ShaderNodeNormalMap",
+            "name": "__node__Normal Map",
+            "label": "",
+            "location": [
+                -535.002197265625,
+                -139.74542236328125
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 150.0,
+            "extra_settings": [
+                [
+                    0,
+                    "space",
+                    "OBJECT"
+                ],
+                [
+                    0,
+                    "uv_map",
+                    ""
+                ],
+                [
+                    1,
+                    "Strength",
+                    1.0
+                ],
+                [
+                    1,
+                    "Color",
+                    [
+                        0.5,
+                        0.5,
+                        1.0,
+                        1.0
+                    ]
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeTexImage",
+            "name": "__node__Image Texture",
+            "label": "",
+            "location": [
+                -799.7935791015625,
+                -139.00384521484375
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 240.0,
+            "extra_settings": [
+                [
+                    5,
+                    "source",
+                    "FILE"
+                ],
+                [
+                    14,
+                    "image",
+                    "ant01_normal"
+                ],
+                [
+                    4,
+                    "filepath",
+                    ""
+                ],
+                [
+                    12,
+                    "name",
+                    "Linear"
+                ],
+                [
+                    0,
+                    "interpolation",
+                    "Linear"
+                ],
+                [
+                    0,
+                    "projection",
+                    "FLAT"
+                ],
+                [
+                    0,
+                    "extension",
+                    "REPEAT"
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeUVMap",
+            "name": "__node__UV Map",
+            "label": "",
+            "location": [
+                -980.1654052734375,
+                -137.98602294921875
+            ],
+            "hide": false,
+            "main_socket_type": "",
+            "parent": "",
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 150.0,
+            "extra_settings": [
+                [
+                    0,
+                    "uv_map",
+                    "UVMap"
+                ],
+                [
+                    0,
+                    "from_instancer",
+                    false
+                ]
+            ]
+        },
+        {
             "node": "ShaderNodeBsdfPrincipled",
             "name": "__node__Principled BSDF",
             "label": "",
@@ -58,7 +179,7 @@
                 [
                     0,
                     "subsurface_method",
-                    "BURLEY"
+                    "RANDOM_WALK"
                 ],
                 [
                     1,
@@ -160,127 +281,6 @@
                     ]
                 ]
             ]
-        },
-        {
-            "node": "ShaderNodeNormalMap",
-            "name": "__node__Normal Map",
-            "label": "",
-            "location": [
-                -244.656494140625,
-                -92.4009017944336
-            ],
-            "hide": false,
-            "main_socket_type": "",
-            "parent": "",
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 150.0,
-            "extra_settings": [
-                [
-                    0,
-                    "space",
-                    "OBJECT"
-                ],
-                [
-                    0,
-                    "uv_map",
-                    ""
-                ],
-                [
-                    1,
-                    "Strength",
-                    1.0
-                ],
-                [
-                    1,
-                    "Color",
-                    [
-                        0.5,
-                        0.5,
-                        1.0,
-                        1.0
-                    ]
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeTexImage",
-            "name": "__node__Image Texture",
-            "label": "",
-            "location": [
-                -509.44793701171875,
-                -91.65933227539062
-            ],
-            "hide": false,
-            "main_socket_type": "",
-            "parent": "",
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 240.0,
-            "extra_settings": [
-                [
-                    5,
-                    "source",
-                    "FILE"
-                ],
-                [
-                    14,
-                    "image",
-                    "ant01_normal"
-                ],
-                [
-                    4,
-                    "filepath",
-                    ""
-                ],
-                [
-                    12,
-                    "name",
-                    "Linear"
-                ],
-                [
-                    0,
-                    "interpolation",
-                    "Linear"
-                ],
-                [
-                    0,
-                    "projection",
-                    "FLAT"
-                ],
-                [
-                    0,
-                    "extension",
-                    "REPEAT"
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeUVMap",
-            "name": "__node__UV Map",
-            "label": "",
-            "location": [
-                -689.8197021484375,
-                -90.64151000976562
-            ],
-            "hide": false,
-            "main_socket_type": "",
-            "parent": "",
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 150.0,
-            "extra_settings": [
-                [
-                    0,
-                    "uv_map",
-                    "UVMap"
-                ],
-                [
-                    0,
-                    "from_instancer",
-                    false
-                ]
-            ]
         }
     ],
     "links": [
@@ -289,13 +289,6 @@
             "output_socket": "BSDF",
             "input_node": "__node__Material Output",
             "input_socket": 0,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Normal Map",
-            "output_socket": "Normal",
-            "input_node": "__node__Principled BSDF",
-            "input_socket": 20,
             "main_socket_type": ""
         },
         {
@@ -310,6 +303,13 @@
             "output_socket": "UV",
             "input_node": "__node__Image Texture",
             "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Normal Map",
+            "output_socket": "Normal",
+            "input_node": "__node__Principled BSDF",
+            "input_socket": 22,
             "main_socket_type": ""
         }
     ],

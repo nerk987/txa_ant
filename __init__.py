@@ -18,14 +18,13 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v3.00.1 For Blender version 3.0 Bake Function
+#TXA version v3.00.4 Blender 3.0 Release Version
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
-    # "version": (0, 1, 8), 
-    "version": (3, 00, 1),
+    "version": (3, 00, 4),
     "blender": (3, 00, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",

@@ -157,7 +157,7 @@
                 [
                     0,
                     "subsurface_method",
-                    "BURLEY"
+                    "RANDOM_WALK"
                 ],
                 [
                     1,
@@ -585,7 +585,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,

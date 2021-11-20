@@ -58,7 +58,7 @@
                 [
                     0,
                     "subsurface_method",
-                    "BURLEY"
+                    "RANDOM_WALK"
                 ],
                 [
                     1,
@@ -363,7 +363,7 @@
             "output_node": "__node__Bump",
             "output_socket": "Normal",
             "input_node": "__node__Principled BSDF",
-            "input_socket": 20,
+            "input_socket": 22,
             "main_socket_type": ""
         },
         {

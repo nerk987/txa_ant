@@ -189,68 +189,6 @@
             ]
         },
         {
-            "node": "ShaderNodeGroup",
-            "name": "__node__Group.002",
-            "label": "",
-            "location": [
-                510.19378662109375,
-                -92.7998046875
-            ],
-            "node_tree": "__node__Foam",
-            "main_socket_type": "",
-            "parent": "",
-            "hide": false,
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 140.0,
-            "extra_settings": [
-                [
-                    11,
-                    1,
-                    0.0,
-                    -3.4028234663852886e+38,
-                    3.4028234663852886e+38
-                ],
-                [
-                    11,
-                    2,
-                    0.10000000149011612,
-                    -3.4028234663852886e+38,
-                    3.4028234663852886e+38
-                ],
-                [
-                    11,
-                    3,
-                    0.4000000059604645,
-                    -3.4028234663852886e+38,
-                    3.4028234663852886e+38
-                ]
-            ]
-        },
-        {
-            "node": "ShaderNodeGroup",
-            "name": "__node__Maps",
-            "label": "Maps",
-            "location": [
-                -392.235107421875,
-                -492.55975341796875
-            ],
-            "node_tree": "__node__Maps",
-            "main_socket_type": "",
-            "parent": "",
-            "hide": false,
-            "hidden_outputs": [],
-            "height": 100.0,
-            "width": 140.0,
-            "extra_settings": [
-                [
-                    -1,
-                    -1,
-                    -1
-                ]
-            ]
-        },
-        {
             "node": "NodeReroute",
             "name": "__node__Reroute.009",
             "label": "",
@@ -359,6 +297,68 @@
                     -1
                 ]
             ]
+        },
+        {
+            "node": "ShaderNodeGroup",
+            "name": "__node__Group.002",
+            "label": "",
+            "location": [
+                510.19378662109375,
+                -92.7998046875
+            ],
+            "node_tree": "__node__Foam",
+            "main_socket_type": "",
+            "parent": "",
+            "hide": false,
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    11,
+                    1,
+                    0.0,
+                    -3.4028234663852886e+38,
+                    3.4028234663852886e+38
+                ],
+                [
+                    11,
+                    2,
+                    0.10000000149011612,
+                    -3.4028234663852886e+38,
+                    3.4028234663852886e+38
+                ],
+                [
+                    11,
+                    3,
+                    0.4000000059604645,
+                    -3.4028234663852886e+38,
+                    3.4028234663852886e+38
+                ]
+            ]
+        },
+        {
+            "node": "ShaderNodeGroup",
+            "name": "__node__Maps",
+            "label": "Maps",
+            "location": [
+                -392.235107421875,
+                -492.55975341796875
+            ],
+            "node_tree": "__node__Maps.001",
+            "main_socket_type": "",
+            "parent": "",
+            "hide": false,
+            "hidden_outputs": [],
+            "height": 100.0,
+            "width": 140.0,
+            "extra_settings": [
+                [
+                    -1,
+                    -1,
+                    -1
+                ]
+            ]
         }
     ],
     "links": [
@@ -426,20 +426,6 @@
             "main_socket_type": ""
         },
         {
-            "output_node": "__node__Group.001",
-            "output_socket": "Shader",
-            "input_node": "__node__Group.002",
-            "input_socket": 0,
-            "main_socket_type": ""
-        },
-        {
-            "output_node": "__node__Reroute.008",
-            "output_socket": "Output",
-            "input_node": "__node__Group.002",
-            "input_socket": 1,
-            "main_socket_type": ""
-        },
-        {
             "output_node": "__node__Reroute.007",
             "output_socket": "Output",
             "input_node": "__node__Reroute.009",
@@ -472,6 +458,20 @@
             "output_socket": "Output",
             "input_node": "__node__Reroute.002",
             "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Group.001",
+            "output_socket": "Shader",
+            "input_node": "__node__Group.002",
+            "input_socket": 0,
+            "main_socket_type": ""
+        },
+        {
+            "output_node": "__node__Reroute.008",
+            "output_socket": "Output",
+            "input_node": "__node__Group.002",
+            "input_socket": 1,
             "main_socket_type": ""
         }
     ],
@@ -920,7 +920,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -1451,7 +1451,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -1731,7 +1731,7 @@
                         [
                             0,
                             "subsurface_method",
-                            "BURLEY"
+                            "RANDOM_WALK"
                         ],
                         [
                             1,
@@ -2224,7 +2224,7 @@
                     "Map Range.001",
                     "Result",
                     "Principled BSDF",
-                    19
+                    21
                 ],
                 [
                     "Group Input",
@@ -2289,7 +2289,7 @@
             ]
         },
         {
-            "name": "__node__Maps",
+            "name": "__node__Maps.001",
             "nodes": [
                 {
                     "node": "ShaderNodeTexImage",
