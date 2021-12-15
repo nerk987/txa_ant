@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v3.00.4 Blender 3.0 Release Version
+#TXA version v3.00.5 For Blender version 3.0 - bake function
 #Based on ANT version v0.1.8
 
 # import modules
@@ -46,7 +46,7 @@ from .ant_bake import AddLandscapeMaterial
 from bl_operators.presets import AddPresetBase
 import numpy as np
 import os
-from .ncb.read_json import read
+#from .ncb.read_json import read
 import platform
 
 # ------------------------------------------------------------
@@ -57,15 +57,6 @@ import platform
 
 from bpy_extras import object_utils
 
-# #Count nodes in a material node tree including groups
-# def CountNodes(node_tree):
-    # count = len(node_tree.nodes)
-    # for node in node_tree.nodes:
-        # if node.type == "GROUP":
-            # count = count + len(node.node_tree.nodes)
-    # return count
-
-# Use NodeCustomBuilder package to add node tree
 
 def BaseCalc(tex_size):
     i = 0
@@ -73,51 +64,6 @@ def BaseCalc(tex_size):
         tex_size = int(tex_size / 2)
         i = i + 1
     return min(max(i,1), 12)
-
-# def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
-
-    # # nodedict = SaveImageNodes()
-
-    # newmat = False
-    
-    # matName = ob_name + "_" + PrefMat
-
-    # mat = bpy.data.materials.get(matName)
-
-    # if  mat is None:
-        # newmat = True
-        # mat = bpy.data.materials.new(matName)
-        # mat.use_nodes = True
-
-        # nt = mat.node_tree
-        # for node in nt.nodes:
-            # nt.nodes.remove(node)
-        
-        
-    # if ob.data.materials:
-        # # assign to 1st material slot
-        # ob.data.materials[0] = mat
-    # else:
-        # # no slots
-        # ob.data.materials.append(mat)
-        
-    # #If adding new material, use NodeCustomBuiler read_json to add nodes
-    # if newmat:
-        # if platform.system() == 'Windows':
-            # sep = "\\"
-        # else:
-            # sep = "/"
-        # filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "island" + sep + PrefMat + ".json")
-        # # print("Island material: ", water_plane, filename)
-        # if PrefMat == 'pbr':
-            # filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "pbr" + sep + PrefMat + ".json")
-        # elif not water_plane or not os.path.isfile(filename):    
-            # filename = os.path.join(os.path.dirname(__file__), "materials" + sep + PrefMat + ".json")
-        # # print("Used material: ", filename)
-        # read(filename)
-        
-    
-
 
             
     
@@ -637,7 +583,7 @@ class AntMaterialReplace(bpy.types.Operator):
     bl_description = "Replace image textures in currrent material with TXA textures"
     bl_options = {'REGISTER', 'UNDO'}
     
-    tex_keys = ["water", "avalanche", "normal", "height", "erodedheight"]
+    tex_keys = ["water", "avalanche", "normal", "height", "erodedheight", "basecolor", "emmission", "normal2", "roughness", "displacement"]
 
 
     @classmethod
@@ -664,6 +610,7 @@ class AntMaterialReplace(bpy.types.Operator):
             
     def execute(self, context):
         ob = context.object
+        # print("Running Replace: ", ob.name)
         self.swap_tex(ob.active_material.node_tree.nodes, ob)
         
         return {'FINISHED'}
@@ -1479,7 +1426,7 @@ class Eroder(bpy.types.Operator):
         AddLandscapeMaterial(ob, context.scene.EroderMats, ob.name, ob.txaant_landscape.water_plane)
         if ob.name + "_water" in context.scene.objects:
             ob_water = context.scene.objects[ob.name + "_water"]
-            AddLandscapeMaterial(ob_water, "water", ob.name, ob.txaant_landscape.water_plane)
+            AddLandscapeMaterial(ob_water, "water", ob.name, False)
         # print("Trying to use eroded height")
         if ob.name+"_antdisplace" in bpy.data.textures:
             # print("Using eroded height")

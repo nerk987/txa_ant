@@ -18,13 +18,14 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v3.00.4 Blender 3.0 Release Version
+#TXA version v3.00.5 For Blender version 3.0 Bake Function
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
-    "version": (3, 00, 4),
+    # "version": (0, 1, 8), 
+    "version": (3, 00, 5),
     "blender": (3, 00, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
@@ -40,14 +41,14 @@ if "bpy" in locals():
     importlib.reload(mesh_ant_displace)
     importlib.reload(ant_functions)
     importlib.reload(ant_noise)
-    importlib.reload(ncb.read_json)
+#    importlib.reload(ncb.read_json)
     importlib.reload(ant_bake)
 else:
     from txa_ant import add_mesh_ant_landscape
     from txa_ant import mesh_ant_displace
     from txa_ant import ant_functions
     from txa_ant import ant_noise
-    from txa_ant.ncb import read_json
+#    from txa_ant.ncb import read_json
     from txa_ant import ant_bake
 
 import bpy
@@ -961,15 +962,23 @@ def GetEroderMatItems(self, context):
         directory = os.path.join(os.path.dirname(__file__), "materials")
     # print("Directory: ", directory)
     if directory and os.path.exists(directory):
-        # Scan the directory for json files
+        src_file = directory + "\\materials.blend"
         items = [("NormalOnly","NormalOnly","NormalOnly")]
         i = 0
-        for fn in os.listdir(directory):
-            if fn.lower().endswith(".json"):
-                i +=1
-                MatName = fn[:-5]
-                if MatName != "NormalOnly" and MatName != "Water":
-                    items.append((MatName, MatName, MatName))
+        
+#        print(src_file)
+        with bpy.data.libraries.load(src_file, link=True) as (src_lib, local_lib):
+#        material_list = [name for name in src_lib.materials if """Not island or water"""]
+            material_list = [name for name in src_lib.materials if ("island" not in name) and ("water" not in name) and ("pbr" not in name)]
+#        print("MAterial List")
+#        print(material_list)
+
+        
+        for FullMatName in material_list:
+            i +=1
+            MatName = FullMatName[6:]
+            if MatName != "NormalOnly" and MatName != "Water":
+                items.append((MatName, MatName, MatName))
     else:
         items = [("NormalOnly","NormalOnly","NormalOnly")]
     # print("Items: ", items)    

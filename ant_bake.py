@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v3.00.4 Blender 3.0 Release Version
+#TXA version v3.00.5 Blender 3.0 Release Version
 #Based on ANT version v0.1.8
 
 # import modules
@@ -36,31 +36,44 @@ from bpy.props import (
         PointerProperty,
         )
 import os
-from .ncb.read_json import read
 import platform
 
 
 
 def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
-
-    # nodedict = SaveImageNodes()
+    
+    
+    #print("Add MAterial: ", PrefMat, water_plane)
 
     newmat = False
     
     matName = ob_name + "_" + PrefMat
+    if water_plane:
+        libName = "ant01_" + PrefMat + "_island"
+    else:
+        libName = "ant01_" + PrefMat
 
     mat = bpy.data.materials.get(matName)
 
     if  mat is None:
         newmat = True
-        mat = bpy.data.materials.new(matName)
-        mat.use_nodes = True
 
-        nt = mat.node_tree
-        for node in nt.nodes:
-            nt.nodes.remove(node)
-        
-        
+    #Append material from the Materials blend file supplied with the addon
+    if newmat:
+        if platform.system() == 'Windows':
+            sep = "\\"
+        else:
+            sep = "/"
+        src_file = os.path.join(os.path.dirname(__file__), "materials" + sep + "materials.blend" + sep + "Material" + sep)
+#        print("src_file: ", src_file)
+        ret = bpy.ops.wm.append(filename = libName, directory=src_file)
+#        print(ret, PrefMat, src_file)
+        if libName in bpy.data.materials:
+            mat = bpy.data.materials.get(libName)
+            mat.name = matName
+        else:
+            mat = None
+
     if ob.data.materials:
         # assign to 1st material slot
         ob.data.materials[0] = mat
@@ -68,20 +81,8 @@ def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
         # no slots
         ob.data.materials.append(mat)
         
-    #If adding new material, use NodeCustomBuiler read_json to add nodes
-    if newmat:
-        if platform.system() == 'Windows':
-            sep = "\\"
-        else:
-            sep = "/"
-        filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "island" + sep + PrefMat + ".json")
-        # print("Island material: ", water_plane, filename)
-        if PrefMat[:3] == 'pbr':
-            filename = os.path.join(os.path.dirname(__file__), "materials" + sep + "pbr" + sep + PrefMat + ".json")
-        elif not water_plane or not os.path.isfile(filename):    
-            filename = os.path.join(os.path.dirname(__file__), "materials" + sep + PrefMat + ".json")
-        # print("Used material: ", filename)
-        read(filename)
+    # print("Material Replace")
+    bpy.ops.mesh.txa_ant_material_replace('EXEC_DEFAULT')
         
     
 
@@ -330,9 +331,9 @@ class AntLandscapeBake(bpy.types.Operator):
                 ob.material_slots[0].material = save_mat
             
             #remove bake material
-            print("Bake MAterial Name: ", bake_mat.name)
+            # print("Bake MAterial Name: ", bake_mat.name)
             for n in [n for n in bake_mat.node_tree.nodes if n.type == 'GROUP']:
-                print("Node", n.type)
+                # print("Node", n.type)
                 bpy.data.node_groups.remove(n.node_tree)
             bpy.data.materials.remove(bake_mat)
             
