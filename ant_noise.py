@@ -18,7 +18,7 @@
 
 # Another Noise Tool - Noise and Effects
 # Jimmy Hazevoet
-#TXA version v3.00.5
+#TXA version v4.00.0 For Blender version 4.0 with asset blend file
 #Based on ANT version v0.1.8
 
 import bpy

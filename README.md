@@ -1,10 +1,10 @@
 # TXA_ant - Textured version of A.N.T. Landscape
 
-V3.00.5 For Blender 3.0 - Materials now delivered in a blend file
+V4.00.0 For Blender 4.0 - Materials now delivered in a blend file
 
-Addon Download : [txa_ant_3_00_5.zip](https://github.com/nerk987/txa_ant/releases/download/v3.00.5/txa_ant_3_00_5.zip) 
+Addon Download : [txa_ant_4_00_0.zip](https://github.com/nerk987/txa_ant/releases/download/v4.00.0/txa_ant_4_00_0.zip) 
 
-Note, the materials supplied in the add-on are only suitable for Blender 3.0. Use addon version 2.81.6  or 2.9 for earlier versions.
+Note, the materials supplied in the add-on are only suitable for Blender 4.0. Use earlier addon versions for earlier versions of Blender.
 
 # Introduction
 This add-on is a fork of the A.N.T. Lanscape addon and creates landscapes and planets using various noise types. Unlike ANT, TXA produced simple geometry and generates the landscapes with height and normal maps.
@@ -17,6 +17,10 @@ For a quick start introduction:
 * Locate the Eroder Params panel in the TXA Landscape Sidebar tab
 * Change Preferred Material to Volcano
 * Click the Landscape Eroder button
+
+# Tutorials
+[Tutorial Video](https://youtu.be/bUGkdVrnrug?si=24nhsUpovXV-nQaH)
+[PBR Baking Video](https://youtu.be/V8YRMB1_eeM?si=hgsbWjl_TDE341Y7)
 
 # Installation
 Download the ZIP file the link above. Open Blender and go to Preferences then the Add-ons tab.

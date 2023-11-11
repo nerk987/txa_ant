@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v3.00.5 Blender 3.0 Release Version
+#TXA version v4.00.0 For Blender version 4.0 with asset blend file
 #Based on ANT version v0.1.8
 
 # import modules
@@ -38,28 +38,49 @@ from bpy.props import (
 import os
 import platform
 
-
+def Delete_Libfiles():
+    # Loop through all materials in the data
+    for mat in bpy.data.materials:
+        if 'antlib' in mat.name:
+            bpy.data.materials.remove(mat)
+    # Loop through all images in the data
+    for img in bpy.data.images:
+        if 'antlib' in img.name:
+            bpy.data.images.remove(img)
+            
+#Alternate way to replace images in materials - not used at this time
+def Remap_Libimages(ob_name, map):
+    lib_image = bpy.data.images.find("antlib_" + map)
+    ant_image = bpy.data.images.find(ob_name + "_" + map)
+    if lib_image >=0 and ant_image >= 0:
+        bpy.data.images[lib_image].user_remap(bpy.data.images[ant_image])
+        bpy.data.images.remove(bpy.data.images[lib_image])
+        
 
 def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
     
     
     #print("Add MAterial: ", PrefMat, water_plane)
 
+    Delete_Libfiles()
     newmat = False
     
     matName = ob_name + "_" + PrefMat
     if water_plane:
-        libName = "ant01_" + PrefMat + "_island"
+        libName = "antlib_" + PrefMat + "_island"
     else:
-        libName = "ant01_" + PrefMat
+        libName = "antlib_" + PrefMat
 
     mat = bpy.data.materials.get(matName)
 
     if  mat is None:
         newmat = True
+    else:
+        print("Existing Material")
 
     #Append material from the Materials blend file supplied with the addon
     if newmat:
+        print("Adding New Material")
         if platform.system() == 'Windows':
             sep = "\\"
         else:
@@ -83,6 +104,7 @@ def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
         
     # print("Material Replace")
     bpy.ops.mesh.txa_ant_material_replace('EXEC_DEFAULT')
+    Delete_Libfiles()
         
     
 
@@ -326,7 +348,7 @@ class AntLandscapeBake(bpy.types.Operator):
                 if pbrTexture['type'] == 'basecolor':
                     img.colorspace_settings.name = 'sRGB'
                 else:
-                    img.colorspace_settings.name = 'Linear'
+                    img.colorspace_settings.name = 'Non-Color'
 
                 ob.material_slots[0].material = save_mat
             

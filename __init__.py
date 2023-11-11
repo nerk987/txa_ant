@@ -18,15 +18,15 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v3.00.5 For Blender version 3.0 Bake Function
+#TXA version v4.00.0 For Blender version 4.0 with asset blend file
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (3, 00, 5),
-    "blender": (3, 00, 0),
+    "version": (4, 00, 0),
+    "blender": (4, 00, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
     "warning": "",
@@ -976,7 +976,7 @@ def GetEroderMatItems(self, context):
         
         for FullMatName in material_list:
             i +=1
-            MatName = FullMatName[6:]
+            MatName = FullMatName[7:]
             if MatName != "NormalOnly" and MatName != "Water":
                 items.append((MatName, MatName, MatName))
     else:

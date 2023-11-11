@@ -20,7 +20,7 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
-#TXA version v3.00.5
+#TXA version v4.00.0 For Blender version 4.0 with asset blend file
 #Based on ANT version v0.1.8
 
 
@@ -206,7 +206,7 @@ class Grid:
             bpy.data.images[ImageName].generated_width = size_x
             bpy.data.images[ImageName].generated_height = size_y
         outputImg = bpy.data.images[ImageName]
-        outputImg.colorspace_settings.name = 'Linear'
+        outputImg.colorspace_settings.name = 'Non-Color'
         return outputImg
     
     

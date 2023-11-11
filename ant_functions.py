@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v3.00.5 For Blender version 3.0 - bake function
+#TXA version v4.00.0 For Blender version 4.0 with asset blend file
 #Based on ANT version v0.1.8
 
 # import modules
@@ -129,7 +129,7 @@ def MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, 
         bpy.data.images.remove(outputImg)
     bpy.data.images.new(ImageName, width=tex_size_x, height=tex_size_y, alpha=False, float_buffer=True)
     outputImg = bpy.data.images[ImageName]
-    outputImg.colorspace_settings.name = 'Linear'
+    outputImg.colorspace_settings.name = 'Non-Color'
     
     # print("MakeeightImage: strata: ", props[46])
 
@@ -158,7 +158,7 @@ def MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, 
         bpy.data.images.remove(NormalMapImg)
     bpy.data.images.new(NormalMapName, width=tex_size_x, height=tex_size_y, alpha=False, float_buffer=True)
     NormalMapImg = bpy.data.images[NormalMapName]
-    NormalMapImg.colorspace_settings.name = 'Linear'
+    NormalMapImg.colorspace_settings.name = 'Non-Color'
     pixels = np.zeros((tex_size_y,tex_size_x,4), dtype = np.float16)
     pixels[:,:,-1:] = 1.0
     # calculate normals
@@ -194,7 +194,7 @@ def MakeHeightImage(meshsize_x, meshsize_y, meshsize_z, tex_size_x, tex_size_y, 
             bpy.data.images.remove(BeachImg)
         bpy.data.images.new(BeachName, width=tex_size_x, height=tex_size_y, alpha=False, float_buffer=True)
         BeachImg = bpy.data.images[BeachName]
-        BeachImg.colorspace_settings.name = 'Linear'
+        BeachImg.colorspace_settings.name = 'Non-Color'
         pixels = np.zeros((tex_size_y,tex_size_x,4), dtype = np.float16)
         pixels[:,:,-1:] = 1.0
         BeachImg.pixels = pixels.ravel()
@@ -583,7 +583,7 @@ class AntMaterialReplace(bpy.types.Operator):
     bl_description = "Replace image textures in currrent material with TXA textures"
     bl_options = {'REGISTER', 'UNDO'}
     
-    tex_keys = ["water", "avalanche", "normal", "height", "erodedheight", "basecolor", "emmission", "normal2", "roughness", "displacement"]
+    tex_keys = ["water", "avalanche", "normal", "height", "erodedheight", "basecolor", "emmission", "normal2", "roughness", "displacement", "beach"]
 
 
     @classmethod
@@ -594,23 +594,26 @@ class AntMaterialReplace(bpy.types.Operator):
         return ob.txaant_landscape
 
     def swap_tex(self, nodes, ob):
+        print("Running Replace: ", ob.name)
         for node in nodes:
             if node.bl_idname == "ShaderNodeGroup":
                 self.swap_tex(node.node_tree.nodes, ob)
             if node.bl_idname == "ShaderNodeTexImage":
                 for tex_type in self.tex_keys:
-                    if node.image.name.find(tex_type) > -1:
-                        new_tex = ob.name + "_" + tex_type
-                        # print("Texture Name: ", node.image.name, new_tex)
-                        if new_tex in bpy.data.images:
-                            # print("Replacing image")
-                            node.image = bpy.data.images[new_tex]
-                        
+                    if node.image != None:
+                        print("Node Image", node.image.name)
+                        if node.image.name.find(tex_type) > -1:
+                            new_tex = ob.name + "_" + tex_type
+                            print("Texture Name: ", node.image.name, new_tex)
+                            if new_tex in bpy.data.images:
+                                print("Replacing image")
+                                node.image = bpy.data.images[new_tex]
+                            
                         
             
     def execute(self, context):
         ob = context.object
-        # print("Running Replace: ", ob.name)
+#        print("Running Replace: ", ob.name)
         self.swap_tex(ob.active_material.node_tree.nodes, ob)
         
         return {'FINISHED'}
