@@ -18,14 +18,14 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v4.00.0 For Blender version 4.0 with asset blend file
+#TXA version v4.00.1 For Blender version 4.0 with asset blend file, prints removed
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (4, 00, 0),
+    "version": (4, 00, 1),
     "blender": (4, 00, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",

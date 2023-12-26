@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v4.00.0 For Blender version 4.0 with asset blend file
+#TXA version v4.00.1 For Blender version 4.0 with asset blend file
 #Based on ANT version v0.1.8
 
 # import modules
@@ -80,7 +80,7 @@ def AddLandscapeMaterial(ob, PrefMat, ob_name, water_plane):
 
     #Append material from the Materials blend file supplied with the addon
     if newmat:
-        print("Adding New Material")
+#        print("Adding New Material")
         if platform.system() == 'Windows':
             sep = "\\"
         else:

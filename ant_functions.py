@@ -22,7 +22,7 @@
 # ErosionR:
 # Michel Anders, Ian Huish
 
-#TXA version v4.00.0 For Blender version 4.0 with asset blend file
+#TXA version v4.00.1 For Blender version 4.0 with asset blend file
 #Based on ANT version v0.1.8
 
 # import modules
@@ -594,19 +594,19 @@ class AntMaterialReplace(bpy.types.Operator):
         return ob.txaant_landscape
 
     def swap_tex(self, nodes, ob):
-        print("Running Replace: ", ob.name)
+#        print("Running Replace: ", ob.name)
         for node in nodes:
             if node.bl_idname == "ShaderNodeGroup":
                 self.swap_tex(node.node_tree.nodes, ob)
             if node.bl_idname == "ShaderNodeTexImage":
                 for tex_type in self.tex_keys:
                     if node.image != None:
-                        print("Node Image", node.image.name)
+#                        print("Node Image", node.image.name)
                         if node.image.name.find(tex_type) > -1:
                             new_tex = ob.name + "_" + tex_type
-                            print("Texture Name: ", node.image.name, new_tex)
+#                            print("Texture Name: ", node.image.name, new_tex)
                             if new_tex in bpy.data.images:
-                                print("Replacing image")
+#                                print("Replacing image")
                                 node.image = bpy.data.images[new_tex]
                             
                         
