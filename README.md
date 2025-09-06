@@ -1,8 +1,8 @@
 # TXA_ant - Textured version of A.N.T. Landscape
 
-V4.00.0 For Blender 4.0 - Materials now delivered in a blend file
+V4.00.2 For Blender 4.1 - Materials now delivered in a blend file
 
-Addon Download : [txa_ant_4_00_0.zip](https://github.com/nerk987/txa_ant/releases/download/v4.00.0/txa_ant_4_00_0.zip) 
+Addon Download : [txa_ant_4_00_2.zip](https://github.com/nerk987/txa_ant/releases/download/v4.00.2/txa_ant_4_00_2.zip)
 
 Note, the materials supplied in the add-on are only suitable for Blender 4.0. Use earlier addon versions for earlier versions of Blender.
 

@@ -18,14 +18,14 @@
 
 # Another Noise Tool - Suite (W.I.P.)
 # Jimmy Hazevoet 5/2017
-#TXA version v4.00.1 For Blender version 4.0 with asset blend file, prints removed
+#TXA version v4.00.2 For Blender version 4.0 fixed missing displace menu
 #Based on ANT version v0.1.8
 
 bl_info = {
     "name": "TXA Landscape",
     "author": "Jimmy Hazevoet/Michel Anders/Ian Huish",
     # "version": (0, 1, 8), 
-    "version": (4, 00, 1),
+    "version": (4, 00, 2),
     "blender": (4, 00, 0),
     "location": "View3D > Tool Shelf",
     "description": "Another Noise Tool: Textured Version",
@@ -377,12 +377,11 @@ class AntNoiseSettingsPanel(bpy.types.Panel):
 
 # Landscape Displace Settings
 class AntDisplaceSettingsPanel(bpy.types.Panel):
-    bl_idname = "TXA_ANTDISP_PT_layout"
-    bl_options = {'DEFAULT_CLOSED'}
+    bl_label = "Landscape Displace"
+    bl_idname = "AntDisplaceSettingsPanel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_context = "object"
-    bl_label = "Landscape Displace"
+    bl_category = "TXA Landscape"
 
     @classmethod
     def poll(cls, context):
