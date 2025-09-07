@@ -399,10 +399,10 @@ class AntDisplaceSettingsPanel(bpy.types.Panel):
         if ant.sphere_mesh:
             col.operator('mesh.txa_ant_landscape_regenerate', text="Regenerate", icon="LOOP_FORWARDS")
         else:
-            col.operator('mesh.txa_ant_landscape_refresh', text="Refresh", icon="FILE_REFRESH")
+            col.operator('mesh.txa_ant_landscape_regenerate', text="Refresh", icon="FILE_REFRESH")
 
-        col = box.column(align=True)
-        row = col.row(align=True).split(0.92, align=True)
+        col = layout.column(align=True)
+        row = col.row(align=True)
         row.prop(ant, "height")
         row.prop(ant, "height_invert", toggle=True, text="", icon='ARROW_LEFTRIGHT')
         col.prop(ant, "height_offset")
