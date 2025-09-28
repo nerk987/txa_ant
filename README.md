@@ -20,7 +20,10 @@ For a quick start introduction:
 
 # Tutorials
 [Tutorial Video](https://youtu.be/bUGkdVrnrug?si=24nhsUpovXV-nQaH)
+
 [PBR Baking Video](https://youtu.be/V8YRMB1_eeM?si=hgsbWjl_TDE341Y7)
+
+[How To Create Terrain and Landscapes in Blender - Tutorial for Blender 4](https://www.youtube.com/watch?v=FOMmvspCcQk)
 
 # Installation
 Download the ZIP file the link above. Open Blender and go to Preferences then the Add-ons tab.
